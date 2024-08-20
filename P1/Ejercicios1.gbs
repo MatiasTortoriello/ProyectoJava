@@ -15,7 +15,7 @@ program {
     Poner(Verde)
 }
 
-/*2. Moviendo bolitas
+/*2 - Moviendo bolitas
 Escribir un programa que mueva una bolita de color Negro de la celda actual a la celda vecina al Este, dejando 
 el cabezal en la celda lindante al Este.*/
 program {
@@ -32,6 +32,17 @@ program {
     
 }
 
-/*3 
+/*3 -  Poniendo en vecinas
+Escribir un programa que ponga una bolita de color Azul en la celda vecina al Norte de la actual*/
+
+program {
+    /*
+        PROPÓSITO:  Pone una bolita azul en la celda al norte de la actual.
+        PRECONDICIONES:
+            * Debe existir al menos una celda libre al norte de la actual
+    */
+    Mover(Norte)
+    Poner(Azul)
+}
 
 
