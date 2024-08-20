@@ -1,0 +1,304 @@
+//programa 2
+
+/* 
+program {
+    DibujarRectánguloRojoYNegroDe5x3()
+}
+
+procedure DibujarRectánguloRojoYNegroDe5x3() {
+    IrAlBordePoniendoBolitas()
+    VolverYSubir()
+    IrAlBordePoniendoBolitas()
+    VolverYSubir()
+    IrAlBordePoniendoBolitas()
+    RegresarAInicio()
+}
+
+procedure IrAlBordePoniendoBolitas() {
+    PonerBolitas()
+    Mover(Este)
+    PonerBolitas()
+    Mover(Este)
+    PonerBolitas()
+    Mover(Este)
+    PonerBolitas()
+    Mover(Este)
+    PonerBolitas()
+}
+
+procedure PonerBolitas() {
+    Poner(Rojo)
+    Poner(Negro)
+}
+
+procedure VolverYSubir() {
+    IrAlBorde(Oeste)
+    Mover(Norte)
+}
+
+procedure RegresarAInicio() {
+    IrAlBorde(Oeste)
+    IrAlBorde(Sur)
+}
+*/
+//Programa 3 INSERVIBLE
+
+//Programa 4 INSERVIBLE
+
+//Programa 5 INSERVIBLE
+
+//Programa 6 INSERVIBLE
+
+//Programa 7 INSERVIBLE
+
+//Programa 8 ABSTRACCION, casi inservible
+program {
+    
+}
+
+procedure PonerUnaSemilla(){
+    Poner(Rojo)
+}
+
+
+procedure PonerUnArbol(){
+    Poner(Verde)
+}
+
+
+procedure PonerUnNutriente(){
+    Poner(Azul)
+}
+
+
+procedure PonerUnaBomba(){
+    Poner(Negro)
+}
+
+/////
+
+procedure SacarUnaSemilla(){
+    Sacar(Rojo)
+}
+
+
+procedure SacarUnArbol(){
+    Sacar(Verde)
+}
+
+
+procedure SacarUnNutriente(){
+    Sacar(Azul)
+}
+
+
+procedure SacarUnaBomba(){
+    Sacar(Negro)
+}
+
+
+//Programa 9 (CON PARAMETROS Y REPEAT)
+
+program{
+ DibujarReloj()
+}
+
+procedure DibujarReloj(){
+Ir_VecesAl_(2, Norte)
+Poner_BolitasDeColor_(12, Rojo)
+Ir_VecesAl_(2, Sur)
+Ir_VecesAl_(2, Este)
+Poner_BolitasDeColor_(3, Rojo)
+Ir_VecesAl_(2, Oeste)
+Ir_VecesAl_(2, Sur)
+Poner_BolitasDeColor_(6, Rojo)
+Ir_VecesAl_(2, Norte)
+Ir_VecesAl_(2, Oeste)
+Poner_BolitasDeColor_(9, Rojo)
+Ir_VecesAl_(2, Este)
+
+}
+
+procedure Ir_VecesAl_(cantidad, direccion){
+    repeat(cantidad){
+        Mover(direccion)
+    }
+}
+
+procedure Poner_BolitasDeColor_(cantidad, color){
+    repeat(cantidad){
+        Poner(color)
+    }
+}
+
+///9 DE FORMA NO EFICIENTE SIN PARAMETROS
+program{
+    DibujarReloj()
+}
+
+procedure DibujarReloj(){
+    MoverArriba()
+    PonerLaHora12()
+    MoverAlCentroDesdeArriba()
+    MoverALaDerecha()
+    PonerLaHora3()
+    MoverAlCentroDesdeLaDerecha()
+    MoverAbajo()
+    PonerLaHora6()
+    MoverAlCentroDesdeAbajo()
+    MoverAlaIzquierda()
+    PonerLaHora9()
+    MoverALaDerecha()
+}
+
+procedure MoverArriba(){
+    repeat(2){
+        Mover(Norte)
+    }
+}
+
+procedure MoverAlCentroDesdeArriba(){
+    repeat(2){
+        Mover(Sur)
+    }
+}
+
+procedure MoverALaDerecha(){
+    repeat(2){
+        Mover(Este)
+    }
+}
+
+procedure MoverAlCentroDesdeLaDerecha(){
+    repeat(2){
+        Mover(Oeste)
+    }
+}
+
+procedure MoverAbajo(){
+    repeat(2){
+        Mover(Sur)
+    }
+}
+
+procedure MoverAlCentroDesdeAbajo(){
+    repeat(2){
+        Mover(Norte)
+    }
+}
+
+procedure MoverAlaIzquierda(){
+    repeat(2){
+        Mover(Oeste)
+    }
+}
+procedure MoverAlCentroDesdeLaIzquierda(){
+    repeat(2){
+        Mover(Este)
+    }
+}
+
+procedure PonerLaHora12{
+    repeat(12){
+        Poner(Rojo)
+    }
+}
+
+procedure PonerLaHora9{
+    repeat(9){
+        Poner(Rojo)
+    }
+}
+
+procedure PonerLaHora3{
+    repeat(3){
+        Poner(Rojo)
+    }
+}
+
+procedure PonerLaHora6{
+    repeat(6){
+        Poner(Rojo)
+    }
+}
+
+////9 DE FORMA EFICIENTE
+program{
+    DibujarReloj()
+}
+
+procedure DibujarReloj(){
+    MoverArriba()
+    PonerLaHora12()
+    repeat(2){
+        MoverAbajo()
+    }
+    PonerLaHora6()
+    MoverArriba()
+    MoverALaDerecha()
+    PonerLaHora3()
+    repeat(2){
+        MoverAlaIzquierda()
+    }
+    
+    PonerLaHora9()
+    MoverALaDerecha()
+}
+
+procedure MoverArriba(){
+    repeat(2){
+        Mover(Norte)
+    }
+}
+
+
+procedure MoverALaDerecha(){
+    repeat(2){
+        Mover(Este)
+    }
+}
+
+
+procedure MoverAbajo(){
+    repeat(2){
+        Mover(Sur)
+    }
+}
+
+
+procedure MoverAlaIzquierda(){
+    repeat(2){
+        Mover(Oeste)
+    }
+}
+
+
+procedure PonerLaHora12(){
+    repeat(12){
+        Poner(Rojo)
+    }
+}
+
+procedure PonerLaHora9(){
+    repeat(9){
+        Poner(Rojo)
+    }
+}
+
+procedure PonerLaHora3(){
+    repeat(3){
+        Poner(Rojo)
+    }
+}
+
+procedure PonerLaHora6(){
+    repeat(6){
+        Poner(Rojo)
+    }
+}
+
+
+//Programa 10 HACER
+
+
+
