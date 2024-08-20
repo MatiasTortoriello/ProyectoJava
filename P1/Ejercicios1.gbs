@@ -1,0 +1,37 @@
+//P1 Gobstones:
+
+/*1 - Reemplazando bolitas:
+Escribir un programa que reemplace una bolita de color Roja con otra de color Verde en la celda actual. Pruebe 
+su programa en la computadora, modificando el tablero inicial de forma que el programa funcione 
+satisfactoriamente*/
+
+program {
+    /*
+        PROPÓSITO:  Reemplazar una bolita de color roja con otra de color verde.
+        PRECONDICIONES: 
+            * Debe haber una bolita de color roja en la casilla actual
+    */
+    Sacar(Roja)
+    Poner(Verde)
+}
+
+/*2. Moviendo bolitas
+Escribir un programa que mueva una bolita de color Negro de la celda actual a la celda vecina al Este, dejando 
+el cabezal en la celda lindante al Este.*/
+program {
+    /*
+        PROPÓSITO:  Mover una bolita de color negro de la celda actual a la celda vecina al este.
+        PRECONDICIONES:
+            * Debe haber una bolita negra en la posición actual y debe haber al menos una casilla libre al este de la actual.
+
+    */
+
+    Sacar(Negro)
+    Mover(Este)
+    Poner(Negro)
+    
+}
+
+/*3 
+
+
