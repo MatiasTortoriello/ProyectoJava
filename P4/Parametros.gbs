@@ -36,23 +36,68 @@ procedure Poner6DeColor_(colorAPoner) {
 
 /*3 - Moviendo y poniendo:
 Escribir un procedimiento Poner_Al_(colorAPoner, direcciónDondePoner) que dado un color colorAPoner y una dirección direcciónDondePoner, ponga una bolita del color dado en la celda vecina en la dirección dada, dejando el cabezal en dicha celda.*/
+procedure Poner_Al_(colorAPoner, direccionDondePoner) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    Mover(direccionDondePoner)
+    Poner(colorAPoner)
+}
 
 /*4 - Reemplazando colores:
 Escribir ReemplazarUnaDe_Por_(colorAReemplazar, colorPorElCualReemplazar), un procedimiento que dado un primer color colorAReemplazar y un segundo color colorPorElCualReemplazar, reemplaza una bolita del primer color por una del segundo color (En la celda actual).*/
 
-/*5 - El regreso de Nova
-¿Se acuerdan de Nova? Es el nuevo compañero del equipo, que no tiene formación profesional, y su código está lleno de malas prácticas de programación. Esta vez, en su código se encontró un procedimiento que tiene el código hecho, pero no el contrato, y no está indentado.
+procedure ReemplazarUnaDe_Por_(colorAReemplazar, colorPorElCualReemplazar) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    Sacar(colorAReemplazar)
+    Poner(colorPorElCualReemplazar)
+}
 
-a) En primer lugar, se pide corregir los errores de Nova. No olvidar indicar en qué posición queda el cabezal, ni de establecer para qué son los parámetros. El código de Nova es el siguiente:
+/*5 - El regreso de Nova:
+¿Se acuerdan de Nova? Es el nuevo compañero del equipo, que no tiene formación profesional, y su código está lleno de malas prácticas de programación. Esta vez, en su código se encontró un procedimiento que tiene el código hecho, pero no el contrato, y no está indentado.*/
+
+
+/*a) En primer lugar, se pide corregir los errores de Nova. No olvidar indicar en qué posición queda el cabezal, ni de establecer para qué son los parámetros. El código de Nova es el siguiente:
 procedure Poner_ADistancia3Al_(color, dirección) { 
-    Mover3VecesAl_(dirección) Poner(color) }
+    Mover3VecesAl_(dirección) Poner(color) }*/
 
-b) En segundo lugar, se pide contestar la siguiente pregunta que realizó Nova: ¿Cuál es la relación entre el parámetro dirección de este procedimiento con el parámetro direcciónAMover de Mover3VecesAl_?*/
+procedure Poner_ADistancia3Al_(color, direccion) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    Mover3VecesAl_(direccion)
+    Poner(color)
+}
+
+procedure Mover3VecesAl_(direccion){
+    repeat(3){
+        Mover(direccion)
+    }
+}
+
+/*b) En segundo lugar, se pide contestar la siguiente pregunta que realizó Nova: ¿Cuál es la relación entre el parámetro dirección de este procedimiento con el parámetro direcciónAMover de Mover3VecesAl_?*/
+//El parámetro del primer procedimiento va a ser directamente el parámetro del segundo.
 
 /*6 - Los 3 puntos de Nova:
 
 Al continuar revisando código, encontramos otro procedimiento de Nova que carece de contrato y no sigue buenas prácticas de programación.
-Instituto de Tecnología e Ingeniería / Programación Estructurada
 
 a) Escribir el contrato faltante y corregir las malas prácticas:
 procedure Pintar3PuntosAzules() { 
@@ -60,11 +105,11 @@ procedure Pintar3PuntosAzules() {
         Poner_ADistancia3Al_(Azul, Este) 
     Poner_ADistancia3Al_(Azul, Este) 
         Mover3VecesAl_(Oeste) Mover3VecesAl_(Oeste) 
-}
+}*/
 
-b) Ayudar a Nova a contestar la siguiente pregunta: ¿Hay alguna relación entre los parámetros de Poner_ADistancia3Al_ y Mover3VecesAl_?
+/*b) Ayudar a Nova a contestar la siguiente pregunta: ¿Hay alguna relación entre los parámetros de Poner_ADistancia3Al_ y Mover3VecesAl_?*/
 
-c) Dado que Nova no pensó en código general, basándose en el procedimiento corregido recién, generalizarlo para que, dado un color colorPunto, dibuje los puntos de ese color. 
+/*c) Dado que Nova no pensó en código general, basándose en el procedimiento corregido recién, generalizarlo para que, dado un color colorPunto, dibuje los puntos de ese color. 
 El nuevo procedimiento debe llamarse Pintar3Puntos_.*/
 
 /*7 - Multi Arcoiris:
@@ -118,15 +163,10 @@ Por ejemplo, el programa del ejercicio anterior podría obtenerse invocando al p
 /*17 - El Bosque, parte 2:
 Continuaremos representando el bosque que comenzamos en la práctica anterior. Esta vez queremos ser capaces de poner o sacar múltiples elementos de una sola vez.
 Importante: para realizar este ejercicio se espera haya realizado partes anteriores de este dominio, si aún no lo hizo, se recomienda volver y realizar el mismo previo a solucionar el ejercicio actual.
-▪
+
 Poner_Semillas(cantidadDeSemillasAPoner)
-▪
 Sacar_Semillas(cantidadDeSemillasASacar)
-▪
 Poner_Árboles(cantidadDeÁrbolesAPoner)
-▪
 Sacar_Árboles(cantidadDeÁrbolesASacar)
-▪
 Poner_Nutrientes(cantidadDeNutrientesAPoner)
-▪
 Sacar_Nutrientes(cantidadDeNutrientesASacar) */
