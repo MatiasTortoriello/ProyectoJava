@@ -1,0 +1,74 @@
+program {
+    /*
+        PROPÓSITO:  ....
+        PRECONDICIONES:
+            * ....
+    */
+    
+}
+
+//Ejercicio 1:
+
+procedure IntercambiarEstrellaPorCirculoAlEste() {
+    SacarEstrella()
+    Mover(Este)
+    SacarCirculo()
+    PonerEstrella()
+    Mover(Oeste)
+    PonerCirculo()
+}
+
+procedure SacarEstrella(){
+    repeat (5) {
+        Sacar(Azul)
+    }
+}
+
+procedure SacarCirculo(){
+    repeat (2) {
+        Sacar(Azul)
+    }
+}
+
+procedure PonerEstrella(){
+    repeat (5) {
+        Poner(Azul)
+    }
+}
+
+procedure PonerCirculo(){
+    repeat (2) {
+        Poner(Azul)
+    }
+}
+
+
+
+//Ejercicio 2:
+
+procedure QuemarSucesionDe3RombosAlNorte() {
+    repeat(2){
+        SacarRombo()
+        Mover(Norte)
+    }
+    SacarRombo()
+    IrAlBorde(Sur)
+}
+
+procedure SacarRombo(){
+    Sacar(Negro)
+    repeat(4){
+        Sacar(Azul)
+    }
+}
+
+//Ejercicio 3:
+
+procedure ReponerFichasAlNorte() {
+    repeat(3){
+        PonerFichaAleatoria()
+        Mover(Norte)
+    }
+    PonerFichaAleatoria()
+}
+
