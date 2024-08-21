@@ -82,3 +82,23 @@ Primera celebración del Día de la Mujer.
 Reloj analógico simplificado generalizado
 Generalizar el ejercicio del reloj analógico simplificado de la práctica anterior para que se pueda pasar el radio como parámetro. O sea, se le pide escribir un procedimiento llamado DibujarRelojAnalógicoSimplificadoDeRadio_(radio) que ponga los números del reloj como en el programa original, pero donde el radio recibido por parámetro indica la distancia al centro del reloj: mientras más grande es el radio, más alejados están los números del centro.
 Por ejemplo, el programa del ejercicio anterior podría obtenerse invocando al procedimiento con el comando DibujarRelojAnalógicoSimplificadoDeRadio_(2).*/
+
+/*15 - En Papel*/
+
+/*16 - En Papel*/
+
+/*17 - El Bosque, parte 2:
+Continuaremos representando el bosque que comenzamos en la práctica anterior. Esta vez queremos ser capaces de poner o sacar múltiples elementos de una sola vez.
+Importante: para realizar este ejercicio se espera haya realizado partes anteriores de este dominio, si aún no lo hizo, se recomienda volver y realizar el mismo previo a solucionar el ejercicio actual.
+▪
+Poner_Semillas(cantidadDeSemillasAPoner)
+▪
+Sacar_Semillas(cantidadDeSemillasASacar)
+▪
+Poner_Árboles(cantidadDeÁrbolesAPoner)
+▪
+Sacar_Árboles(cantidadDeÁrbolesASacar)
+▪
+Poner_Nutrientes(cantidadDeNutrientesAPoner)
+▪
+Sacar_Nutrientes(cantidadDeNutrientesASacar) */
