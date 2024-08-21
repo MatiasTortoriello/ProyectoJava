@@ -2,10 +2,38 @@
 
 /*1 - Moviendo tres veces a donde quieras:
 Escribir un procedimiento Mover3VecesAl_(direcciónAMover) que dada una dirección direcciónAMover mueva el cabezal tres posiciones en dicha dirección.*/
+procedure Mover3VecesAl_(direccionAMover) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    repeat(3){
+        Mover(direccionAMover)
+    }
+    
+}
 
 /*2 - ...y 6 de lo que quieras:
 Escribir un procedimiento Poner6DeColor_(colorAPoner) que dado un color colorAPoner ponga 6 bolitas del color dado.*/
- 
+procedure Poner6DeColor_(colorAPoner) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    repeat(6){
+        Poner(colorAPoner)
+    }
+    
+}
+
 /*3 - Moviendo y poniendo:
 Escribir un procedimiento Poner_Al_(colorAPoner, direcciónDondePoner) que dado un color colorAPoner y una dirección direcciónDondePoner, ponga una bolita del color dado en la celda vecina en la dirección dada, dejando el cabezal en dicha celda.*/
 
