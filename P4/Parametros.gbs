@@ -136,7 +136,15 @@ procedure Pintar3PuntosAzules() {
 El nuevo procedimiento debe llamarse Pintar3Puntos_.*/
 
 procedure Pintar3Puntos_(colorAPintar){
+        Poner(colorAPintar)
+
+    repeat(2){
+        Poner_ADistancia3Al_(colorAPintar, Este)
+    }
     
+    repeat(2){
+        Mover3VecesAl_(Oeste)
+    }
 }
 
 /*7 - Multi Arcoiris:
