@@ -1,0 +1,92 @@
+//Ejercicio1
+
+procedure RellenarEstaColumnaConObstaculos(){
+    /*Propósito: Convierte tlas las ubicaciones de la columna correspondiente al casillero actual con obstáculos.
+    Precondiciones: - */
+    repeat(5){
+        RemoverFichaAqui()
+        Poner_FichasNegras(2)
+    }
+    Poner_FichasNegras(2)
+}
+
+procedure Poner_FichasNegras(cantidadAPoner){
+    /*Propósito: Pone la cantidad de *cantidadAPoner* fichas negras.
+    Parámetros: 
+        - cantidadAPoner: Cantidad de fichas negras que se requiere poner en la casilla actual
+    Precondiciones: - */
+    repeat(cantidadAPoner){
+        Poner(Negro)
+    }
+}
+
+//Ejercicio2
+
+procedure IntercambiarEstrellaPorCirculoDesdeEl_ADistancia_(direccionAMover, distanciaAMover){
+    /*Propósito: Intercambia una ficha Estrella de la ubicación actual por una ficha círculo en dirección *direccionAMover* y a distancia de *distanciaAMover* casilleros.
+    Parámetros:
+        - direccionAMover: Indica la dirección hacia la cuál se moverá el cabezal.
+        - distanciaAMover: Indica la cantidad de casilleros que se moverá el cabezal.
+    Precondiciones: - */
+
+    SacarEstrella()
+    IrADestino(direccionAMover, direccionAMover)
+    SacarCirculo()
+    PonerEstrella()
+    VolverAlInicio(opuesto(direccionAMover), opuesto(distanciaAMover))
+    PonerCirculo()
+}
+
+procedure IrADestino(direccionAMover, distanciaAMover){
+    /*Propósito: Mueve el cabezal hacia la direccion *direccionAMover* la cantidad de *distanciaAMover* casilleros.
+    Parámetros:
+        - direccionAMover: Indica la dirección hacia la cuál se moverá el cabezal.
+        - distanciaAMover: Indica la cantidad de casilleros que se moverá el cabezal.
+    Precondiciones: Debe haber al menos *distanciaAMover* casilleros hacia la direccion *direccionAMover* */
+    repeat(distanciaAMover){
+        Mover(direccionAMover)
+    }
+}
+
+procedure VolverAlInicio(direccionAMover, distanciaAMover) {
+    /*Propósito: Mueve el cabezal hacia la direccion *direccionAMover* la cantidad de *distanciaAMover* casilleros.
+    Parámetros:
+        - direccionAMover: Indica la dirección hacia la cuál se moverá el cabezal.
+        - distanciaAMover: Indica la cantidad de casilleros que se moverá el cabezal.
+    Precondiciones: Debe haber al menos *distanciaAMover* casilleros hacia la direccion *direccionAMover**/
+        repeat(distanciaAMover){
+        Mover(direccionAMover)
+    }
+}
+
+procedure SacarEstrella(){
+    /*Propósito: Saca una ficha "Estrella" de la posición actual.
+    Precondiciones: Debe haber una ficha "Estrella" en la posición actual */
+    repeat (5) {
+        Sacar(Azul)
+    }
+}
+
+procedure SacarCirculo(){
+    /*Propósito: Saca una ficha "Círculo" de la posición actual.
+    Precondiciones: Debe haber una ficha "Círculo" en la posición actual */
+    repeat (2) {
+        Sacar(Azul)
+    }
+}
+
+procedure PonerEstrella(){
+    /*Propósito: Pone una ficha "Estrella" en la posición actual.
+    Precondiciones: Ninguna */
+    repeat (5) {
+        Poner(Azul)
+    }
+}
+
+procedure PonerCirculo(){
+    /*Propósito: Pone una ficha "Círculo" en la posición actual.
+    Precondiciones: Ninguna */
+    repeat (2) {
+        Poner(Azul)
+    }
+}
