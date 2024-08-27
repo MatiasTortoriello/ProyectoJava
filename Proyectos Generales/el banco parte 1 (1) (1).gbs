@@ -1,0 +1,134 @@
+procedure Depositar_EnMoneda_ComoPesos(cantidadADepositar, moneda) {
+    /*
+    PROPOSITO: Deposita en la cuenta actual equivalente a *cantidadADepositar* *moneda* en Pesos
+    PRECONDICIONES: * Debe haber una cuenta en la celda actual.
+    PARAMETROS:
+    *cantidadADepositar - Numero: Cantidad a depositar
+    *moneda - Color:Moneda a depositar 
+    OBSERVACIONES:
+    *Si *moneda* es rojo entonces son yuanes, si es verde dolares y si es azul euros
+    */
+    
+    repeat(cantidadADepositar){
+        DepositarUn_EnCuentaEnPesos(moneda)
+    }
+
+}
+
+procedure DepositarUn_EnCuentaEnPesos(moneda){
+    /*
+    PROPOSITO: Deposita en la cuenta actual equivalente a un *moneda* en Pesos
+    PRECONDICIONES: * Debe haber una cuenta en la celda actual.
+    PARAMETROS:
+    *moneda - Color:Moneda a depositar 
+    OBSERVACIONES:
+    *Si *moneda* es rojo entonces son yuanes, si es verde dolares y si es azul euros
+    */
+    if (moneda==Negro)
+        then
+            {
+                Poner_DeColor_(1, Negro)
+            }
+        elseif (moneda==Verde)
+            {
+                Poner_DeColor_(80, Negro)
+            }
+        elseif (moneda==Azul)
+            {
+                Poner_DeColor_(90, Negro)
+            }
+        else
+            {
+                Poner_DeColor_(12, Negro)
+            }
+}
+
+
+procedure ExtraerHasta_EnMoneda_(cantidadAExtraer, moneda)
+    {
+        /*
+        PROPÓSITO: Extrae de la cuenta la cantidad dada en la moneda dada, si no hay suficiente cantidad se extrea
+                   todo lo que haya.
+        PARÁMETROS:
+            * cantidadAExtraer : Número - La cantidad de dinero a extraer.
+            * moneda           : Color  - El color de la moneda dada.
+        PRECONDICIÓN: Ninguna.
+        */
+        
+        repeat(cantidadAExtraer){
+            ExtraerUn_SiHay(moneda)
+        }
+    }
+    
+procedure ExtraerUn_SiHay(moneda){
+    /*
+    Prop.:Extrae un *moneda* de la cuenta actual si hay
+    Prec.: Debe haber una cuenta en la celda actual
+    Parametos: *moneda* - Color - color de la moneda
+    */
+    if(hayBolitas(moneda)){
+        Sacar(moneda)
+    }
+    
+}    
+
+        //otra solucion  
+        if (cantidadAExtraer >= nroBolitas(moneda))
+        then
+            {
+                SacarTodasLasDeColor_(moneda)
+            }
+        else
+            {
+                Sacar_DeColor_(cantidadAExtraer, moneda)
+            }
+
+
+procedure ConvertirHasta_PesosA_(pesosAConvertir, moneda)
+    {
+        /*
+        PROPÓSITO: Convierte la cantidad de pesos dada a la moneda dada. Si no hubiera la cantidad de pesos dada
+                   se convierte todo los que haya.
+        PARÁMETROS:
+            * pesosAConvertir : Número - La cantidad de pesos a convertir.
+            * moneda          : Color  - El color de la moneda dada.
+        PRECONDICIÓN: La moneda no puede ser Pesos Argentinos.
+        */
+         
+         if(moneda==Verde)
+        then
+            {
+                Convertir_PesosA_ConTasa(pesosAConvertir,moneda,100)
+            }
+        elseif(moneda==Azul)
+            {
+                Convertir_PesosAEuros(pesosAConvertir,115)
+            }
+        elseif(moneda==Rojo)
+            {
+                Convertir_PesosAYuanesChinos(pesosAConvertir,17)
+            }
+
+    }
+    
+    procedure Convertir_PesosADolaresEstadounidenses(pesosAConvertir,moneda, tasaDeCambio)
+    {
+        /*
+        PROPÓSITO: Convierte *pesosAConvertir* a dolares, si no hay suficiente convierte lo que hay  
+        PARÁMETROS: 
+            * pesosAConvertir : Número - La cantidad de pesos a convertir.
+        PRECONDICIÓN: Ninguna.
+        */
+        
+        if(pesosAConvertir <= nroBolitas(Negro))
+        then
+            {
+                Poner_DeColor_(pesosAConvertir div tasaDeCambio, moneda) //cambia
+                Sacar_DeColor_(pesosAConvertir, Negro)
+            }
+        else
+            {
+                Poner_DeColor_(nroBolitas(Negro) div 100, Verde)
+                SacarTodasLasDeColor_(Negro)
+            }
+    }

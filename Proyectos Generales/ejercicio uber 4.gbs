@@ -1,0 +1,32 @@
+procedure RecogerSolicitanteConId_(idSolicitanteARecoger){
+    /*
+    Proposito: recoge al solicitante con el Id dado en la ubicacuion actual, subiendolo al vehiculo
+    Precondiciones: El cabezal se encuentra sobre el vehiculo, el vehiculo esta vacio y hay un solicitante con el id dado en la ubicacion actual
+    Parametros: *idSolicitanteARecoger* -Numero- Numero de Id dek solicitante a recoger.
+    */
+    SacarAlSolicitanteConId_(idSolicitanteARecoger)
+    CambiarVehiculoAOcupado()
+    PonerPasajeroConId_(idSolicitanteARecoger)
+}
+procedure SacarAlSolicitanteConId_(idSolicitante){
+    /*
+    Proposito: Saca al solicitante con Id *idSolicitante* de la ubicacion actual
+    Precondiciones: El solicitante con Id *idSolicitante* debe estar en la ubicacion actual.
+    Parametros: *idSolicitante* -Numero- Numero de Id dek solicitante a sacar.
+    */
+    Sacar_DeColor_(idSolicitante,Azul)
+}
+procedure PonerPasajerosConId_(idPasajero){
+    /*
+    proposito: Sube al pasajero con Id *idPasajero* al auto en la ubicacion actual
+    precondiciones: Debe haber un vehiculo vacio en la ubicacion actual
+    parametros: *idSolicitante* -Numero- Numero de Id dek solicitante a poner.
+    */
+    Poner_DeColor_(idPasajero,Verde)
+
+}
+
+
+
+
+

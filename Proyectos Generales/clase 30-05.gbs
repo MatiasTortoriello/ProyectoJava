@@ -1,0 +1,185 @@
+type DíaDeLaSemana is variant{
+    case Lunes {}
+    case Martes {}
+    case Miércoles {}
+    case Jueves {}
+    case Viernes {}
+    case Sábado {}
+    case Domingo {}
+}
+
+function díaSiguiente_(unDía){
+    /*
+    PROPÓSITO: Describe el día siguiente a ........
+    PARÁMETROS:
+        *unDía : DíaDeLaSemana 
+        
+    Tipo: DíaDeLaSemana
+    */
+    return(
+        choose
+            Martes when (unDía == Lunes)
+            Miércoles when (unDía == Martes)
+            Lunes otherwise
+        )
+}
+type Celda is record{
+    /*
+    PROPÓSITO: Modelar una celda del tablero
+    INV.REP.: Los números son todos >=0
+    */
+    field cantidadDeAzules  // tipo: Número
+    field cantidadDeNegras  // tipo: Número
+    field cantidadDeRojas  // tipo: Número
+    field cantidadDeVerdes // tipo: Número
+}
+function celdaActual(){
+    /*
+    PROPÓSITO: descrobe la celda actual
+    PRECONDICIONES:
+        *Ninguna
+    TIPO: Celda
+    */
+    return (
+        Celda(
+            cantidadDeAzules <- nroBolitas(Azul),
+            cantidadDeRojas <- nroBolitas(Rojo),
+            cantidadDeVerdes <- nroBolitas(Verde),
+            cantidadDeNegras <- nroBolitas(Negro)
+            )
+        
+        )
+}
+function nuevaCelda(canRojas, canVerdes, canAzules, canNegras){
+    /*
+    */
+    return(
+        Celda(
+            cantidadDeAzules <- canAzules,
+            cantidadDeRojas <- canRojas,
+            cantidadDeVerdes <- canVerdes,
+            cantidadDeNegras <- canNegras
+            )
+        )
+}
+
+procedure EscribirCelda(unaCelda){
+    /*
+    PROPÓSITO: Escribe en la celda actual la celda **unaCelda**
+    PARÁMETROS:
+        unaCelda: Celda - la celda a escribir
+    PRECONDICIONES: 
+        *La celda debe estar esVacía
+    */
+    Poner_DeColor_(cantidadDeNegras(unaCelda), Negro)
+    Poner_DeColor_(cantidadDeRojas(unaCelda), Rojo)
+    Poner_DeColor_(cantidadDeVerdes(unaCelda), Verde)
+    Poner_DeColor_(cantidadDeAzules(unaCelda), Azul)
+}
+
+
+procedure Poner_DeColor_(can, color){
+    repeat(can){
+        Poner(color)
+    }
+}
+
+/*
+function persona_RegistradaCon_(unaPersona, unDni){
+    return (Persona(unaPersona|dni <- unDni,nombre <- "pepe"))
+}*/
+
+
+function sinAsignar(){
+    /*
+    PROPÓSITO: Describe el string vacío
+    PRECONDICIONES:
+        *Ninguna
+    TIPO: string
+    */
+    return("")
+}
+
+type Persona is record { 
+        /* 
+            Prop. 
+                Modela una persona. 
+             
+            Inv. de rep. 
+                El dni es un numero tal y tal... 
+        */ 
+ 
+        field dni             // String 
+        field domicilio       // String 
+        field esDonante       // Booleano 
+    } 
+ 
+type Empleado is record { 
+    /* 
+        Prop.  
+            Modela un empleado. 
+
+        Inv. de rep.  
+            Ninguna. 
+    */ 
+
+    field persona        // Persona 
+    field puesto         // Puesto 
+    field sueldo         // Numero 
+} 
+     
+type Puesto is variant { 
+    /* 
+        Prop.  
+            Modela el puesto de una persona en una empresa de SW. Clave {GLDO} 
+    */ 
+
+    case GestorDeProyecto   {} 
+    case LiderDeProyecto    {} 
+    case Desarrollador      {} 
+    case Operador           {}  
+}
+function empleado_ConDomicilioActualizadoA_(unEmpleado, nuevoDomicilio){
+    /*
+    PROPÓSITO: Describe al empleado **unEmpleado** con cambio de domicilio a **nuevoDomicilio**
+    PARÁMETROS: 
+        *unEmpleado: Empleado - El empleado a cambiar el domicilio
+        *nuevoDomicilio: String - El nuevo domicilio del empleado 
+    PRECONDICIONES:
+        *Ninguna
+    TIPO: Empleado
+    */
+    personaEmpleado := persona(unEmpleado)
+    personaConDomicilioNuevo:= Persona(personaEmpleado|domicilio <- nuevoDomicilio)
+    return(Empleado(unEmpleado|persona <- personaConDomicilioNuevo))
+}
+
+
+
+
+program{
+    hernán := Persona(dni <- "2222222", domicilio <- "Morón",esDonante <- True)
+    empleadoHernán := Empleado(persona <- hernán, puesto <-Desarrollador , sueldo <- 500000)
+    return (empleado_ConDomicilioActualizadoA_(empleadoHernán, "Hurlingham"))
+}
+cambiar un campo del registro 
+
+Registro(unRegistro | cambio el campo) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

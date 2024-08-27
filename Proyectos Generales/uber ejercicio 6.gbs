@@ -1,0 +1,35 @@
+function esDestinoDePasajero(){
+    /*
+    proposito: Indica si la ubicacion actual es el destino del pasajero en el vehiculo.
+    Precondiciones: el cabezal se encuentra sobre el vehiculo y este tiene un pasajero
+    tipo: Booleano
+    */
+    return(HayDestinoAca() && idPasajeroEnVehiculo()== codigoDestinoActual())
+    
+}
+
+function idPasajeroEnVehiculo(){
+    /*
+    proposito: Describe el id del pasajero en el vehiculo 
+    Precondicion:debe haber una vehiculo en la ubicacion actual y debe tener un pasajero.
+    tipo: Numero
+    */
+    return(nroBolitas(Verde)
+}
+
+function codigoDestinoActual(){
+    /*
+    proposito: describe el codigo del destino en la ubicacion actual.
+    precondicion: debe haber destino en la ubicacion actual.
+    tipo: Numero
+    */
+    return(nroBolitas(Rojo))
+}
+function hayDestinoAca(){
+    /*
+    proposito: indica si hay un destino en la ubicacion actual
+    precondicion: ninguna
+    tipo: booleano
+    */
+    return(hayBolitas(rojo))
+}

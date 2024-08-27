@@ -1,0 +1,62 @@
+//Ejercicio 1:
+
+type DiaDeLaSemana is record {
+    field nombreDelDia //String
+    
+}
+
+type nombreDelDia is variant {
+    case Lunes{}
+    case Martes{}
+    case Miercoles{}
+    case Jueves{}
+    case Viernes{}
+    case Sabado{}
+    case Domingo{}
+}
+
+function diaSiguiente_(diaActual){
+    return(
+        
+        choose 
+            Lunes when (diaActual == Domingo)
+            Martes when (diaActual == Lunes)
+            Miercoles when (diaActual == Martes)
+            Jueves when (diaActual == Miercoles)
+            Viernes when (diaActual == Jueves)
+            Sabado when (diaActual == Viernes)
+            Domingo otherwise
+    )
+}   
+
+function diaPrevio_(diaActual){
+    return (
+        choose 
+            Lunes when (diaActual == Martes)
+            Martes when (diaActual == Miercoles)
+            Miercoles when (diaActual == Jueves)
+            Jueves when (diaActual == Viernes)
+            Viernes when (diaActual == Sabado)
+            Sabado when (diaActual == Domingo)
+            Domingo otherwise
+    )
+}   
+
+function esDiaDeFinDeSemana_(diaActual){
+    return (diaActual == Sabado || diaActual == Domingo)
+}
+
+// Ejercicio 2
+
+type PartidoPolitico is record {
+    field nombreDelPartido
+    field cantidadDeVotos
+    
+}
+
+type nombreDelPartido is variant {
+    case Democracia por la Verdad
+    case Unidos por la Republica
+    case Libertarios por la Libertad
+    case Izquierda de los Obreros
+}

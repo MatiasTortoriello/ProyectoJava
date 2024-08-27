@@ -1,0 +1,43 @@
+program{
+    /*
+    Prop.: Construye un juego de domino con las pieza 6/6 en posicion vertical
+           en la celda actual, la 6/2 a la derecha de esta, y la 4/6 a la izquierda.
+    Prec.: Hay al menos una celda al Este y una al Oeste de la celda actual.
+           Tanto la celda actual como las lindantes al Este y al Oeste están vacías.
+    */
+    
+    Mover(Oeste)
+    PonerFicha_Y_Horizontal(4,6)
+    Mover(Este)
+    PonerFicha_Y_Vertical(6,6)
+    Mover(Este)
+    PonerFicha_Y_Horizontal(6,2)
+    Mover(Oeste)
+}
+
+procedure PonerFicha_Y_Horizontal(nroIzquierdo, nroDerecho){
+    /*
+    Prop.: Pone una ficha de Dominó con el numero *nroIzquierdo* a la izquierda y
+           numero *nroDerecho* a la derecha, en la celda actual.
+    Prec.: La celda actual debe estar vacia.
+           *nroDerecho* y *nroIzquierdo* son numeros entre 1 y 6 inclusive
+    Parametros: *nroIzquierdo* - Numero - es el numero izquierdo de la ficha
+                *nroDerecho* - Numero - es el numero derecho de la ficha
+    */
+    Poner(Azul)
+    Poner_DeColor_(nroIzquierdo,Verde)
+    Poner_DeColor_(nroDerecho,Rojo)
+}
+
+procedure PonerFicha_Y_Vertical(nroSuperior, nroInferior){
+    /*
+    Prop.: Pone una ficha de Dominó con el numero *nroSuperior* arriba y
+           numero *nroInferior* abajo, en la celda actual.
+    Prec.: La celda actual debe estar vacia.
+           *nroSuprior* y *nroInferior* son numeros entre 1 y 6 inclusive
+    Parametros: *nroSuperior* - Numero - es el numero de arriba de la ficha
+                *nroInferior* - Numero - es el numero de abajo de la ficha
+    */
+    Poner_DeColor_(nroSuperior,Verde)
+    Poner_DeColor_(nroInferior,Rojo)
+}

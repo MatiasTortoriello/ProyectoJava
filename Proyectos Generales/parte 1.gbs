@@ -1,0 +1,66 @@
+function tieneBolitas_Al_(color, dirección){
+    /*
+    PROPÓSITO: Indica si la celda lindante al **dirección** tiene bolitas de color **color**, si no hay celda hace boom
+    PARÁMETROS:
+        *color: Color- El color de la bolita a mirar
+        *dirección: Dirección - la direección a mirar
+    PRECONDICIONES:
+        *Debe haber al menos una celda hacia el **direección**
+    TIPO: Booleano
+    */
+    HacerBoomSiNoHayCeldaAl_(dirección)
+    Mover(dirección)
+    return(hayBolitas(color))
+}
+
+procedure HacerBoomSiNoHayCeldaAl_(dirección){
+    if(not puedeMover(dirección)){
+        BOOM("Payaso falta la celda")
+    }
+}
+function hayBolitas_Al_(color, dirección){
+    /*
+    PROPÓSITO: Indica si la celda lindante al **dirección** tiene bolitas de color **color**
+    PARÁMETROS:
+        *color: Color- El color de la bolita a mirar
+        *dirección: Dirección - la direección a mirar
+    PRECONDICIONES:
+        *Ninguna
+    TIPO: Booleano
+    */
+    return(puedeMover(dirección)&&tieneBolitas_Al_(True, Rojo))
+}
+procedure CopiarCeldaAl_(dirección){
+    /*
+    PROPÓSITO: Copia la celda actual a la celda lindante al **dirección**
+    PARÁMETROS:
+        *dirección: Dirección - La dirección hacia donde copiamos la celda
+    PRECONDICIONES:
+        *Debe haber al menos una celda hacia el **
+    */
+    rojas := nroBolitas(Rojo)
+    negras := nroBolitas(Negro)
+    azules := nroBolitas(Azul)
+    verdes := nroBolitas(Verde)
+    Mover(dirección)
+    VaciarCelda()
+    Poner_DeColor_(rojas, Rojo)
+    Poner_DeColor_(negras, Negro)
+    Poner_DeColor_(azules, Azul)
+    Poner_DeColor_(verdes, Verde)
+    
+}
+IrAPrimeraCelda.....(Este, Norte)
+program{
+   CopiarCeldaAl_(Norte)
+}
+
+
+
+
+
+
+
+
+
+

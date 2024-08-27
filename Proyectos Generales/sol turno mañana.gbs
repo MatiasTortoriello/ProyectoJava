@@ -1,0 +1,147 @@
+type Repartidor is record {
+    /*
+    PROPÓSITO: Modela un repartidor
+    INV.REP:
+    */
+    field nombre //String
+    field dni //Número
+    field empresa //Empresa
+    field pesoCarga // Número
+    field productos //Lista de Producto
+}
+
+type Empresa is variant{
+    case Rappi {}
+    case MercadoEnvíos {}
+    case Glovo {}
+    case PedidosYa {}
+    case CorreoArgentino {}
+} 
+
+type Producto is variant{
+    case Comida {}
+    case Bebida {}
+    case Frágil {}
+    case Indumentaria {}
+    case Electrónica {}
+    case Documentación {}
+} 
+
+function cantidadDeRepartidoresEn_DeEmpresa_QueReparte_(unaLista, unaEmpresa, unProducto){
+    /*
+    PROPÓSITO: Describe la cantidad de repartidores de **unaLista** que pertenecen a la empresa
+              *unaEmpresa** y que reparten el producto **unProducto**
+    PARÁMETROS:
+        *unaLista: Lista de Repartidores - La lista a contar los repartidores
+        *unaEmpresa: Empresa - La empresa a validar
+        *unaProducto: Producto - El producto a validar
+    PRECONDICIONES:
+        *ninguna
+    TIPO:Numero
+    */
+    repartidoresARecorrer := unaLista
+    cantidadRepartidores := 0
+    while(not es Vacía(repartidoresARecorrer)){
+        cantidadRepartidores := cantidadRepartidores + unoSi_CeroSino(es_DeEmpresa_QueReparte_(primero(repartidoresARecorrer), unaEmpresa, unProducto))
+        repartidoresARecorrer := resto(repartidoresARecorrer)
+    }
+    return(cantidadRepartidores)
+}
+
+function es_DeEmpresa_QueReparte_(unRepartidor, unaEmpresa, unProducto){
+    /*
+    PROPÓSITO: Indica si el reaprtidor **unRepartidor** pertenecen a la empresa
+              *unaEmpresa** y reparte el producto **unProducto**
+    PARÁMETROS:
+        *unRepartidor: Repartidor - 
+        *unaEmpresa: Empresa - La empresa a validar
+        *unaProducto: Producto - El producto a validar
+    PRECONDICIONES:
+        *ninguna
+    TIPO: Booleano
+    */    
+    return(empresa(unRepartidor) == unaEmpresa && contiene_A_(productos(unRepartidor), unProducto))
+}
+
+//ejercicio 3
+function jovenesRepartidoresDe_En_(unProducto, repartidores){
+    /*
+    PROPÓSITO: Describe los repartidores de **repartidores** que reparten el producto **unProducto** y son jovenes. 
+    PARÁMETROS:
+        *repartidores: Lista de Repartidores - 
+        *unaProducto: Producto -
+    PRECONDICIONES:*ninguna 
+    TIPO: Lista de Repartidor
+    Obs.: se considera jovenes a los repartidores que tienen el numero de dno > a 40000000
+    */
+    repartidoresARecorrer := repartidores
+    repartidoresJovenes := []
+    while(not esVacia(repartidoresARecorrer)){
+        repartidoresJovenes := repartidoresJovenes ++ listaConrepartidor_SiReparte_YEsJoven(primero(repartidoresARecorrer), unProducto)
+        repartidoresARecorrer := resto(repartidoresARecorrer)
+    }
+    return(repartidoresJovenes)
+}
+
+function listaConrepartidor_SiReparte_YEsJoven(unRepartidor, unProducto){
+    /*
+    PROPÓSITO: Describe una lista con **unRepartidor** si este reparte el producto **unProducto** y es joven,  sino describe una lista vacia.
+    PARÁMETROS:
+        *unRepartidor: Repartidor - 
+        *unaProducto: Producto - El producto a validar
+    PRECONDICIONES:
+        *ninguna
+    TIPO: Lista de Repartidor
+    */     
+    return(choose   [unRepartidor]      when    (dni(unRepartidor) > 40000000 && contiene_A_(productos(unRepartidor), unProducto))
+                    []                  otherwise
+          )
+}
+
+//Ejercicio 4
+
+function losRepartidores_Estatizados(repartidores){
+    /*
+    PROPÓSITO: Describe los repartidores de **repartidores** actualizando las empresas de los que pertenecen a Rappi, Glovo o PedidosYa a CorreoArgentino. 
+    PARÁMETROS:
+        *repartidores: Lista de Repartidores - 
+    PRECONDICIONES:*ninguna 
+    TIPO: Lista de Repartidor
+    */    
+    repartidoreARecorrer := repartidores
+    repartidoresEstatizados := []
+    while(not esVacia(repartidoreARecorrer)){
+        repartidoresEstatizados := repartidoresEstatizados ++ [repartidor_EstatizadoSiCorresponde(primero(repartidoresARecorrer)]
+        repartidoreARecorrer := resto(repartidoreARecorrer)
+    }
+    return (repartidoresEstatizados)
+}
+
+function repartidor_EstatizadoSiCorresponde(unRepartidor){
+    /*
+    PROPÓSITO: Describe **unRepartidor** con la empresa actualizada a CorreoArgentino si era Rappi, Glovo y PedidosYa, sino describe **unRepartidor**.
+    PARÁMETROS:
+        *unRepartidor: Repartidor - 
+    PRECONDICIONES:
+        *ninguna
+    TIPO: Repartidor
+    */  
+    return(choose   repartidor_Estatizado(unRepartidor)     when    (empresa(unRepartidor)/= MercadoEnvios && empresa(unRepartidor)/= CorreoArgentino)
+                    unRepartidor                            otherwise
+           )
+}
+
+(empresa(unRepartidor)== Rappi || empresa(unRepartidor) == Glovo || empresa(unRepartidor) == PedidosYa)
+
+function repartidor_Estatizado(unRepartidor){
+    /*
+    PROPÓSITO: Describe **unRepartidor** con la empresa actualizada a CorreoArgentino.
+    PARÁMETROS:
+        *unRepartidor: Repartidor - 
+    PRECONDICIONES:
+        *ninguna
+    TIPO: Repartidor
+    */  
+    return(Repartidor(unRepartidor | empresa <- CorreoArgentino))
+}
+
