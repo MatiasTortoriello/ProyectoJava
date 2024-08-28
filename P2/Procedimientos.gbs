@@ -339,16 +339,13 @@ procedure PonerUnaSemilla(){
     Poner(Rojo)
 }
 
-
 procedure PonerUnArbol(){
     Poner(Verde)
 }
 
-
 procedure PonerUnNutriente(){
     Poner(Azul)
 }
-
 
 procedure PonerUnaBomba(){
     Poner(Negro)
@@ -360,16 +357,13 @@ procedure SacarUnaSemilla(){
     Sacar(Rojo)
 }
 
-
 procedure SacarUnArbol(){
     Sacar(Verde)
 }
 
-
 procedure SacarUnNutriente(){
     Sacar(Azul)
 }
-
 
 procedure SacarUnaBomba(){
     Sacar(Negro)
@@ -386,6 +380,7 @@ program{
 }
 
 procedure DibujarReloj(){
+
     MoverArriba()
     PonerLaHora12()
     MoverAlCentroDesdeArriba()
