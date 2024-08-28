@@ -3,6 +3,142 @@
 /*1 - Iniciales:
 Escribir un programa que ponga sus iniciales en el tablero usando bolitas color Verde para los nombres y color Rojo para el apellido, dejando el cabezal en la celda inicial. Para escribir sus iniciales, se debe definir cómo se verán las letras en el tablero.*/
 
+program {
+    DibujarIniciales()
+}
+
+procedure DibujarIniciales(){
+    /*Propósito: Dibuja las iniciales del creador del código "M T" (Matías Tortoriello)
+    Precondiciones:Debe haber al menos 5 casilleros libres hacia el norte y al menos 10 casilleros libres hacia el este*/
+
+    DibujarLetraM()
+    PosicionarseParaLetraT()
+    //DibujarLetraT()
+}
+
+procedure DibujarLetraM(){
+    /*Propósito: Dibuja la letra M de las iniciales "MT".
+    Precondiciones: Debe haber al menos 5 casilleros libres hacia el norte y al menos 4 casilleros libres hacia el este */
+
+    DibujarPaloIzquierdoDeLaM()
+    DibujarDiagonalIzquierdaDeLaM()
+    DibujarDiagonalDerechaDeLaM()
+    DibujarPaloDerechoDeLaM()
+}
+
+procedure DibujarPaloIzquierdoDeLaM(){
+    /*Propósito: Dibuja el palo izquierdo de la letra M
+    Precondiciones: Debe haber al menos 5 casilleros libres al norte de la posición inicial*/
+    
+    Poner(Verde)
+    Mover(Norte)
+    Poner(Verde)
+    Mover(Norte)
+    Poner(Verde)
+    Mover(Norte)
+    Poner(Verde)
+    Mover(Norte)
+    Poner(Verde)
+    Mover(Norte)
+    Poner(Verde)
+    
+}
+
+procedure DibujarDiagonalIzquierdaDeLaM(){
+    /*Propósito: Dibuja la diagonal izquierda de la letra M
+    Precondiciones: Debe haber al menos 2 casilleros libres al sur y 2 casilleros libres al este de la posición actual*/
+    Mover(Sur)
+    Mover(Este)
+    Poner(Verde)
+    Mover(Sur)
+    Mover(Este)
+    Poner(Verde)
+}
+
+procedure DibujarDiagonalDerechaDeLaM(){
+    /*Propósito: Dibuja la diagonal derecha de la letra M
+    Precondiciones: Debe haber al menos 2 casilleros libres al norte y 2 casilleros libres al este de la posición actual*/
+    
+    Mover(Norte)
+    Mover(Este)
+    Poner(Verde)
+    Mover(Norte)
+    Mover(Este)
+    Poner(Verde)
+
+}
+
+procedure DibujarPaloDerechoDeLaM(){
+    /*Propósito: Dibuja el palo derecho de la letra M
+    Precondiciones: Debe haber al menos 5 casilleros libres al sur de la posición inicial*/
+    Mover(Sur)
+    Poner(Verde)
+    Mover(Sur)
+    Poner(Verde)
+    Mover(Sur)
+    Poner(Verde)
+    Mover(Sur)
+    Poner(Verde)
+    Mover(Sur)
+    Poner(Verde)
+}
+
+procedure PosicionarseParaLetraT(){
+    /*Propósito: Se posiciona para dibujar la letra T luego de haber dibujado la letra M.
+    Precondiciones:*/
+    Mover(Este)
+    Mover(Este)
+    Mover(Este)
+    Mover(Este)
+
+}
+
+procedure DibujarLetraT(){
+    /*Propósito: Dibuja la letra T de las iniciales "MT"
+    Precondiciones:*/
+
+    DibujarPaloVerticalDeLaT()
+    DibujarPaloHorizontalDeLaT()
+}
+
+procedure DibujarPaloVerticalDeLaT(){
+    /*Propósito: Dibuja el palo vertical de la letra T
+    Precondiciones: Debe haber al menos 5 casilleros libres al norte de la posición inicial*/
+    
+    Poner(Verde)
+    Mover(Norte)
+    Poner(Verde)
+    Mover(Norte)
+    Poner(Verde)
+    Mover(Norte)
+    Poner(Verde)
+    Mover(Norte)
+    Poner(Verde)
+    Mover(Norte)
+    Poner(Verde)
+
+}
+
+procedure DibujarPaloHorizontalDeLaT(){
+    /*Propósito: Dibuja el palo horizontal de la letra T
+    Precondiciones: Debe haber al menos 5 casilleros libres al norte de la posición inicial*/
+
+    DibujarParteDerechaDelPaloHorizontal()
+    DibujarParteIzquierdaDelPaloHorizontal()
+}
+
+procedure DibujarParteIzquierdaDelPaloHorizontalDeLaLetraT(){
+    /*Propósito: Dibuja la parte izquierda del palo horizontal de la letra T
+    Precondiciones: Debe haber al menos 5 casilleros libres al norte de la posición inicial*/
+
+}
+
+procedure DibujarParteDerechaDelPaloHorizontalDeLaLetraT(){
+    /*Propósito: Dibuja la parte derecha del palo horizontal de la letra T
+    Precondiciones: Debe haber al menos 5 casilleros libres al norte de la posición inicial*/
+
+}
+
 /*2 - Por Arriba:
 Realizar cada uno de los siguientes puntos, en el orden dado (siguiendo una metolodía top-down):
 
