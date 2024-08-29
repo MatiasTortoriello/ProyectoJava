@@ -48,7 +48,17 @@ procedure SacarUnaFicha_SiSePuede(colorDeLaFicha) {
 }
 
 /*b) DesempatarParaElLocal_Contra_(colorDelLocal,colorDelVisitante) que, dados los colores de dos jugadores, cuyos puntos se representan mediante la cantidad de bolitas del color del jugador,, otorgue un punto al jugador con color colorDelLocal solamente en el caso en que la celda actual contiene la misma cantidad de bolitas de ambos colores.*/
-
+ procedure DesempatarParaElLocal_Contra_(colorDelLocal, colorDelVisitante) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    
+ }
 /*c) ExpandirBacteriaDeLaColonia(), que siempre que en la celda actual haya un cultivo de bacterias y haya suficientes nutrientes, agregue exactamente una bacteria más y consuma nutrientes, a razón de dos nutrientes por bacteria expandida; si no hay bacterias o no hay suficientes nutrientes, no hace nada. Las bacterias se representan con bolitas Verdes y los nutrientes con bolitas Rojas.*/
 
 /*d) PonerFlecha_AlNorteSiCorresponde(colorDeLaFlecha), que dado un color para representar flechas, ponga una flecha al Norte si existe espacio para moverse en esa dirección. Las flechas serán representadas con una bolita del color dado.*/
