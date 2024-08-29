@@ -1,10 +1,15 @@
 //P5 - Expresiones y Tipos
 
-/*1 - En papel*/
+/*1 - Mis primeras expresiones*/
 
 /*2 - Moviendo según me indican las bolitas:
 Escribir el procedimiento Mover_SegúnColor_(dirección,color), que mueve el cabezal en la dirección dada tantas celdas como bolitas de color dado hay en la celda actual.*/
 
+    procedure Mover_SegunColor_(direccion, color){
+        repeat(nroBolitas(color)){
+            Mover(direccion)
+        }
+    }
 /*3 - El bosque, parte 3:
 En este ejercicio continuaremos con nuestro bosque, esta vez colocando semillas y árboles en la celda lindante hacia alguna dirección, y dejando el cabezal en la celda inicial.
 a) Poner_SemillasAl_(cantidadDeSemillas, direcciónAPoner) // deja el cabezal en la celda inicial
@@ -18,6 +23,41 @@ d) Sacar_ÁrbolesEnDiagonalHorariaAl_(cantidadDeÁrboles, direcciónDiagonal) //
 /*4 - La banda de la gloriosa River Plate:
 Escribir DibujarLaBandaGloriosaDeAncho_(ancho) que dibuja una banda diagonal de color Rojo de cuatro celdas de alto y de tantas celdas de largo como indique el parámetro ancho (dibujando hacia arriba y hacia la derecha). El procedimiento debe poder ser ejecutado en tableros en donde la banda entra justa en el tablero.
 Importante: Sí la banda tiene 6 celdas de largo, el argumento pasado debe ser 6, no 5. Tenga en cuenta que deberá utilizar expresiones en algún lugar de su código para solucionar el problema.*/
+program{
+    DibujarLaBandaGloriosaDeAncho_(5)
+}
+
+procedure DibujarLaBandaGloriosaDeAncho_(ancho) {
+        //PROPÓSITO:dibuja una banda diagonal de un *ancho* con 4 bolitas de alto
+        //PARAMETRO
+            //.ancho: determina el ancho de la banda gloriosa
+        //PRECONDICIONES:el tableto tiene que tener un minimo de *ancho* columnas de ancho
+    repeat(ancho){
+        DibujarFila()
+        PasarASiguienteColumnaEnLaParteInferiorDeLaBandaGloriosa()
+    }
+    IrAlBorde(Sur)
+    IrAlBorde(Oeste)
+}
+
+procedure DibujarFila() {
+        //PROPÓSITO:pone bolitas rojas mientras sube 3 filas
+        //PRECONDICIONES: debe haber por lo menos 3 casilleros libres al norte de la posicion actual
+    repeat(3){
+        Poner(Rojo)
+        Mover(Norte)
+    }
+    Poner(Rojo)
+}
+
+procedure PasarASiguienteColumnaEnLaParteInferiorDeLaBandaGloriosa() {
+        //PROPÓSITO:se mueve a la columna siguiente y en la parte inferior de la fila de la banda gloriosa
+        //PRECONDICIONES: debe haber al menos un casillero libre en la columna este y sur
+    repeat (2) {
+        Mover(Sur)
+    }
+    Mover(Este)
+}
 
 /*5 - ¡A la batalla!, parte 1 
 Suponiendo que se está programando un juego donde en las celdas del tablero se representan soldados (los aliados con una bolita de color Negro y los enemigos con una bolita de color Rojo por cada soldado), escribir los siguientes procedimientos:
