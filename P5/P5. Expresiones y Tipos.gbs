@@ -185,17 +185,18 @@ Definir el procedimiento PasarPalabraActualAMayúsculas() que suponiendo que en 
 
 ▪ El cabezal se encuentra en la celda más al Oeste de una fila donde hay una palabra representada.
 
-
 Importante: ¿Cómo comenzar la resolución? En cada procedimiento, ¿qué parte debe escribirse primero?*/
 
 procedure PasarPalabraActualAMayúsculas(parámetro1, parámetro2) {
+    
     /*
-        PROPÓSITO:  ....
+        PROPÓSITO: 
         PARÁMETROS:
             * parámetro1: tipo - descripción.
             * parámetro2: tipo - descripción.
         PRECONDICIONES:
-            * ....
+            * 
     */
+    
     
 }
