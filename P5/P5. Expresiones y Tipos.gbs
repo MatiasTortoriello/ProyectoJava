@@ -1,10 +1,15 @@
 //P5 - Expresiones y Tipos
 
-/*1 - En papel*/
+/*1 - Mis primeras expresiones*/
 
 /*2 - Moviendo según me indican las bolitas:
 Escribir el procedimiento Mover_SegúnColor_(dirección,color), que mueve el cabezal en la dirección dada tantas celdas como bolitas de color dado hay en la celda actual.*/
 
+    procedure Mover_SegunColor_(direccion, color){
+        repeat(nroBolitas(color)){
+            Mover(direccion)
+        }
+    }
 /*3 - El bosque, parte 3:
 En este ejercicio continuaremos con nuestro bosque, esta vez colocando semillas y árboles en la celda lindante hacia alguna dirección, y dejando el cabezal en la celda inicial.
 a) Poner_SemillasAl_(cantidadDeSemillas, direcciónAPoner) // deja el cabezal en la celda inicial
@@ -18,41 +23,193 @@ d) Sacar_ÁrbolesEnDiagonalHorariaAl_(cantidadDeÁrboles, direcciónDiagonal) //
 /*4 - La banda de la gloriosa River Plate:
 Escribir DibujarLaBandaGloriosaDeAncho_(ancho) que dibuja una banda diagonal de color Rojo de cuatro celdas de alto y de tantas celdas de largo como indique el parámetro ancho (dibujando hacia arriba y hacia la derecha). El procedimiento debe poder ser ejecutado en tableros en donde la banda entra justa en el tablero.
 Importante: Sí la banda tiene 6 celdas de largo, el argumento pasado debe ser 6, no 5. Tenga en cuenta que deberá utilizar expresiones en algún lugar de su código para solucionar el problema.*/
+program{
+    DibujarLaBandaGloriosaDeAncho_(5)
+}
+
+procedure DibujarLaBandaGloriosaDeAncho_(ancho) {
+        //PROPÓSITO:dibuja una banda diagonal de un *ancho* con 4 bolitas de alto
+        //PARAMETRO
+            //.ancho: determina el ancho de la banda gloriosa
+        //PRECONDICIONES:el tableto tiene que tener un minimo de *ancho* columnas de ancho
+    repeat(ancho){
+        DibujarFila()
+        PasarASiguienteColumnaEnLaParteInferiorDeLaBandaGloriosa()
+    }
+    IrAlBorde(Sur)
+    IrAlBorde(Oeste)
+}
+
+procedure DibujarFila() {
+        //PROPÓSITO:pone bolitas rojas mientras sube 3 filas
+        //PRECONDICIONES: debe haber por lo menos 3 casilleros libres al norte de la posicion actual
+    repeat(3){
+        Poner(Rojo)
+        Mover(Norte)
+    }
+    Poner(Rojo)
+}
+
+procedure PasarASiguienteColumnaEnLaParteInferiorDeLaBandaGloriosa() {
+        //PROPÓSITO:se mueve a la columna siguiente y en la parte inferior de la fila de la banda gloriosa
+        //PRECONDICIONES: debe haber al menos un casillero libre en la columna este y sur
+    repeat (2) {
+        Mover(Sur)
+    }
+    Mover(Este)
+}
 
 /*5 - ¡A la batalla!, parte 1 
 Suponiendo que se está programando un juego donde en las celdas del tablero se representan soldados (los aliados con una bolita de color Negro y los enemigos con una bolita de color Rojo por cada soldado), escribir los siguientes procedimientos:
 
-a) EnviarAliadosParaDuplicarEnemigos(), que agrega soldados aliados en la celda actual en cantidad suficiente para que haya el doble de aliados que de soldados enemigos.
+a) EnviarAliadosParaDuplicarEnemigos(), que agrega soldados aliados en la celda actual en cantidad suficiente para que haya el doble de aliados que de soldados enemigos.*/
 
-b) PelearLaBatalla(), que simula una batalla, suponiendo que hay suficiente cantidad de soldados aliados como para ganar la batalla. Durante una batalla, 2 soldados enemigos pelean contra 3 soldados aliados y todos mueren. Por ejemplo, si hay 6 enemigos y 10 aliados, mueren los 6 enemigos y 9 de los aliados; si hay 10 enemigos y 21 aliados, mueren los 10 enemigos y 15 soldados aliados.
+procedure EnviarAliadosParaDuplicarEnemigos() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    
+    Poner_AliadosAqui(2*nroBolitas(Rojo)-nroBolitas(Negro))
+    
+}
+
+Poner_AliadosAqui(cant){
+    Poner_DeColor_(cant, color)
+}
+
+Poner_DeColor_(cant, color){
+    repeat(cant){
+        Poner(color)
+    }
+}
+
+/*b) PelearLaBatalla(), que simula una batalla, suponiendo que hay suficiente cantidad de soldados aliados como para ganar la batalla. Durante una batalla, 2 soldados enemigos pelean contra 3 soldados aliados y todos mueren. Por ejemplo, si hay 6 enemigos y 10 aliados, mueren los 6 enemigos y 9 de los aliados; si hay 10 enemigos y 21 aliados, mueren los 10 enemigos y 15 soldados aliados.
 
 PISTA: ¿Qué cuenta hay que hacer para saber cuántos soldados aliados morirán?*/
+procedure PelearLaBatalla() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+
+    /* 3 aliados ----------- 2 enemigos
+       x aliados ----------- y enemigos
+
+       X = (Y*3)/2
+    */ 
+    repeat((nroBolitas(Rojo)*3) div 2){
+        Sacar(Negro)
+    }
+
+    repeat(nroBolitas(Rojo)){
+        Sacar(Rojo)
+    }
+    
+}
 
 /*6.
 Sacando todas las de un color
 BIBLIOTECA. Escribir un procedimiento SacarTodasLasDeColor_(colorASacar), que quite de la celda actual todas las bolitas del color indicado por el parámetro.
 PISTA: Considerar utilizar el procedimiento Sacar_DeColor_, definido en la práctica anterior. ¿Qué argumentos se le deberían pasar?*/
 
+    procedure SacarTodasLasDeColor_(colorASacar){
+        Sacar_DeColor_(nroBolitas(colorASacar), colorASacar)
+    }
+
+    procedure Sacar_DeColor_(cantidad, color){
+        repeat (cantidad) {
+          Sacar(color)  
+        }
+    }
 /*7.
 ¿Y si vaciamos la celda?
 BIBLIOTECA. Escribir un procedimiento VaciarCelda() que quite de la celda actual todas las bolitas de todos los colores, dejando la celda vacía.*/
 
+    procedure VaciarCelda(parámetro1, parámetro2) {
+        /*
+            PROPÓSITO:  ....
+            PARÁMETROS:
+                * parámetro1: tipo - descripción.
+                * parámetro2: tipo - descripción.
+            PRECONDICIONES:
+                * ....
+        */
+        SacarTodasLasDeColor_(Azul)
+        SacarTodasLasDeColor_(Negro)
+        SacarTodasLasDeColor_(Rojo)
+        SacarTodasLasDeColor_(Verde)
+           
+    }
 /*8.
 La banda ahora es para todos
 Los hinchas de otros clubes se quejaron de que la banda que hicimos solo vale para River, y quieren poder hacer otras bandas. Escribir entonces DibujarBandaDeAlto_YAncho_DeColor_(alto, ancho, color) que dibuja una banda diagonal con los parámetros dados. Importante: Nuevamente, debe seguir funcionando el código para casos de borde.*/
+program{
+    DibujarBandaDeAlto_YAncho_DeColor__(3, 5, Negro)
+}
+
+procedure DibujarBandaDeAlto_YAncho_DeColor__(alto, ancho, color) {
+ 
+    repeat(ancho){
+        DibujarColumna(alto, color)
+        PasarASiguienteColumnaEnLaParteInferiorDeLaBanda(alto)
+    }
+    IrAlBorde(Sur)
+    IrAlBorde(Oeste)
+}
+
+procedure DibujarColumna(alto, color) {
+        //PROPÓSITO:pone bolitas rojas mientras sube 3 filas
+        //PRECONDICIONES: debe haber por lo menos 3 casilleros libres al norte de la posicion actual
+    repeat(alto){
+        Poner(color)
+        Mover(Norte)
+    }
+    Poner(color)
+}
+
+procedure PasarASiguienteColumnaEnLaParteInferiorDeLaBanda(alto) {
+        //PROPÓSITO:se mueve a la columna siguiente y en la parte inferior de la fila de la banda gloriosa
+        //PRECONDICIONES: debe haber al menos un casillero libre en la columna este y sur
+    repeat (alto-1) {
+        Mover(Sur)
+    }
+    Mover(Este)
+}
 
 /*9 - Aprendiendo a leer y escribir
 Definir el procedimiento PasarPalabraActualAMayúsculas() que suponiendo que en la fila actual se codifica una palabra en minúsculas usando bolitas, ponga la misma palabra en mayúsculas en la fila al Norte.
-▪
-Cada letra se representa con una cantidad diferente de bolitas negras, según un código numérico llamado ASCII.
-▪
-En la celda más al Oeste de la fila actual se codifica la cantidad de letras de la palabra, usando bolitas rojas.
-▪
-La primera letra de la palabra está en la celda lindante al Este de la que contiene la cantidad de letras.
-▪
-En el código ASCII si las letras mayúsculas se codifican con un número N entonces la misma letra minúscula se representa con N + 32 (ej. la ‘a’ minúsculas se representa con el número 97 y la ‘A’ mayúsculas, con el 65).
-▪
-El cabezal se encuentra en la celda más al Oeste de una fila donde hay una palabra representada.
 
+▪ Cada letra se representa con una cantidad diferente de bolitas negras, según un código numérico llamado ASCII.
+
+▪ En la celda más al Oeste de la fila actual se codifica la cantidad de letras de la palabra, usando bolitas rojas.
+
+▪ La primera letra de la palabra está en la celda lindante al Este de la que contiene la cantidad de letras.
+
+▪ En el código ASCII si las letras mayúsculas se codifican con un número N entonces la misma letra minúscula se representa con N + 32 (ej. la ‘a’ minúsculas se representa con el número 97 y la ‘A’ mayúsculas, con el 65).
+
+▪ El cabezal se encuentra en la celda más al Oeste de una fila donde hay una palabra representada.
 
 Importante: ¿Cómo comenzar la resolución? En cada procedimiento, ¿qué parte debe escribirse primero?*/
+
+procedure PasarPalabraActualAMayúsculas(parámetro1, parámetro2) {
+    
+    /*
+        PROPÓSITO: 
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * 
+    */
+    
+    
+}
