@@ -60,9 +60,3 @@ procedure EscribirLetra_Al_(codigoASCII, direccion){
 
     * Debe haber al menos **ancho - 1** celdas hacia el Este de la celda actual.
     * Debe haber al menos **ancho + alto - 2** celdas hacia el Norte de la celda actual.
-
-
-
-
-
-
