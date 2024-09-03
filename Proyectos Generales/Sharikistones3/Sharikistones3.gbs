@@ -1,21 +1,17 @@
 //Ejercicio 1
 
 procedure RemoverObstaculoEnElVertice(){
+    /*PROPÓSITO: 
+      PRECONDICIONES: */
  if(estaEnUnVertice()){
     RemoverObstaculoAqui()
  }
 }
 
 function estaEnUnVertice(){
-    /*
-        PROPÓSITO:  ....
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
+    /*  PROPÓSITO:  
         TIPO: Tipo
-        PRECONDICIONES:
-            * ....
-    */
+        PRECONDICIONES: */
 
     celdaEnVertice := false
     
@@ -127,5 +123,36 @@ procedure RemoverObstaculoAqui() {
 //Ejercicio 2
 
 procedure RodearFichaAqui(){
-
+    /*PROPÓSITO: Rodea una ficha de obstáculos en sus direcciones ortogonales siempre y cuando haya lugar en dichas direcciones.
+      PRECONDICIONES: Ninguna*/
+    ColocarObstaculoAl_SiHayLugar(Norte)
+    ColocarObstaculoAl_SiHayLugar(Sur)
+    ColocarObstaculoAl_SiHayLugar(Este)
+    ColocarObstaculoAl_SiHayLugar(Oeste)   
 }
+
+procedure ColocarObstaculoAl_SiHayLugar(direccion) {
+    /*  PROPÓSITO: Coloca un obstaculo al *direccion*
+        PARÁMETROS:
+            * direccion: Dirección. Indica la dirección a la que se debe colocar el obstáculo.
+        PRECONDICIONES: Debe haber una celda lindante al *direccion*.*/
+    if(puedeMover(direccion)){
+        ColocarObstaculoAl_(direccion)
+    }
+    Mover(opuesto(direccion))
+}
+
+procedure ColocarObstaculoAl_(direccion){
+    Mover(direccion)
+    PonerObstaculoAqui()
+}
+
+procedure PonerObstaculoAqui() {
+    /*  PROPÓSITO:  Vacía la celda actual y le coloca un obstáculo
+        PRECONDICIONES: - */
+    VaciarCelda()
+    repeat(2){
+        Poner(Negro)
+    }
+}
+
