@@ -1,0 +1,95 @@
+//Ejercicio 1
+
+procedure RemoverObstaculoEnElVertice(){
+ if(esVerticeSurOeste() || esVerticeSurEste() || esVerticeNorOeste() || esVerticeNorEste()){
+
+ }
+}
+
+function esVerticeSurOeste() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+
+    EsVerticeSurOeste := false
+
+    if(not(puedeMover(Sur)) && not(puedeMover(Oeste))){
+        EsVerticeSurOeste := true
+    }
+    
+    return (EsVerticeSurOeste)
+}
+
+function esVerticeSurEste() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+
+    EsVerticeSurEste := false
+
+    if(not(puedeMover(Sur)) && not(puedeMover(Este))){
+        EsVerticeSurEste := true
+    }
+    
+    return (EsVerticeSurEste)
+}
+
+function esVerticeNorOeste() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+
+    EsVerticeSurOeste := false
+
+    if(not(puedeMover(Sur)) && not(puedeMover(Oeste))){
+        EsVerticeSurOeste := true
+    }
+    
+    return (EsVerticeSurOeste)
+}
+
+function esVerticeNorEste() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+
+    EsVerticeSurOeste := false
+
+    if(not(puedeMover(Sur)) && not(puedeMover(Oeste))){
+        EsVerticeSurOeste := true
+    }
+    
+    return (EsVerticeSurOeste)
+}
+
+
+
+//Ejercicio 2
+
+procedure RodearFichaAqui(){
+
+}
