@@ -150,6 +150,20 @@ procedure Pintar3Puntos_(colorAPintar){
 /*7 - Multi Arcoiris:
 Utilizando el procedimiento Pintar3Puntos_, construir el procedimiento PintarArcoIris() que ponga el tablero de la derecha cuando el tablero inicial es el de la izquierda.*/
 
+procedure PintarArcoIris() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+
+    
+    
+}
+
 /*8.
 Y ahora, muchas Rojas
 Escribir un procedimiento Poner_DeColorRojo(cantidadAPoner) que dado un número cantidadAPoner, ponga tantas bolitas como se indica de color Rojo en la celda actual. ¿Cuántos casos posibles habría que considerar si no se usaran parámetros en este caso o el anterior?*/
