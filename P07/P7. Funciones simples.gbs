@@ -1,0 +1,71 @@
+//P7 - Funciones Simples
+
+/*1.  Definiendo mis primeras funciones 
+ 
+Definir funciones totales que describen cada uno de las siguientes casos: 
+ 
+Atención: Es conveniente utilizar funciones para expresar subtareas, de forma que las expresiones utilizadas resulten fáciles de entender. Recordar además escribir los contratos. 
+ 
+a) La cantidad total de bolitas de la celda actual. 
+b) Sí hay más de 5 bolitas en total en la celda actual. 
+c) Sí hay exactamente 5 bolitas en la celda actual. 
+d) Sí hay al menos 5 bolitas en la celda actual. 
+e) Sí hay bolitas de todos los colores en la celda actual. 
+f) Si la celda actual está vacía. 
+g) Sí a la celda actual le faltan bolitas de alguno de los colores y no está vacía.*/
+
+function cantidadDeBolitasAca(){
+    return(nroBolitas(Rojo)+nroBolitas(Negro)+nroBolitas(Azul)+nroBolitas(Verde))
+}
+
+function hayMasDe5Bolitas(){
+    /*
+    PROPÓSITO:  ....
+    PARÁMETROS:
+        * parámetro1: tipo - descripción.
+        * parámetro2: tipo - descripción.
+    TIPO: Tipo
+    PRECONDICIONES:
+        * ....
+    */
+    hayMasDe5Bolitas := false
+    if(cantidadDeBolitasAca() > 5){
+        hayMasDe5Bolitas := true
+    }
+    return(hayMasDe5Bolitas)
+}
+
+function hayExactamente5Bolitas() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    hayExactamente5Bolitas := false
+    if(cantidadDeBolitasAca() == 5){
+        hayExactamente5Bolitas := true
+    }
+    return(hayExactamente5Bolitas)
+ 
+}
+
+function hayAlMenos5Bolitas(parámetro1, parámetro2) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    hayAlMenos5Bolitas := false
+    if(cantidadDeBolitasAca() >= 5){
+        hayAlMenos5Bolitas := true
+    }
+    return(hayAlMenos5Bolitas)
+}
