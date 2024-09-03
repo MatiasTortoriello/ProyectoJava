@@ -239,42 +239,53 @@ program{
 }
 
 procedure DibujarRelojAnalógicoSimplificadoDeRadio_(radioDelReloj){
-    
     PonerLaHora12DeRadio_(radioDelReloj)
     PonerLaHora6DeRadio_(radioDelReloj)
     PonerLaHora3DeRadio_(radioDelReloj)
     PonerLaHora9DeRadio_(radioDelReloj)
-
-
 }
 
 procedure PonerLaHora12DeRadio_(radioDelReloj){
-    MoverNorteSegunRadio_(radioDelReloj)
+    Mover_SegunRadio_(Norte, radioDelReloj)
+    
     repeat(12){
         Poner(Rojo)
     }
-    MoverSurSegunRadio_(radioDelReloj)
+    Mover_SegunRadio_(Sur, radioDelReloj)
 }
 
 procedure PonerLaHora6DeRadio_(radioDelReloj){
+    Mover_SegunRadio_(Sur, radioDelReloj)
     repeat(6){
         Poner(Rojo)
     }
-        MoverNorteSegunRadio_(radioDelReloj)
+    Mover_SegunRadio_(Norte, radioDelReloj)
 }
 
 procedure PonerLaHora3DeRadio_(radioDelReloj){
+    Mover_SegunRadio_(Este, radioDelReloj)
     repeat(3){
         Poner(Rojo)
     }
+    Mover_SegunRadio_(Oeste, radioDelReloj)
 }
 
 procedure PonerLaHora9DeRadio_(radioDelReloj){
+    Mover_SegunRadio_(Oeste, radioDelReloj)
     repeat(9){
         Poner(Rojo)
     }
+    Mover_SegunRadio_(Este, radioDelReloj)
 
 }
+
+procedure Mover_SegunRadio_(direccionAMover, radioDelReloj){
+    repeat(radioDelReloj){
+        Mover(direccionAMover)
+    }
+}
+
+
 
 /*15 - En Papel*/
 
