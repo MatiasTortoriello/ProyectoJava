@@ -169,18 +169,62 @@ procedure PintarArcoIris() {
 /*8.
 Y ahora, muchas Rojas
 Escribir un procedimiento Poner_DeColorRojo(cantidadAPoner) que dado un número cantidadAPoner, ponga tantas bolitas como se indica de color Rojo en la celda actual. ¿Cuántos casos posibles habría que considerar si no se usaran parámetros en este caso o el anterior?*/
-
+procedure Poner_DeColorRojo(cantidadAPoner) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    repeat(cantidadAPoner){
+        Poner(Rojo)
+    }
+}
 /*9.
 Poner de a muchas
 BIBLIOTECA. Escribir un procedimiento Poner_DeColor_(cantidadAPoner, colorAPoner) que dado un número cantidadAPoner y un color colorAPoner, ponga tantas bolitas como se indica del color dado de la celda actual.*/
+repeat Poner_DeColor_(cantidadAPoner, colorAPoner){
+    repeat(cantidadAPoner){
+        Poner(colorAPoner)
+    }
+}
 
 /*10.
 Moviendo tantas veces como quieras a donde quieras
 BIBLIOTECA. Escribir Mover_VecesAl_(cantidadAMover, direcciónAMover), un procedimiento que dado un número cantidadAMover y una dirección direcciónAMover mueva el cabezal tantas veces como la dada en dicha dirección.*/
+procedure Mover_VecesAl_(cantidadAMover, direccionAMover) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    repeat(cantidadAMover){
+        Mover(direccionAMover)
+    }
+}
 
 /*11.
 Sacar de a muchas
 BIBLIOTECA. Escribir un procedimiento Sacar_DeColor_(cantidadASacar, colorASacar) que dado un número cantidadASacar y un color colorASacar, saque tantas bolitas como se indica del color dado de la celda actual.*/
+procedure Sacar_DeColor_(cantidadASacar, colorASacar) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    repeat(cantidadASacar){
+        Sacar(colorASacar)
+    }
+    
+}
 
 /*12.
 Escribiendo fechas
@@ -213,11 +257,29 @@ Por ejemplo, el programa del ejercicio anterior podría obtenerse invocando al p
 
 /*17 - El Bosque, parte 2:
 Continuaremos representando el bosque que comenzamos en la práctica anterior. Esta vez queremos ser capaces de poner o sacar múltiples elementos de una sola vez.
-Importante: para realizar este ejercicio se espera haya realizado partes anteriores de este dominio, si aún no lo hizo, se recomienda volver y realizar el mismo previo a solucionar el ejercicio actual.
+Importante: para realizar este ejercicio se espera haya realizado partes anteriores de este dominio, si aún no lo hizo, se recomienda volver y realizar el mismo previo a solucionar el ejercicio actual.*/
 
-Poner_Semillas(cantidadDeSemillasAPoner)
-Sacar_Semillas(cantidadDeSemillasASacar)
-Poner_Árboles(cantidadDeÁrbolesAPoner)
-Sacar_Árboles(cantidadDeÁrbolesASacar)
-Poner_Nutrientes(cantidadDeNutrientesAPoner)
-Sacar_Nutrientes(cantidadDeNutrientesASacar) */
+procedure Poner_Semillas(cantidadDeSemillasAPoner){
+
+}
+
+procedure Sacar_Semillas(cantidadDeSemillasASacar){
+
+}
+
+procedure Poner_Árboles(cantidadDeÁrbolesAPoner){
+
+}
+
+procedure Sacar_Árboles(cantidadDeÁrbolesASacar){
+
+}
+
+procedure Poner_Nutrientes(cantidadDeNutrientesAPoner){
+
+}
+
+procedure Sacar_Nutrientes(cantidadDeNutrientesASacar){
+    
+}
+ 
