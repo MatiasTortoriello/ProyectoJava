@@ -1,8 +1,11 @@
 //Ejercicio 1
 
 procedure RemoverObstaculoEnElVertice(){
- if(esVerticeSurOeste() || esVerticeSurEste() || esVerticeNorOeste() || esVerticeNorEste()){
-
+ if(esVerticeSurOeste() || 
+    esVerticeSurEste()  || 
+    esVerticeNorOeste() || 
+    esVerticeNorEste()  ){
+        RemoverObstaculoAqui()
  }
 }
 
@@ -86,6 +89,20 @@ function esVerticeNorEste() {
     return (EsVerticeSurOeste)
 }
 
+procedure RemoverObstaculoAqui() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    repeat(2){
+        Sacar(Negro)
+    }
+    
+}
 
 
 //Ejercicio 2
