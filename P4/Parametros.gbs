@@ -74,14 +74,11 @@ procedure Poner_ADistancia3Al_(color, dirección) {
     Mover3VecesAl_(dirección) Poner(color) }*/
 
 procedure Poner_ADistancia3Al_(color, direccion) {
-    /*
-        PROPÓSITO:  ....
+    /* PROPÓSITO:  Pone 3 bolitas de color *color* con una separación de dos casillas en dirección *dirección*
         PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        PRECONDICIONES:
-            * ....
-    */
+            * color: Color - Determina el color de las bolitas que serán puestas.
+            * dirección: Direccion - Determina la dirección hacia la que se moverá el cabezal.
+        PRECONDICIONES: Debe haber al menos 8 espacios libres hacia el *dirección* de la posición inicial */
     Mover3VecesAl_(direccion)
     Poner(color)
 }
@@ -152,13 +149,18 @@ Utilizando el procedimiento Pintar3Puntos_, construir el procedimiento PintarArc
 
 procedure PintarArcoIris() {
     /*
-        PROPÓSITO:  ....
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        PRECONDICIONES:
-            * ....
+        PROPÓSITO:  Dibuja un "arcoiris" de colores de tres bolitas de cada uno en casilleros diferentes utilizando el patrón Negro-Azul-Rojo en una fila
+        y tres bolitas verdes con separación de dos casilleros cada uno en la fila de arriba de la primera.
+        PRECONDICIONES: Debe haber al menos una celda libre al norte de la inicial y al menos ocho celdas libres al este de la celda inicial 
     */
+    Pintar3Puntos_(Negro)
+    Mover(Este)
+    Pintar3Puntos_(Azul)
+    Mover(Este)
+    Pintar3Puntos_(Rojo)
+    Mover(Norte)
+    Mover(Oeste)
+    Pintar3Puntos_(Verde)
 
     
     
