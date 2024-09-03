@@ -200,16 +200,65 @@ Definir el procedimiento PasarPalabraActualAMayúsculas() que suponiendo que en 
 
 Importante: ¿Cómo comenzar la resolución? En cada procedimiento, ¿qué parte debe escribirse primero?*/
 
-procedure PasarPalabraActualAMayúsculas(parámetro1, parámetro2) {
-    
+procedure  PasarPalabraActualAMayúsculas(){
     /*
-        PROPÓSITO: 
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        PRECONDICIONES:
-            * 
+    Prop.: Pasa una palabra escrita en minúscula en la fila actual a mayúscula y dejandola en la fila lindante
+           al Norte de la actual.
+    Prec.:  * El cabezal se encuentra en la celda más al Oeste de la palabra.
+            * Debe haber al menos tantas celdas al Este de la celda actual como tenga codificada.
+            * Debe haber al menos una fila lindante al Norte de la actual y las celdas sobre la palabra estan vacias
+    Obs.:   * Una palabra comienza por una celda con bolitas de color Rojo cuya cantidad
+            indica la cantidad de letras que posee la palabra.
+            * La primer celda al Este desde el comienzo, y sus subsiguientes, contienen las
+            letras de la palabra, dadas por la cantidad de bolitas de color Negro.
+            * Cada letra se codifica siguiendo el código ASCII.
     */
-    
+
+    repeat(nroBolitas(Rojo)){
+        PasarALaSiguienteLetra() //Mover(Este)
+        EscribirLetraEnMayúsculasAlNorte()
+    }
+    VolverAlInicioDeLaPalabra() //IrAlBorde(Oeste)
     
 }
+
+procedure PasarALaSiguienteLetra(){
+    /*
+    Prop.:Mueve el cabezal a la próxima letra de una palabra.
+    Prec.: * El cabezal se encuentra en la celda de una palabra (Ya sea al comienzo o
+             sobre alguna letra).
+           * Hay al menos una celda al Este de la actual.
+    */
+    Mover(Este)
+}
+
+
+procedure EscribirLetraEnMayúsculasAlNorte(){
+    /*
+    Prop.: Escribe la letra sobre la cual se encuentra el cabezal en la celda
+           lindante al Norte en mayúsculas.
+    Prec.: El cabezal se encuentra sobre una letra y esta está en minuscula.
+           Debe existir al menos una celda lindante al norte de la actual y debe estar vacia
+     obs.: * Cada letra se codifica siguiendo el código ASCII con bolitas negras.      
+    */
+    
+    EscribirLetra_Al_(nroBolitas(Negro)-32, Norte)
+    
+}
+
+procedure EscribirLetra_Al_(codigoASCII, direccion){
+    /*
+    Prop.: Escribe la letra con código ASCII **códigoASCII** en la celda lindante
+      en dirección **dirección**.
+    Parametros: *codigoASCII* - Numero - codigo ASCII de la letra
+                *direccion* - Direccion - direccion donde se escribe la letra
+    Prec.: Debe existir al menos una celda lindante al *direccion* de la actual y debe estar vacia
+    */
+    Mover(direccion)
+    Poner_DeColor_(codigoASCII, Negro)
+    Mover(opuesto(direccion))
+}
+
+
+    * Debe haber al menos **ancho - 1** celdas hacia el Este de la celda actual.
+    * Debe haber al menos **ancho + alto - 2** celdas hacia el Norte de la celda actual.
