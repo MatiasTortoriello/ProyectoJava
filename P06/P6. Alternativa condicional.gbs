@@ -57,24 +57,100 @@ procedure SacarUnaFicha_SiSePuede(colorDeLaFicha) {
         PRECONDICIONES:
             * ....
     */
-    
+    if(nroBolitas(colorDelLocal) == nroBolitas(colorDelVisitante)){
+        Poner(colorDelLocal)
+    }
+  
  }
+ +
 /*c) ExpandirBacteriaDeLaColonia(), que siempre que en la celda actual haya un cultivo de bacterias y haya suficientes nutrientes, agregue exactamente una bacteria más y consuma nutrientes, a razón de dos nutrientes por bacteria expandida; si no hay bacterias o no hay suficientes nutrientes, no hace nada. Las bacterias se representan con bolitas Verdes y los nutrientes con bolitas Rojas.*/
+procedure ExpandirBacteriaDeLaColonia() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
 
+    if(nroBolitas(bacterias) == nroBolitas(nutrientes)+2){
+        Poner(bacterias)
+        repeat (2) {
+            Sacar(nutrientes)
+        }
+    }
+    
+}
 /*d) PonerFlecha_AlNorteSiCorresponde(colorDeLaFlecha), que dado un color para representar flechas, ponga una flecha al Norte si existe espacio para moverse en esa dirección. Las flechas serán representadas con una bolita del color dado.*/
+procedure PonerFlecha_AlNorteSiCorresponde(colorDeLaFlecha) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    if(puedeMover(Norte)){
+        Poner(flecha)
+    }
+    
+}
 
 /*4 - Hacer solo si:
 
 La combinación de parámetros y expresiones booleanas es interesante.
 
 a) BIBLIOTECA. Escribir un procedimiento Poner_Si_(color, condición) que dado un color y un valor de verdad llamado condición, ponga en la celda actual una bolita del color dado si el valor de verdad de la condición es verdadero, y no lo ponga si no.
-EJEMPLO: Poner_Si_(Rojo, nroBolitas(Rojo) == 2) solamente pone una bolita roja cuando hay exactamente dos rojas en la celda actual.
+EJEMPLO: Poner_Si_(Rojo, nroBolitas(Rojo) == 2) solamente pone una bolita roja cuando hay exactamente dos rojas en la celda actual.*/
+procedure Poner_Si_(color, condicion) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    if(condicion){
+        Poner(color)
+    }
+    
+}
 
-b) BIBLIOTECA. Escribir el procedimiento Sacar_Si_(color, condición) que actúa de forma similar al anterior, pero ahora sacando bolitas si la condición se cumple.
-
-c) BIBLIOTECA. Escribir el procedimiento Mover_Si_(dirección, condición) que actúa de forma similar a los anteriores, pero ahora moviendo solo sí se cumple la condición dada..
-
-d) ¿Que beneficios trae tener los procedimientos Sacar_Si_ y Poner_Si_ contra utilizar if en cada caso?*/
+//b) BIBLIOTECA. Escribir el procedimiento Sacar_Si_(color, condición) que actúa de forma similar al anterior, pero ahora sacando bolitas si la condición se cumple.
+procedure Sacar_Si_(color, condicion) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    if(condicion){
+        Sacar(color)
+    }
+    
+}
+//c) BIBLIOTECA. Escribir el procedimiento Mover_Si_(dirección, condición) que actúa de forma similar a los anteriores, pero ahora moviendo solo sí se cumple la condición dada..
+procedure Mover_Si_(direccion, condicion) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    if(condicion){
+        Mover(direccion)
+    }
+    
+}
+//d) ¿Que beneficios trae tener los procedimientos Sacar_Si_ y Poner_Si_ contra utilizar if en cada caso?
+//El beneficio de no tener que armar todo el procedimiento de nuevo.
 
 /*5 - En papel*/
 
@@ -103,12 +179,143 @@ Precios de compra
 17 pesos  1 yuan
 
 Realizar los siguientes procedimientos para poder manipular la cuenta:
-a) Depositar_EnMoneda_ComoPesos(cantidadADepositar, moneda), que dada una cantidad de dinero a depositar y un color que representa la moneda en la que está representado ese monto, agrega a la cuenta la cantidad de pesos equivalente a lo indicado para
 
-b) ExtraerHasta_EnMoneda_(cantidadAExtraer, moneda), que dada una cantidad de dinero a extraer y un color que representa la moneda en la que se va a extraer, remueve de la cuenta la cantidad que se indica. Si no hubiera tanto dinero como el solicitado, se extrae todo lo que haya.
+a) Depositar_EnMoneda_ComoPesos(cantidadADepositar, moneda), que dada una cantidad de dinero a depositar y un color que representa la moneda en la que está representado ese monto, agrega a la cuenta la cantidad de pesos equivalente a lo indicado para depositar. En  este  procedimiento  hay que  aplicar  la conversión indicada para el precio de venta.*/
 
-c) ConvertirHasta_PesosA_(pesosAConvertir, moneda), que dada una cantidad de pesos a convertir y un color que representa la moneda en la cual se quiere convertir, remueve los pesos de la cuenta y agrega la moneda solicitada. Si en la cuenta hubiera menos pesos de lo solicitado, se convierte todo lo que haya.
+procedure Depositar_EnMoneda_ComoPesos(cantidadADepositar, moneda) {
+     /*PROPOSITO: Deposita en la cuenta actual equivalente a *cantidadADepositar* *moneda* en Pesos
+    PRECONDICIONES: * Debe haber una cuenta en la celda actual.
+    PARAMETROS:
+    *cantidadADepositar - Numero: Cantidad a depositar
+    *moneda - Color:Moneda a depositar 
+    OBSERVACIONES:
+    *Si *moneda* es rojo entonces son yuanes, si es verde dolares y si es azul euros*/
+    
+    repeat(cantidadADepositar){
+        DepositarUn_EnCuentaEnPesos(moneda)
+    }
+    
+}
 
-El último ejemplo es interesante: se piden convertir 100 pesos a dólares pero no hay 10 pesos en la cuenta, por lo que se va a intentar convertir el total de pesos que haya, 90. Con 90 pesos, no se llega a comprar ningún dólar, y como Gobstones solo trabaja con números enteros, no es posible tener medio dólar, por lo que queda en cero dólares.
+procedure DepositarUn_EnCuentaEnPesos(moneda){
+    /*
+    PROPOSITO: Deposita en la cuenta actual equivalente a un *moneda* en Pesos
+    PRECONDICIONES: * Debe haber una cuenta en la celda actual.
+    PARAMETROS:
+    *moneda - Color:Moneda a depositar 
+    OBSERVACIONES:
+    *Si *moneda* es rojo entonces son yuanes, si es verde dolares y si es azul euros
+    */
+    if (moneda==Negro)
+        then
+            {
+                Poner_DeColor_(1, Negro)
+            }
+        elseif (moneda==Verde)
+            {
+                Poner_DeColor_(80, Negro)
+            }
+        elseif (moneda==Azul)
+            {
+                Poner_DeColor_(90, Negro)
+            }
+        else
+            {
+                Poner_DeColor_(12, Negro)
+            }
+}
+/*b) ExtraerHasta_EnMoneda_(cantidadAExtraer, moneda), que dada una cantidad de dinero a extraer y un color que representa la moneda en la que se va a extraer, remueve de la cuenta la cantidad que se indica. Si no hubiera tanto dinero como el solicitado, se extrae todo lo que haya.*/
 
-d) RealizarCorridaCambiaria(), que dado un tablero de 1 única fila y 10 columnas, donde cada celda representa una cuenta bancaria, se realiza una corrida cambiaria, donde en cada cuenta se cambia la totalidad de los pesos a dólares.*/
+procedure ExtraerHasta_EnMoneda_(cantidadAExtraer, moneda)
+    {
+        /*
+        PROPÓSITO: Extrae de la cuenta la cantidad dada en la moneda dada, si no hay suficiente cantidad se extrea
+                   todo lo que haya.
+        PARÁMETROS:
+            * cantidadAExtraer : Número - La cantidad de dinero a extraer.
+            * moneda           : Color  - El color de la moneda dada.
+        PRECONDICIÓN: Ninguna.
+        */
+        
+        repeat(cantidadAExtraer){
+            ExtraerUn_SiHay(moneda)
+        }
+    }
+    
+procedure ExtraerUn_SiHay(moneda){
+    /*
+    Prop.:Extrae un *moneda* de la cuenta actual si hay
+    Prec.: Debe haber una cuenta en la celda actual
+    Parametos: *moneda* - Color - color de la moneda
+    */
+    if(hayBolitas(moneda)){
+        Sacar(moneda)
+    }
+    
+}    
+
+        /*otra solucion  
+        if (cantidadAExtraer >= nroBolitas(moneda))
+        then
+            {
+                SacarTodasLasDeColor_(moneda)
+            }
+        else
+            {
+                Sacar_DeColor_(cantidadAExtraer, moneda)
+            }*/
+
+
+/*c) ConvertirHasta_PesosA_(pesosAConvertir, moneda), que dada una cantidad de pesos a convertir y un color que representa la moneda en la cual se quiere convertir, remueve los pesos de la cuenta y agrega la moneda solicitada. Si en la cuenta hubiera menos pesos de lo solicitado, se convierte todo lo que haya.*/
+procedure ConvertirHasta_PesosA_(pesosAConvertir, moneda)
+    {
+        /*
+        PROPÓSITO: Convierte la cantidad de pesos dada a la moneda dada. Si no hubiera la cantidad de pesos dada
+                   se convierte todo los que haya.
+        PARÁMETROS:
+            * pesosAConvertir : Número - La cantidad de pesos a convertir.
+            * moneda          : Color  - El color de la moneda dada.
+        PRECONDICIÓN: La moneda no puede ser Pesos Argentinos.
+        */
+         
+         if(moneda==Verde)
+        then
+            {
+                Convertir_PesosA_ConTasa(pesosAConvertir,moneda,100)
+            }
+        elseif(moneda==Azul)
+            {
+                Convertir_PesosAEuros(pesosAConvertir,115)
+            }
+        elseif(moneda==Rojo)
+            {
+                Convertir_PesosAYuanesChinos(pesosAConvertir,17)
+            }
+
+    }
+    
+procedure Convertir_PesosADolaresEstadounidenses(pesosAConvertir,moneda, tasaDeCambio)
+    {
+        /*
+        PROPÓSITO: Convierte *pesosAConvertir* a dolares, si no hay suficiente convierte lo que hay  
+        PARÁMETROS: 
+            * pesosAConvertir : Número - La cantidad de pesos a convertir.
+        PRECONDICIÓN: Ninguna.
+        */
+        
+        if(pesosAConvertir <= nroBolitas(Negro))
+        then
+            {
+                Poner_DeColor_(pesosAConvertir div tasaDeCambio, moneda) //cambia
+                Sacar_DeColor_(pesosAConvertir, Negro)
+            }
+        else
+            {
+                Poner_DeColor_(nroBolitas(Negro) div 100, Verde)
+                SacarTodasLasDeColor_(Negro)
+            }
+    }
+
+/*El último ejemplo es interesante: se piden convertir 100 pesos a dólares pero no hay 10 pesos en la cuenta, por lo que se va a intentar convertir el total de pesos que haya, 90. Con 90 pesos, no se llega a comprar ningún dólar, y como Gobstones solo trabaja con números enteros, no es posible tener medio dólar, por lo que queda en cero dólares.*/
+
+/*d) RealizarCorridaCambiaria(), que dado un tablero de 1 única fila y 10 columnas, donde cada celda representa una cuenta bancaria, se realiza una corrida cambiaria, donde en cada cuenta se cambia la totalidad de los pesos a dólares.*/
