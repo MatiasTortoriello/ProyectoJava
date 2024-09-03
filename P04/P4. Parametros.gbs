@@ -226,30 +226,55 @@ procedure Sacar_DeColor_(cantidadASacar, colorASacar) {
     
 }
 
-/*12.
-Escribiendo fechas
-Construir un procedimiento EscribirFechaConDía_Mes_Año_(día, mes, año), que permita representar cualquier fecha dados el día, mes y año (como números). La representación debe ser la misma utilizada en el ejercicio anterior donde se registró el Día de la Memoria (Azul para el día, Rojo para el mes y Verde para el año, en tres celdas hacia el Este).
-¡Recordar! Debe comenzarse por escribir el contrato; en este caso puede resultar útil escribir también una observación con la representación a utilizar.*/
+/*12 - En Papel*/
 
-/*13.
-Listado de fechas
-Construir un programa que escriba un listado vertical con las siguientes fechas:
-▪
-Inicio de la Reforma Universitaria.
-▪
-Reglamentación del voto femenino en Argentina.
-▪
-Fecha en la que ocurrieron los hechos conmemorados en el Día Internacional de los Trabajadores.
-▪
-Creación del Ministerio de Ciencia y Tecnología argentino.
-▪
-Primera celebración del Día de la Mujer.
-*/
+/*13- En Papel*/
 
-/*14.
-Reloj analógico simplificado generalizado
+/*14 - Reloj analógico simplificado generalizado
 Generalizar el ejercicio del reloj analógico simplificado de la práctica anterior para que se pueda pasar el radio como parámetro. O sea, se le pide escribir un procedimiento llamado DibujarRelojAnalógicoSimplificadoDeRadio_(radio) que ponga los números del reloj como en el programa original, pero donde el radio recibido por parámetro indica la distancia al centro del reloj: mientras más grande es el radio, más alejados están los números del centro.
 Por ejemplo, el programa del ejercicio anterior podría obtenerse invocando al procedimiento con el comando DibujarRelojAnalógicoSimplificadoDeRadio_(2).*/
+
+program{
+    DibujarRelojAnalógicoSimplificadoDeRadio_(radioDelReloj)
+}
+
+procedure DibujarRelojAnalógicoSimplificadoDeRadio_(radioDelReloj){
+    
+    PonerLaHora12DeRadio_(radioDelReloj)
+    PonerLaHora6DeRadio_(radioDelReloj)
+    PonerLaHora3DeRadio_(radioDelReloj)
+    PonerLaHora9DeRadio_(radioDelReloj)
+
+
+}
+
+procedure PonerLaHora12DeRadio_(radioDelReloj){
+    MoverNorteSegunRadio_(radioDelReloj)
+    repeat(12){
+        Poner(Rojo)
+    }
+    MoverSurSegunRadio_(radioDelReloj)
+}
+
+procedure PonerLaHora6DeRadio_(radioDelReloj){
+    repeat(6){
+        Poner(Rojo)
+    }
+        MoverNorteSegunRadio_(radioDelReloj)
+}
+
+procedure PonerLaHora3DeRadio_(radioDelReloj){
+    repeat(3){
+        Poner(Rojo)
+    }
+}
+
+procedure PonerLaHora9DeRadio_(radioDelReloj){
+    repeat(9){
+        Poner(Rojo)
+    }
+
+}
 
 /*15 - En Papel*/
 
@@ -260,26 +285,44 @@ Continuaremos representando el bosque que comenzamos en la práctica anterior. E
 Importante: para realizar este ejercicio se espera haya realizado partes anteriores de este dominio, si aún no lo hizo, se recomienda volver y realizar el mismo previo a solucionar el ejercicio actual.*/
 
 procedure Poner_Semillas(cantidadDeSemillasAPoner){
-
+    
+    repeat(cantidadDeSemillasAPoner){
+        PonerUnaSemilla()
+    }
 }
 
 procedure Sacar_Semillas(cantidadDeSemillasASacar){
-
+    
+    repeat(cantidadDeSemillasASacar){
+        SacarUnaSemilla()
+    }
 }
 
 procedure Poner_Árboles(cantidadDeÁrbolesAPoner){
-
+    
+    repeat(cantidadDeÁrbolesAPoner){
+        PonerUnArbol()
+    }
 }
 
 procedure Sacar_Árboles(cantidadDeÁrbolesASacar){
-
+    
+    repeat(cantidadDeÁrbolesASacar){
+        SacarUnArbol()
+    }
 }
 
 procedure Poner_Nutrientes(cantidadDeNutrientesAPoner){
-
+    
+    repeat(cantidadDeNutrientesAPoner){
+        PonerUnNutriente()    
+    }
 }
 
 procedure Sacar_Nutrientes(cantidadDeNutrientesASacar){
     
+    repeat(cantidadDeNutrientesASacar){
+        SacarUnNutriente()
+    }       
 }
  
