@@ -1,12 +1,31 @@
 //Ejercicio 1
 
 procedure RemoverObstaculoEnElVertice(){
- if(esVerticeSurOeste() || 
+ if(estaEnUnVertice()){
+    RemoverObstaculoAqui()
+ }
+}
+
+function estaEnUnVertice(){
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+
+    celdaEnVertice := false
+    
+    if(esVerticeSurOeste() || 
     esVerticeSurEste()  || 
     esVerticeNorOeste() || 
     esVerticeNorEste()  ){
-        RemoverObstaculoAqui()
+        celdaEnVertice := true
  }
+ return(celdaEnVertice)
 }
 
 function esVerticeSurOeste() {
@@ -22,7 +41,7 @@ function esVerticeSurOeste() {
 
     EsVerticeSurOeste := false
 
-    if(not(puedeMover(Sur)) && not(puedeMover(Oeste))){
+    if(not puedeMover(Sur) && not puedeMover(Oeste)){
         EsVerticeSurOeste := true
     }
     
@@ -42,7 +61,7 @@ function esVerticeSurEste() {
 
     EsVerticeSurEste := false
 
-    if(not(puedeMover(Sur)) && not(puedeMover(Este))){
+    if(not puedeMover(Sur) && not puedeMover(Este)){
         EsVerticeSurEste := true
     }
     
@@ -62,7 +81,7 @@ function esVerticeNorOeste() {
 
     EsVerticeSurOeste := false
 
-    if(not(puedeMover(Sur)) && not(puedeMover(Oeste))){
+    if(notpuedeMover(Sur) && not puedeMover(Oeste)){
         EsVerticeSurOeste := true
     }
     
@@ -82,7 +101,7 @@ function esVerticeNorEste() {
 
     EsVerticeSurOeste := false
 
-    if(not(puedeMover(Sur)) && not(puedeMover(Oeste))){
+    if(not puedeMover(Sur) && not puedeMover(Oeste)){
         EsVerticeSurOeste := true
     }
     
@@ -108,5 +127,5 @@ procedure RemoverObstaculoAqui() {
 //Ejercicio 2
 
 procedure RodearFichaAqui(){
-
+    
 }
