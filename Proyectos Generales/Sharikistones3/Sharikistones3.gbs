@@ -20,9 +20,9 @@ function estaEnUnVertice(){
     celdaEnVertice := false
     
     if(esVerticeSurOeste() || 
-    esVerticeSurEste()  || 
-    esVerticeNorOeste() || 
-    esVerticeNorEste()  ){
+       esVerticeSurEste()  || 
+       esVerticeNorOeste() || 
+       esVerticeNorEste()  ){
         celdaEnVertice := true
  }
  return(celdaEnVertice)
@@ -127,5 +127,5 @@ procedure RemoverObstaculoAqui() {
 //Ejercicio 2
 
 procedure RodearFichaAqui(){
-    
+
 }
