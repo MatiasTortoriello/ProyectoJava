@@ -1,17 +1,17 @@
 //Ejercicio 1
 
 procedure RemoverObstaculoEnElVertice(){
-    /*PROPÓSITO: 
-      PRECONDICIONES: */
+    /*PROPÓSITO: Remueve un obstáculo en un vértice determinado
+      PRECONDICIONES: - */
  if(estaEnUnVertice()){
     RemoverObstaculoAqui()
  }
 }
 
 function estaEnUnVertice(){
-    /*  PROPÓSITO:  
+    /*  PROPÓSITO: Determina si el cabezal se encuentra en un vértice
         TIPO: Tipo
-        PRECONDICIONES: */
+        PRECONDICIONES: - */
 
     celdaEnVertice := false
     
@@ -26,13 +26,9 @@ function estaEnUnVertice(){
 
 function esVerticeSurOeste() {
     /*
-        PROPÓSITO:  ....
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        TIPO: Tipo
-        PRECONDICIONES:
-            * ....
+        PROPÓSITO:  Determina si el cabezal se encuentra en el vértice SurOeste
+        TIPO: Dirección
+        PRECONDICIONES: -
     */
 
     EsVerticeSurOeste := false
@@ -46,13 +42,9 @@ function esVerticeSurOeste() {
 
 function esVerticeSurEste() {
     /*
-        PROPÓSITO:  ....
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        TIPO: Tipo
-        PRECONDICIONES:
-            * ....
+        PROPÓSITO:  Determina si el cabezal se encuentra en el vértice SurEste
+        TIPO: Dirección
+        PRECONDICIONES: -
     */
 
     EsVerticeSurEste := false
@@ -66,13 +58,9 @@ function esVerticeSurEste() {
 
 function esVerticeNorOeste() {
     /*
-        PROPÓSITO:  ....
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        TIPO: Tipo
-        PRECONDICIONES:
-            * ....
+        PROPÓSITO:  Determina si el cabezal se encuentra en el vértice NorOeste
+        TIPO: Dirección
+        PRECONDICIONES: -
     */
 
     EsVerticeSurOeste := false
@@ -86,13 +74,9 @@ function esVerticeNorOeste() {
 
 function esVerticeNorEste() {
     /*
-        PROPÓSITO:  ....
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        TIPO: Tipo
-        PRECONDICIONES:
-            * ....
+        PROPÓSITO:  Determina si el cabezal se encuentra en el vértice NorEste
+        TIPO: Dirección
+        PRECONDICIONES: -
     */
 
     EsVerticeSurOeste := false
@@ -106,17 +90,27 @@ function esVerticeNorEste() {
 
 procedure RemoverObstaculoAqui() {
     /*
-        PROPÓSITO:  ....
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        PRECONDICIONES:
-            * ....
+        PROPÓSITO:  Remueve un obstáculo en la posición actual en el caso de que exista uno
+        PRECONDICIONES: -
     */
+    if(hayObstaculoAqui()){
     repeat(2){
         Sacar(Negro)
     }
+    }
     
+}
+
+function hayObstaculoAqui() {
+    /*  PROPÓSITO:  Determina si en la posición actual existe un obstáculo
+        TIPO: Boolean
+        PRECONDICIONES: -  */
+    
+    hayObstaculo := false
+    if(nroBolitas(Negro) == 2){
+        hayObstaculo := true
+    }
+    return (hayObstaculo)
 }
 
 
