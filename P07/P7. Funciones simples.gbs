@@ -377,44 +377,39 @@ procedure Polinizar(parámetro1, parámetro2) {
 
 /*f) Debería haberle surgido la necesidad de contar con algunas funciones de representación adicionales, como cantidadDeÁrboles() o cantidadDeNutrientes() (entre otras). Sí el código de sus soluciones habla de bolitas en lugar del problema, recomendamos  que  revise  nuevamente  para  intentar  generar  funciones que le permitan abstraerse de la representación. */
 
-
-/*6.  ¿Vamos al banco? - Parte 2 
+/*6 - ¿Vamos al banco? - Parte 2 
  
 Continuaremos utilizando el mismo dominio del banco de la práctica anterior. Esta  vez,  vamos  a realizar funciones que nos permitan abstraernos de la representación subyacente, así como simplificar cálculos en
-nuestras operaciones. Se pide entonces que realice las siguientes funciones: 
+nuestras operaciones. Se pide entonces que realice las siguientes funciones: */
  
-a) pesos() que describe el color con el que se representan los pesos en el tablero, Negro. 
+//a) pesos() que describe el color con el que se representan los pesos en el tablero, Negro. 
  
-b) dólares() que describe el color con el que se representan los dólares en el tablero, Verde. 
+//b) dólares() que describe el color con el que se representan los dólares en el tablero, Verde. 
  
-c) euros() que describe el color con el que se representan los euros en el tablero, Azul. 
+//c) euros() que describe el color con el que se representan los euros en el tablero, Azul. 
  
-d) yuanes() que describe el color con el que se representan los yuanes en el tablero, Rojo. 
+//d) yuanes() que describe el color con el que se representan los yuanes en el tablero, Rojo. 
  
-e) ahorrosEn_(moneda) que dada una moneda, indica la cantidad de unidades de esa moneda en la cuenta 
-actual. 
+/*e) ahorrosEn_(moneda) que dada una moneda, indica la cantidad de unidades de esa moneda en la cuenta 
+actual.*/ 
  
-f) cuantosDolaresSePuedeComprarCon_Pesos(cantidadDePesos)  que indica la cantidad de dólares que se 
-pueden comprar con una cantidad de pesos dada. 
+/*f) cuantosDolaresSePuedeComprarCon_Pesos(cantidadDePesos)  que indica la cantidad de dólares que se 
+pueden comprar con una cantidad de pesos dada. */
  
-g) cuantosEurosSePuedeComprarCon_Pesos(cantidadDePesos)  que  indica  la  cantidad  de  euros  que  se 
-pueden comprar con una cantidad de pesos dada. 
+/*g) cuantosEurosSePuedeComprarCon_Pesos(cantidadDePesos) que indica la cantidad de euros que se pueden comprar con una cantidad de pesos dada.*/ 
  
-h) cuantosYuanesSePuedeComprarCon_Pesos(cantidadDePesos)  que indica  la  cantidad de yuanes que  se 
-pueden comprar con una cantidad de pesos dada. 
+/*h) cuantosYuanesSePuedeComprarCon_Pesos(cantidadDePesos) que indica la cantidad de yuanes que se 
+pueden comprar con una cantidad de pesos dada.*/ 
  
-i) cuantosPesosSiVendo_Dólares(cantidadDeMonedaExtranjera) que indica la cantidad de pesos a obtener 
-si se venden (depositan) la cantidad de dólares dada. 
+/*i) cuantosPesosSiVendo_Dólares(cantidadDeMonedaExtranjera) que indica la cantidad de pesos a obtener 
+si se venden (depositan) la cantidad de dólares dada.*/
  
-j) cuantosPesosSiVendo_Euros(cantidadDeMonedaExtranjera) que indica la cantidad de pesos a obtener si 
-se venden (depositan) la cantidad de euros dada. 
+/*j) cuantosPesosSiVendo_Euros(cantidadDeMonedaExtranjera) que indica la cantidad de pesos a obtener si 
+se venden (depositan) la cantidad de euros dada.*/ 
  
-k) cuantosPesosSiVendo_Yuanes(cantidadDeMonedaExtranjera) que indica la cantidad de pesos a obtener 
-si se venden (depositan) la cantidad de yuanes dada. 
+/*k) cuantosPesosSiVendo_Yuanes(cantidadDeMonedaExtranjera) que indica la cantidad de pesos a obtener 
+si se venden (depositan) la cantidad de yuanes dada.*/ 
  
-l) Vuelva a realizar los procedimientos de la práctica anterior, ahora utilizando las funciones realizadas en los 
-puntos anteriores. 
+/*l) Vuelva a realizar los procedimientos de la práctica anterior, ahora utilizando las funciones realizadas en los puntos anteriores.*/ 
  
-Reflexionamos:  ¿Cuánto  esfuerzo  conlleva  cambiar  la  representación  de  Euros  y  Pesos,  para  que  ahora  los 
-primeros sean representados con bolitas negras y las segundas con azules.? ¿Cuántos lugares hubo que tocar? 
-Sí la respuesta es más de 2, puede que no haya resuelto bien los ejercicios.*/
+/*Reflexionamos: ¿Cuánto esfuerzo conlleva cambiar la representación de Euros y Pesos, para que ahora los primeros sean representados con bolitas negras y las segundas con azules.? ¿Cuántos lugares hubo que tocar? Sí la respuesta es más de 2, puede que no haya resuelto bien los ejercicios.*/
