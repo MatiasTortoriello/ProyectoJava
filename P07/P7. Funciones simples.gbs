@@ -336,6 +336,7 @@ procedure GerminarSemilla() {
 }
 
 /*c) AlimentarÁrboles(), que hace que los árboles de la celda actual se alimenten, consumiendo un nutriente cada uno. El único cambio que hay que hacer es la eliminación de los nutrientes. Si hay menos nutrientes de lo que se necesita, se consumen todos los que hay. */
+
 procedure AlimentarArboles() {
     /*
         PROPÓSITO:  ....
@@ -350,6 +351,7 @@ procedure AlimentarArboles() {
 
 /*d) ExplotarBomba(), que explota una bomba en la celda actual, eliminando árboles. Al explotar, una bomba 
 derriba 5 árboles en la celda actual y 3 en la celda lindante al Norte. Si la celda actual está en el borde Norte, entonces solo se eliminan los árboles de la celda actual. Atención: cuando haya menos árboles de los que la bomba puede eliminar, entonces elimina los que haya. La bomba se consume en el proceso, o sea, hay que eliminarla.*/  
+
 procedure ExplotarBomba() {
     /*
         PROPÓSITO:  ....
@@ -363,6 +365,7 @@ procedure ExplotarBomba() {
 }
 
 /*e) Polinizar(), los árboles en la celda actual polinizan la celda lindante en la dirección Este, generando tantas semillas en esa celda como árboles haya en la celda actual, menos 3. Por ejemplo, si en la celda actual hay 5 árboles, se generan 2 semillas en la celda lindante al Este. Si en la celda actual hay menos de 3 árboles, o no tiene lindante al Este, entonces no se hace nada. */
+
 procedure Polinizar(parámetro1, parámetro2) {
     /*
         PROPÓSITO:  ....
@@ -383,33 +386,119 @@ Continuaremos utilizando el mismo dominio del banco de la práctica anterior. Es
 nuestras operaciones. Se pide entonces que realice las siguientes funciones: */
  
 //a) pesos() que describe el color con el que se representan los pesos en el tablero, Negro. 
- 
+
+function pesos() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    
+    return ()
+}
+
 //b) dólares() que describe el color con el que se representan los dólares en el tablero, Verde. 
- 
+
+function pesos() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    
+    return ()
+}
+
 //c) euros() que describe el color con el que se representan los euros en el tablero, Azul. 
+
+function pesos() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    
+    return ()
+}
  
 //d) yuanes() que describe el color con el que se representan los yuanes en el tablero, Rojo. 
+
+function pesos() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    
+    return ()
+}
  
 /*e) ahorrosEn_(moneda) que dada una moneda, indica la cantidad de unidades de esa moneda en la cuenta 
 actual.*/ 
- 
+
+function ahorrosEn_(moneda){
+
+}
+
 /*f) cuantosDolaresSePuedeComprarCon_Pesos(cantidadDePesos)  que indica la cantidad de dólares que se 
 pueden comprar con una cantidad de pesos dada. */
- 
+
+function cuantosDolaresSePuedeComprarCon_Pesos(cantidadDePesos){
+
+}
+
 /*g) cuantosEurosSePuedeComprarCon_Pesos(cantidadDePesos) que indica la cantidad de euros que se pueden comprar con una cantidad de pesos dada.*/ 
  
+function cuantosEurosSePuedeComprarCon_Pesos(cantidadDePesos){
+
+}
+
 /*h) cuantosYuanesSePuedeComprarCon_Pesos(cantidadDePesos) que indica la cantidad de yuanes que se 
 pueden comprar con una cantidad de pesos dada.*/ 
  
+function cuantosYuanesSePuedeComprarCon_Pesos(cantidadDePesos){
+
+}
+
 /*i) cuantosPesosSiVendo_Dólares(cantidadDeMonedaExtranjera) que indica la cantidad de pesos a obtener 
 si se venden (depositan) la cantidad de dólares dada.*/
  
+function cuantosPesosSiVendo_Dolares(cantidadDeMonedaExtranjera){
+
+}
+
 /*j) cuantosPesosSiVendo_Euros(cantidadDeMonedaExtranjera) que indica la cantidad de pesos a obtener si 
 se venden (depositan) la cantidad de euros dada.*/ 
- 
+
+function cuantosPEsosSiVendo_Euros(cantidadDeMonedaExtranjera){
+
+} 
+
 /*k) cuantosPesosSiVendo_Yuanes(cantidadDeMonedaExtranjera) que indica la cantidad de pesos a obtener 
 si se venden (depositan) la cantidad de yuanes dada.*/ 
  
+function cuantosPesosSiVendo_Yuanes(cantidadDeMonedaExtranjera){
+
+}
+
 /*l) Vuelva a realizar los procedimientos de la práctica anterior, ahora utilizando las funciones realizadas en los puntos anteriores.*/ 
- 
+
+
+
 /*Reflexionamos: ¿Cuánto esfuerzo conlleva cambiar la representación de Euros y Pesos, para que ahora los primeros sean representados con bolitas negras y las segundas con azules.? ¿Cuántos lugares hubo que tocar? Sí la respuesta es más de 2, puede que no haya resuelto bien los ejercicios.*/
