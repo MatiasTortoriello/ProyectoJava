@@ -28,11 +28,7 @@ function hayMasDe5Bolitas(){
     PRECONDICIONES:
         * ....
     */
-    hayMasDe5Bolitas := false
-    if(cantidadDeBolitasAca() > 5){
-        hayMasDe5Bolitas := true
-    }
-    return(hayMasDe5Bolitas)
+    return(cantidadDeBolitasAca() > 5)
 }
 
 function hayExactamente5Bolitas() {
@@ -45,11 +41,8 @@ function hayExactamente5Bolitas() {
         PRECONDICIONES:
             * ....
     */
-    hayExactamente5Bolitas := false
-    if(cantidadDeBolitasAca() == 5){
-        hayExactamente5Bolitas := true
-    }
-    return(hayExactamente5Bolitas)
+
+    return(cantidadDeBolitasAca() == 5)
  
 }
 
@@ -63,11 +56,7 @@ function hayAlMenos5Bolitas(parámetro1, parámetro2) {
         PRECONDICIONES:
             * ....
     */
-    hayAlMenos5Bolitas := false
-    if(cantidadDeBolitasAca() >= 5){
-        hayAlMenos5Bolitas := true
-    }
-    return(hayAlMenos5Bolitas)
+    return(cantidadDeBolitasAca() >= 5)
 }
 
 function hayBolitasDeTodosLosColores(){
@@ -100,6 +89,32 @@ a) esCeldaVacía(), que indica si la celda actual se encuentra vacía.
 b) tieneUnaDeCada(), que indica si la celda actual tiene al menos una bolita de cada color. 
 c) esCeldaConBolitas(), que indica si la celda actual tiene al menos una bolita, de cualquier color.*/
 
+function esCeldaVacia(){
+    /*
+        Proposito: Verificar si la celda actual esta vacia
+        Precondincion: Ninguna
+        Tipo: Booleano
+    */
+    return ( not hayBolitas(Rojo) && not hayBolitas(Negro) 
+            && not hayBolitas(Verde) && not hayBolitas(Azul))
+}
+
+function tieneUnaDeCada(){
+    /*
+        Proposito: Verificar si en la celda actual hay al menos una bolita de cada color
+        Precondicion: Ninguna
+        Tipo: Booleano
+    */
+    return (hayBolitas(Rojo) && hayBolitas(Negro) && hayBolitas(Verde) && hayBolitas(Azul))
+}
+function esCeldaConBolitas(){
+    /*
+        Proposito: Verificar si en la celda actual hay almenos una bolita, sin importar el color
+        Precondicion: Ninguno
+        Tipo: Booleano
+    */
+    return (hayBolitas(Rojo) || hayBolitas(Negro) || hayBolitas(Verde) || hayBolitas(Azul))
+}
 /*3.  ¡A la batalla!, parte 2 
  
 Escribir las siguientes funciones para el juego ¡A la batalla! de la práctica anterior, donde en las celdas del tablero se representan soldados (los aliados con una bolita de color Negro y los enemigos con una bolita de color Rojo por cada soldado). 

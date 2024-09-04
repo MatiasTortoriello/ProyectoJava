@@ -1,0 +1,10 @@
+//P8 - Repetición Condicional
+
+/*1.  Un nuevo IrAlBorde 
+ 
+Definir el procedimiento IrAlBorde_(dirección), que lleva al cabezal al borde dado por el parámetro dirección. ¡Atención! Debe realizar el ejercicio sin utilizar el comando primitivo IrAlBorde. Dado que el único otro comando primitivo que permite mover el cabezal es Mover, debe repetirse su uso mientras nohasta que se haya cumplido el propósito.  
+Reflexionamos ¿Cuál es la condición que indica que el propósito se cumplió?*/
+
+/*2.  Otra forma de sacar todas 
+ 
+Volver a definir el procedimiento SacarTodasLasDeColor_(color), que quita todas las bolitas del color dado por el parámetro  color  de  la  celda  actual,  pero  esta  vez  SIN  utilizar  la  expresión primitiva nroBolitas (directa o indirectamente).*/
