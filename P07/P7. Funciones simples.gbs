@@ -265,38 +265,123 @@ function hayUnPlanetaRecto() {
  
 Continuaremos utilizando el mismo dominio del bosque que venimos utilizando en las prácticas anteriores. Esta vez se pide escribir los siguientes procedimientos que modelan el bosque. Considerar la reutilización de los procedimientos hechos en las partes anteriores y la definición de nuevas funciones necesarias para no tener que depender de la representación dada. 
  
-a) Escribir  las  funciones  árbol(),  semilla(),  bomba(),  nutriente()  que  describen  las  representaciones de los elementos del ejercicios “El bosque”, de las prácticas anteriores. 
- 
-b) GerminarSemilla(), que  transforma  una  semilla  en  un  árbol  en la  celda actual.  La  germinación  consume 
-tres unidades de nutrientes. Si en la celda no hay semilla, o no hay suficientes nutrientes, no se hace nada. 
- 
-c) AlimentarÁrboles(), que hace que los árboles de la celda actual se alimenten, consumiendo un nutriente 
-cada uno. El único cambio que hay que hacer es la eliminación de los nutrientes. Si hay menos nutrientes 
-de lo que se necesita, se consumen todos los que hay. 
- 
-d) ExplotarBomba(), que explota una bomba en la celda actual, eliminando árboles. Al explotar, una bomba 
-derriba 5 árboles en la celda actual y 3 en la celda lindante al Norte. Si la celda actual está en el borde Norte, entonces solo se eliminan los árboles de la celda actual. Atención: cuando haya menos árboles de los que 
-la bomba puede eliminar, entonces elimina los que haya. La bomba se consume en el proceso, o sea, hay 
-que eliminarla.  
- 
-e) Polinizar(), los árboles en la celda actual polinizan la celda lindante en la dirección Este, generando tantas 
-semillas en esa celda como árboles haya en la celda actual, menos 3. Por ejemplo, si en la celda actual hay 
-5 árboles, se generan 2 semillas en la celda lindante al Este. Si en la celda actual hay menos de 3 árboles, 
-o no tiene lindante al Este, entonces no se hace nada. 
- 
-f) Debería haberle surgido la necesidad de contar con algunas funciones de representación adicionales, como 
-cantidadDeÁrboles() o cantidadDeNutrientes() (entre otras). Sí el código de sus soluciones habla de bolitas 
-en  lugar  del  problema,  recomendamos  que  revise  nuevamente  para  intentar  generar  funciones  que  le 
-permitan abstraerse de la representación. */
+a) Escribir las funciones árbol(), semilla(), bomba(), nutriente() que describen las representaciones de los elementos del ejercicios “El bosque”, de las prácticas anteriores. */
+
+function arbol() {
+    /*
+        PROPÓSITO:  Devuelve un árbol
+        TIPO: Color
+        PRECONDICIONES: -
+    */
+    
+    return (Verde)
+}
+
+function semilla() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    
+    return ()
+}
+
+function bomba() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    
+    return ()
+}
+
+function nutriente() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    
+    return ()
+}
+
+/*b) GerminarSemilla(), que transforma una semilla en un árbol en la celda actual. La germinación consume 
+tres unidades de nutrientes. Si en la celda no hay semilla, o no hay suficientes nutrientes, no se hace nada.*/
+
+procedure GerminarSemilla() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+
+}
+
+/*c) AlimentarÁrboles(), que hace que los árboles de la celda actual se alimenten, consumiendo un nutriente cada uno. El único cambio que hay que hacer es la eliminación de los nutrientes. Si hay menos nutrientes de lo que se necesita, se consumen todos los que hay. */
+procedure AlimentarArboles() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    
+}
+
+/*d) ExplotarBomba(), que explota una bomba en la celda actual, eliminando árboles. Al explotar, una bomba 
+derriba 5 árboles en la celda actual y 3 en la celda lindante al Norte. Si la celda actual está en el borde Norte, entonces solo se eliminan los árboles de la celda actual. Atención: cuando haya menos árboles de los que la bomba puede eliminar, entonces elimina los que haya. La bomba se consume en el proceso, o sea, hay que eliminarla.*/  
+procedure ExplotarBomba() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    
+}
+
+/*e) Polinizar(), los árboles en la celda actual polinizan la celda lindante en la dirección Este, generando tantas semillas en esa celda como árboles haya en la celda actual, menos 3. Por ejemplo, si en la celda actual hay 5 árboles, se generan 2 semillas en la celda lindante al Este. Si en la celda actual hay menos de 3 árboles, o no tiene lindante al Este, entonces no se hace nada. */
+procedure Polinizar(parámetro1, parámetro2) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    
+}
+
+/*f) Debería haberle surgido la necesidad de contar con algunas funciones de representación adicionales, como cantidadDeÁrboles() o cantidadDeNutrientes() (entre otras). Sí el código de sus soluciones habla de bolitas en lugar del problema, recomendamos  que  revise  nuevamente  para  intentar  generar  funciones que le permitan abstraerse de la representación. */
 
 
 /*6.  ¿Vamos al banco? - Parte 2 
  
-Continuaremos  utilizando  el  mismo  dominio  del  banco  de  la  práctica  anterior.  Esta  vez,  vamos  a  realizar 
-funciones  que  nos  permitan  abstraernos  de  la  representación  subyacente,  así  como  simplificar  cálculos  en 
-nuestras operaciones. 
- 
-Se pide entonces que realice las siguientes funciones: 
+Continuaremos utilizando el mismo dominio del banco de la práctica anterior. Esta  vez,  vamos  a realizar funciones que nos permitan abstraernos de la representación subyacente, así como simplificar cálculos en
+nuestras operaciones. Se pide entonces que realice las siguientes funciones: 
  
 a) pesos() que describe el color con el que se representan los pesos en el tablero, Negro. 
  
