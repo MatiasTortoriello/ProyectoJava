@@ -190,19 +190,23 @@ function estadoDeEmergencia(colorDelEjercitoAliado, colorDelEjercitoEnemigo){
 /*e) hayAlMenos_AliadosPorCada_Atacantes(cantidadDefensa, cantidadAtaque) que indica si hay por lo menos cantidadDefensa soldados aliados por cada cantidadAtaque soldados enemigos en la celda actual. Por  ejemplos  si  en la  celda actual  hubiera  10  soldados  aliados y  5  enemigos,  la función invocada  como hayAlMenos_AliadosPorCada_Atacantes(2, 1), describiría Verdadero, pues hay al menos dos aliados por cada atacante. Si se invocara con esos mismos argumentos en una celda donde hay 7 aliados y 5 enemigos, describiría Falso. */
 
 function hayAlMenos_AliadosPorCada_Atacantes(cantidadDefensa, cantidadAtaque){
-    
+    return()    
 }
 
  
 /*f) aliadosNecesariosParaDefensaEficazContra_(cantidadDeSoldadosEnemigosAdicionales) que describe el número de soldados aliados que  faltan  para defender la  celda  actual  si a  ella  se  suman la  cantidad de soldados enemigos dada. Tener en cuenta que en la celda actual puede ser que haya soldados, pero que es precondición de  esta función  que  no  hay suficientes  aliados.  Recordemos que  2  soldados  enemigos pelean contra 3 soldados aliados y todos mueren.*/
 
+function aliadosNecesariosParaDefensaEficazContra_(cantidadDeSoldadosEnemigosAdicionales){
+    return()
+}
+
 /*4.  ¡Mira mami! ¡sin bolitas! 
  
-A continuación  se dan  una serie de  funciones que  se  consideran  primitivas, es decir, que puede asumir realizadas y no debe implementarlas de ninguna forma. 
+A continuación  se dan  una serie de  funciones que  se  consideran  primitivas, es decir, que puede asumir realizadas y no debe implementarlas de ninguna forma. */
  
-hayUnPlanetaA_Hacia_(distancia, dirección) 
-/* 
-    PROPÓSITO: Indica si hay un planeta a **distancia** celdas hacia **dirección**. 
+function hayUnPlanetaA_Hacia_(distancia, dirección) 
+
+    /*PROPÓSITO: Indica si hay un planeta a **distancia** celdas hacia **dirección**. 
     PARÁMETROS: 
         * distancia: Número - La cantidad de celdas a la cual se 
                      desea buscar un planeta. 
@@ -210,33 +214,58 @@ hayUnPlanetaA_Hacia_(distancia, dirección)
     PRECONDICIONES: 
         * Hay al menos **distancia** celdas en dirección **dirección**. 
         * El cabezal está sobre la nave. 
-    TIPO: Booleano 
-*/ 
+    TIPO: Booleano*/
  
-/*combustibleRestante {
-/* 
-    PROPÓSITO: Indica la cantidad de combustible que le queda a la nave. 
+ 
+function combustibleRestante {
+
+    /*PROPÓSITO: Indica la cantidad de combustible que le queda a la nave. 
     PRECONDICIONES: 
         * El cabezal está sobre la nave. 
-    TIPO: Número 
+    TIPO: Número*/
+
     }
-*/ 
+ 
  
 /*Utilizando dichas funciones, se pide que se definan las siguientes, sin hacer suposiciones sobre la representación. */
  
 /*a) sePuedeAterrizarA_Hacia_(distanciaAPlaneta,  direcciónAPlaneta), que asumiendo  que el cabezal se encuentra sobre la nave y hay al menos distanciaAPlanera celdas en dirección direcciónAPlaneta, indica si hay un planeta a distanciaAPlaneta en la dirección direcciónAPlaneta y sí el combustible es suficiente para llegar al mismo. La nave consume una única unidad de combustibe por cada celda que deba moverse. */
- 
+
+function sePuedeAterrizarA_Hacia_(distanciaAPlaneta, direccionAPlaneta){
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    
+    return ()
+} 
+
 /*b) Sabiendo que el cabezal se encuentra sobre la nave y a exactamente 3 celdas de distancia de todos los bordes, se pide que escriba la función hayUnPlanetaRecto(), que indica que existe un planeta en cualquiera de las direcciones, a cualquier distancia desde la nave.*/
 
-/*5.  El bosque, parte 4 
+function hayUnPlanetaRecto() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    
+    return ()
+}
+
+/*5 - El bosque, parte 4 
  
-Continuaremos utilizando el mismo dominio del bosque que venimos utilizando en las prácticas anteriores. Esta 
-vez  se  pide  escribir los  siguientes  procedimientos  que  modelan  el  bosque.  Considerar la  reutilización de  los 
-procedimientos hechos en las partes anteriores y la definición de  nuevas funciones necesarias para no tener 
-que depender de la representación dada. 
+Continuaremos utilizando el mismo dominio del bosque que venimos utilizando en las prácticas anteriores. Esta vez se pide escribir los siguientes procedimientos que modelan el bosque. Considerar la reutilización de los procedimientos hechos en las partes anteriores y la definición de nuevas funciones necesarias para no tener que depender de la representación dada. 
  
-a) Escribir  las  funciones  árbol(),  semilla(),  bomba(),  nutriente()  que  describen  las  representaciones  de  los 
-elementos del ejercicios “El bosque”, de las prácticas anteriores. 
+a) Escribir  las  funciones  árbol(),  semilla(),  bomba(),  nutriente()  que  describen  las  representaciones de los elementos del ejercicios “El bosque”, de las prácticas anteriores. 
  
 b) GerminarSemilla(), que  transforma  una  semilla  en  un  árbol  en la  celda actual.  La  germinación  consume 
 tres unidades de nutrientes. Si en la celda no hay semilla, o no hay suficientes nutrientes, no se hace nada. 
