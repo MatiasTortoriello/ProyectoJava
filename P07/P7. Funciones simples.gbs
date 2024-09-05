@@ -340,6 +340,7 @@ procedure GerminarSemilla() {
 /*c) AlimentarÁrboles(), que hace que los árboles de la celda actual se alimenten, consumiendo un nutriente cada uno. El único cambio que hay que hacer es la eliminación de los nutrientes. Si hay menos nutrientes de lo que se necesita, se consumen todos los que hay. */
 
 procedure AlimentarArboles() {
+    
     /*
         PROPÓSITO:  ....
         PARÁMETROS:
