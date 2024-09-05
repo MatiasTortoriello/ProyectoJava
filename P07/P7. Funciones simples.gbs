@@ -288,7 +288,7 @@ function semilla() {
             * ....
     */
     
-    return ()
+    return (Rojo)
 }
 
 function bomba() {
@@ -302,7 +302,7 @@ function bomba() {
             * ....
     */
     
-    return ()
+    return (Negro)
 }
 
 function nutriente() {
@@ -316,7 +316,7 @@ function nutriente() {
             * ....
     */
     
-    return ()
+    return (Azul)
 }
 
 /*b) GerminarSemilla(), que transforma una semilla en un árbol en la celda actual. La germinación consume 
@@ -332,6 +332,8 @@ procedure GerminarSemilla() {
         PRECONDICIONES:
             * ....
     */
+    Sacar(semilla())
+    Poner(arbol())
 
 }
 
@@ -346,7 +348,14 @@ procedure AlimentarArboles() {
         PRECONDICIONES:
             * ....
     */
-    
+    if(nroBolitas(nutriente()) < nroBolitas(arbol()) && hayBolitas(arbol())){
+        SacarTodasLasDeColor_(nutriente())
+    } else {
+          repeat(nroBolitas(arbol())){
+        Sacar(nutriente())
+    }  
+    }
+
 }
 
 /*d) ExplotarBomba(), que explota una bomba en la celda actual, eliminando árboles. Al explotar, una bomba 
@@ -361,6 +370,9 @@ procedure ExplotarBomba() {
         PRECONDICIONES:
             * ....
     */
+    if(puedeMover(Norte)){
+        
+    }
     
 }
 
