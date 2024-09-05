@@ -348,10 +348,10 @@ procedure AlimentarArboles() {
         PRECONDICIONES:
             * ....
     */
-    if(nroBolitas(nutriente()) < nroBolitas(arbol()) && hayBolitas(arbol())){
+    if(nroBolitas(nutriente()) < cantidadDeArboles && hayArbolesAca()){
         SacarTodasLasDeColor_(nutriente())
     } else {
-          repeat(nroBolitas(arbol())){
+          repeat(cantidadDeArboles()){
         Sacar(nutriente())
     }  
     }
@@ -371,7 +371,7 @@ procedure ExplotarBomba() {
             * ....
     */
     if(puedeMover(Norte)){
-        
+
     }
     
 }
