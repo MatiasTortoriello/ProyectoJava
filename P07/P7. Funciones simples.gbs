@@ -554,6 +554,48 @@ function cuantosPesosSiVendo_Yuanes(cantidadDeMonedaExtranjera){
 
 /*l) Vuelva a realizar los procedimientos de la práctica anterior, ahora utilizando las funciones realizadas en los puntos anteriores.*/ 
 
+procedure Depositar_EnMoneda_ComoPesos(cantidadADepositar, moneda) {
+     /*PROPOSITO: Deposita en la cuenta actual equivalente a *cantidadADepositar* *moneda* en Pesos
+    PRECONDICIONES: * Debe haber una cuenta en la celda actual.
+    PARAMETROS:
+    *cantidadADepositar - Numero: Cantidad a depositar
+    *moneda - Color:Moneda a depositar 
+    OBSERVACIONES:
+    *Si *moneda* es rojo entonces son yuanes, si es verde dolares y si es azul euros*/
+    
+    repeat(cantidadADepositar){
+        DepositarUn_EnCuentaEnPesos(moneda)
+    }
+    
+}
+
+procedure DepositarUn_EnCuentaEnPesos(moneda){
+    /*
+    PROPOSITO: Deposita en la cuenta actual equivalente a un *moneda* en Pesos
+    PRECONDICIONES: * Debe haber una cuenta en la celda actual.
+    PARAMETROS:
+    *moneda - Color:Moneda a depositar 
+    OBSERVACIONES:
+    *Si *moneda* es rojo entonces son yuanes, si es verde dolares y si es azul euros
+    */
+    if (moneda==Negro)
+        then
+            {
+                Poner_DeColor_(1, Negro)
+            }
+        elseif (moneda==Verde)
+            {
+                Poner_DeColor_(80, Negro)
+            }
+        elseif (moneda==Azul)
+            {
+                Poner_DeColor_(90, Negro)
+            }
+        else
+            {
+                Poner_DeColor_(12, Negro)
+            }
+}
 
 
 /*Reflexionamos: ¿Cuánto esfuerzo conlleva cambiar la representación de Euros y Pesos, para que ahora los primeros sean representados con bolitas negras y las segundas con azules.? ¿Cuántos lugares hubo que tocar? Sí la respuesta es más de 2, puede que no haya resuelto bien los ejercicios.*/

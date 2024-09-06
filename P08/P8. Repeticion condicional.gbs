@@ -5,10 +5,19 @@
 Definir el procedimiento IrAlBorde_(dirección), que lleva al cabezal al borde dado por el parámetro dirección. ¡Atención! Debe realizar el ejercicio sin utilizar el comando primitivo IrAlBorde. Dado que el único otro comando primitivo que permite mover el cabezal es Mover, debe repetirse su uso mientras nohasta que se haya cumplido el propósito.  
 Reflexionamos ¿Cuál es la condición que indica que el propósito se cumplió?*/
 
+procedure IrAlBorde_(direccion){
+    while(puedeMover(direccion)){
+      mover(direccion)
+    }
+  }
 /*2.  Otra forma de sacar todas 
  
 Volver a definir el procedimiento SacarTodasLasDeColor_(color), que quita todas las bolitas del color dado por el parámetro  color  de  la  celda  actual,  pero  esta  vez  SIN  utilizar  la  expresión primitiva nroBolitas (directa o indirectamente).*/
-
+procedure SacarTodasLasDeColor_(color){
+  while(hayBolitas(color)){
+    Sacar(color)
+  }
+}
 /*3.  Vaciando una fila 
  
 Considerar  el  procedimiento  VaciarFilaDe_(color), que debe  quitar  todas  las  bolitas  del  color dado  por  el  pa 
@@ -24,6 +33,16 @@ e) Volver a definir el procedimiento con direcciones distintas.
 f) ¿Y  si  tuviéramos  que  vaciar  la  columna  en  lugar  de  la  fila?  ¿Qué  cambia  entre  las  distintas  formas  de 
 moverse?*/
 
+procedure VaciarFilaDe_(color){
+  IrAlBorde(Oeste)
+  SacarTodasLasDeColor_(color) // invocacion del ejercicio 2
+  while(puedeMover(Este)){
+    Mover(Este)
+    SacarTodasLasDeColor_(color)
+  }
+}
+
+
 /*4.  Vaciando una fila hacia...    
  
 Defina  ahora  el  procedimiento  VaciarFilaDe_HaciaEl_(color, dirección), que  debe  quitar  todas las  bolitas del 
@@ -33,6 +52,15 @@ código y el contrato considere.
  
 a) ¿Qué valores puede tomar el parámetro dirección para que el propósito sea consistente con su nombre? 
 b) ¿Qué nombre podría recibir el procedimiento para que sea correcto utilizarlo con cualquier dirección? */
+
+procedure VaciarFilaDe_HaciaEl_(color, dirección){
+  IrAlBorde(opuesto(direccion))
+  SacarTodasLasDeColor_(color) // invocacion del ejercicio 2
+  while(puedeMover(direccion)){
+    Mover(direccion)
+    SacarTodasLasDeColor_(color)
+  }
+}
 
 /*5.  Vaciando un tablero 
  
@@ -54,10 +82,36 @@ Implemente ahora nuevamente el procedimiento de 2 formas distintas.
 Reflexionamos ¿Qué diferencias hay entre los recorridos anteriores del punto a y del b? ¿Qué subtareas son más 
 complejas en cada caso? ¿Podrían considerarse otros recorridos que no fueran sobre celdas o filas?*/
 
+  procedure VaciarTableroDe_(color){
+    IrAlBordeInferiorIzquierdo()
+    VaciarFilaDe_(color)
+    IrAlBordeIzquierdo() 
+    while(puedeMover(Norte)){
+      Mover(Norte)
+      VaciarFilaDe_(color)
+      IrAlBordeIzquierdo()  
+    }
+    IrAlBordeInferiorIzquierdo()
+  }
+
+  procedure IrAlBordeInferiorIzquierdo(){
+      IrAlBorde_(Oeste)
+      IrAlBorde_(Sur)
+    }
+
+  procedure VaciarFilaDe_(color){
+  SacarTodasLasDeColor_(color)          // invocacion del ejercicio 2
+  while(puedeMover(Este)){
+    Mover(Este)
+    SacarTodasLasDeColor_(color)
+  }
+}
+
+
+
 /*6. Las subtareas más útiles de la historia 
  
-BIBLIOTECA. Escribir los procedimientos y las funciones necesarias para generalizar la noción de recorrido por 
-celdas de un tablero, para que las direcciones de recorrido no estén fijas. En particular, definir (como siempre, 
+BIBLIOTECA. Escribir los procedimientos y las funciones necesarias para generalizar la noción de recorrido por celdas de un tablero, para que las direcciones de recorrido no estén fijas. En particular, definir (como siempre, 
 comenzando por los contratos): 
  
 a) IrAPrimeraCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria) 
@@ -68,6 +122,25 @@ Que hacen precisamente lo que sugiere su nombre, permitiendo utilizarlas en un r
 probarlas intentando colocar una bolita en cada celda del tablero, o volviendo a implementar el ejercicio anterior, 
 ahora de forma parametrizada. Al  escribir las precondiciones, tener en cuenta que las direcciones no pueden 
 ser cualesquiera, sino que deben estar relacionadas. ¿Cuál es esa relación? ¿Cómo expresarla? */
+
+
+procedure IrAPrimeraCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria){
+    IrAlBorde(opuesto(dirPrincipal))
+    IrAlBorde(opuesto(dirSecundaria))
+}
+
+function haySiguienteCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria){
+  return(puedeMover(dirPrincipal) && puedeMover(dirSecundaria))
+}
+
+procedure IrASiguienteCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria) {
+    if(puedeMover(dirPrincipal)){
+        Mover(dirPrincipal)
+    }else{
+        IrAlBorde(opuesto(dirPrincipal))
+        Mover(dirSecundaria)
+    }
+}
 
 /*7.  Y ahora más cosas sobre el tablero 
  
