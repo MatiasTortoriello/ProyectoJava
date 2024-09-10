@@ -7,24 +7,19 @@ function formaDeFichaActual() {
         PRECONDICIONES:
             * El cabezal debe estar sobre una ficha
     */
-    numeroDeFichaAca = 0
-    if(fichaAca)
-    return ()
+
+    return (nroBolitas(Azul))
 }
 
 //Ejercicio 2
 
-function formaDeFichaA_Al_(distanciaAMirar, direccion) {
+function haySucesionAl_(direccionAMirar){
     /*
-        PROPÓSITO:  Describe la forma de la ficha (número) que se encuentra tantos lugares hacia *direcciónAMirar* como
-                    *distanciaAMirar*. Describe 0 si no hay una ficha en dicha celda.
-        PARÁMETROS:
-            - *distanciaAMirar*. Número. La distancia a la cual mirar la forma de la ficha.
-            - *dirección*. Dirección. La dirección hacia la cual mirar la forma de la ficha.
+        PROPÓSITO:  Describe el número que se corresponde a la forma de la ficha de la ubicación actual.
         TIPO: Número
         PRECONDICIONES:
-            - Hay una celda a *distanciaAMirar* en dirección *direcciónAMirar*.
+            * Debe haber una ficha en la ubicación actual
+            * Debe haber al menos 2 ubicaciones hacia el *direccionAMirar*
     */
-    
-    return ()
+    return(formaDeFichaActual() == formaDeFicha_Al_(1, direccionAMirar) && formaDeFichaActual() == formaDeFicha_Al_(1, direccionAMirar))
 }
