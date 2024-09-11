@@ -1,0 +1,91 @@
+//P9A - Variables y Funciones con procesamiento:
+
+/*1 - Mirando la celda vecina: 
+Escribir la función hayBolitas_EnCeldaAl_, que, suponiendo que existe una celda lindante en la dirección dada, indica si la misma tiene o no bolitas del color indicado. Sí no hay una celda lindante, hace BOOM.*/
+
+/*2 - Mirando la celda vecina, incluso si no hay vecina:
+BIBLIOTECA. Escribir la función hayBolitas_Al_, que indica si hay una celda lindante en la dirección indicada y la misma tiene bolitas del color dado. Sí no hay celda lindante describe Falso*/
+
+/*3 - Mirando en la celda al borde:
+Escribir la función  hayBolitas_EnElBorde_, que indica si en la celda que se encuentra en el borde dado por la dirección, hay bolitas del color indicado.*/
+
+/*4 - Mirando en la fila o columna: 
+Escribir la función hayBolitas_Hacia_ que indica si en alguna de las celdas hacia la dirección dada (sin incluir la celda actual) hay bolitas del color dado.*/
+
+/*5 - Y volviendo a mirar en la fila o columna: 
+Escribir la función hayCeldaVacíaHacia_, que indica si en alguna de las celdas hacia la dirección dada (sin incluir la celda actual) hay una que esté vacía.*/
+
+/*6 - Y si miramos el tablero:
+Escribir la función hayAlgunaBolita_, que indica si en alguna de las celdas del tablero existe una bolita del color dado*/
+
+/*7 - Y volvemos a mirar el tablero: 
+Escribir la función hayAlgunaCeldaVacía, que indica si alguna de las celdas del tablero está vacía.*/
+
+/*8 - Copiamos una celda:
+Escribir el procedimiento CopiarCeldaAl_, que copia los contenidos de la celda actual a la celda lindante en la dirección dada. Note que se deben eliminar los contenidos originales que hubieran en la celda de destino.*/
+
+/*9 - Copiamos las esquinas:  
+Escribir el procedimiento CopiarOrigenEnEsquinas  que  copia  en  cada  esquina  los contenidos que hay en la celda actual (las 4 esquinas deben terminar con exactamente las mismas bolitas de cada color que había en la celda donde estaba originalmente el cabezal en el tablero inicial. La posición final del cabezal no es relevante).*/
+
+/*10 - ¡Y Dale!, ¡Y dale!, ¡Y dale Nova dale!: 
+La revisión de código sigue mal para Nova. Esta vez se trata de unos procedimientos que además de no tener contratos ni buenos nombres, algunos no andan y otros usan las variables de formas inadecuadas. Se pide entonces, encontrar los errores en los procedimientos que escribió Nova y justificar por qué son errores. Luego, renombrar los procedimientos, variables y parámetros (y sus usos) de manera adecuada, para que el programa resulte legible, y escribir los contratos.
+
+procedure P(p) 
+ { p := p + 1; Poner__Veces(Azul, p) } 
+procedure Q(p) { 
+ if(p /= 3) {v := 3} 
+ Poner__Veces(Azul, v) 
+} 
+procedure R()  
+  { Poner__Veces(Azul, v) Mover__Veces(Este, v) } 
+procedure S(p) { 
+  v := Este 
+  Mover__Veces(v, 5) 
+  v := 5 
+  Mover__Veces(Este, v) 
+} 
+ 
+¡Alguien debe enseñarle pronto a Nova lo difícil que es entender y corregir el código si no se escriben buenos 
+nombres y buenos contratos! */
+
+//P9B - Alternativa condicional en exp y mas recorridos:
+
+/*11 - El más chico: 
+BIBLIOTECA. Escribir la función mínimoEntre_Y_, que dados dos valores describe aquel que sea más chico. Por ejemplo, mínimoEntre_Y_(3, 7) describe 3, mientras que mínimoEntre_Y_(9, 4) describe 4. 
+▪ ¿De qué tipo son los parámetros? 
+▪ ¿Es válida la expresión mínimoEntre_Y_(Rojo, Azul)? ¿Qué describe? 
+▪ ¿Qué se describe si son iguales? ¿Es relevante si es uno o el otro?*/
+
+/*12 - El más grande 
+BIBLIOTECA. Escribir ahora la función máximoEntre_Y_ que dados dos valores describe aquel que sea el más grande.*/
+ 
+/*13 - Mi caminante se mueve 
+ 
+La  primitiva  del  ejercicio  “El  Caminante”, práctica integradora direcciónDelCódigo_(código), puede implementarse con alternativa condicional de expresiones. Se pide que la implemente, y que pruebe ahora su código del caminante para verificar su correcto funcionamiento.*/
+ 
+/*14 - Piedra, Papel o Tijeras 
+ 
+Escribir jugadaGanadoraDePiedraPapelOTijerasEntre_Y_, que dadas dos jugadas describe la jugada ganadora entre ambas. Para olvidarnos de cómo está codificada la jugada, tenemos las funciones piedra(), papel() y tijeras(), que representan a cada una de las  jugadas. En piedra papel o tijeras, el jugador puede elegir una de tres opciones, y cada opción pierde contra alguna otra y le gana a alguna otra. 
+ 
+Jugada Pierde contra Gana contra 
+piedra() papel() tijeras() 
+papel() tijeras() piedra() 
+tijeras() piedra() papel()  
+ 
+15.  Piedra, Papel o Tijeras... Lagarto, Spock 
+ 
+EN PAPEL. La popular variante del juego piedra, papel o tijeras, lagarto, spock, popularizada por Sheldon Cooper, 
+es un juego en esencia idéntico al clásico, pero con mayor número de resultados posibles. El jugador puede 
+elegir entre 5 posibles jugadas, y cada una pierde y/o gana ante dos jugadas, según se muestra en la siguiente 
+tabla: 
+ 
+Jugada Pierde contra Gana contra 
+piedra() papel(), spock() tijeras(), lagarto() 
+papel() tijeras(), lagarto() piedra(), spock() 
+tijeras() piedra(), spock() papel(), lagarto() 
+lagarto() tijeras(), piedra() spock(), papel() 
+spock() papel(), lagarto() tijeras(), piedra() 
+ 
+Escribir  jugadaGanadoraDePiedraPapelOTijerasLagartoSpockEntre_Y_,  que  dadas  dos  jugadas,  describe  la 
+jugada  ganadora  entre  ambas.  Para  olvidarnos  de  cómo  está  codificada  la  jugada,  tenemos  las  funciones 
+piedra(), papel(), tijeras(), lagarto() y spock()que representan a cada una de las jugadas. 
