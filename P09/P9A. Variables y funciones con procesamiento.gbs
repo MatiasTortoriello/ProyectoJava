@@ -70,17 +70,32 @@ function hayCeldaVaciaHacia_(){
 
 /*6 - Y si miramos el tablero:
 Escribir la función hayAlgunaBolita_, que indica si en alguna de las celdas del tablero existe una bolita del color dado*/
-function hayAlgunaBolita_(color){
-  
+function hayAlgunaBolita_(direccion){
+  hayBolitaEnFilaHacia_(direccion)
+  while(puedeMover(direccion))
+
 }
 /*7 - Y volvemos a mirar el tablero: 
 Escribir la función hayAlgunaCeldaVacía, que indica si alguna de las celdas del tablero está vacía.*/
 
+
+
 /*8 - Copiamos una celda:
 Escribir el procedimiento CopiarCeldaAl_, que copia los contenidos de la celda actual a la celda lindante en la dirección dada. Note que se deben eliminar los contenidos originales que hubieran en la celda de destino.*/
 
+function CopiarCeldaAl_(direccion){
+  copiarBolitas_(Azul)
+  copiarBolitas_(Negro)
+  copiarBolitas_(Rojo)
+  copiarBolitas_(Verde)
+}
+
 /*9 - Copiamos las esquinas:  
 Escribir el procedimiento CopiarOrigenEnEsquinas  que  copia  en  cada  esquina  los contenidos que hay en la celda actual (las 4 esquinas deben terminar con exactamente las mismas bolitas de cada color que había en la celda donde estaba originalmente el cabezal en el tablero inicial. La posición final del cabezal no es relevante).*/
+
+procedure CopiarOrigenEnEsquinas(){
+  
+}
 
 /*10 - ¡Y Dale!, ¡Y dale!, ¡Y dale Nova dale!: 
 La revisión de código sigue mal para Nova. Esta vez se trata de unos procedimientos que además de no tener contratos ni buenos nombres, algunos no andan y otros usan las variables de formas inadecuadas. Se pide entonces, encontrar los errores en los procedimientos que escribió Nova y justificar por qué son errores. Luego, renombrar los procedimientos, variables y parámetros (y sus usos) de manera adecuada, para que el programa resulte legible, y escribir los contratos.
