@@ -4,7 +4,7 @@
 Escribir la función hayBolitas_EnCeldaAl_, que, suponiendo que existe una celda lindante en la dirección dada, indica si la misma tiene o no bolitas del color indicado. Sí no hay una celda lindante, hace BOOM.*/
 
 function hayBolitas_EnCeldaAl_(color, direccion){
-  
+
   MovermeAl_(direccion)
   return(hayBolitas(color))
 }
@@ -57,9 +57,22 @@ function verSiHayBolitas(color){
 /*5 - Y volviendo a mirar en la fila o columna: 
 Escribir la función hayCeldaVacíaHacia_, que indica si en alguna de las celdas hacia la dirección dada (sin incluir la celda actual) hay una que esté vacía.*/
 
+function hayCeldaVaciaHacia_(){
+    hayBolitasDeColorAca := False
+  while(puedeMover(direccion) && hayBolitasDeColorAca == False){
+
+    Mover(direccion)
+
+    hayBolitasDeColorAca := verSiHayBolitas(color)
+  }  
+  return(hayBolitasDeColorAca)
+}
+
 /*6 - Y si miramos el tablero:
 Escribir la función hayAlgunaBolita_, que indica si en alguna de las celdas del tablero existe una bolita del color dado*/
-
+function hayAlgunaBolita_(color){
+  
+}
 /*7 - Y volvemos a mirar el tablero: 
 Escribir la función hayAlgunaCeldaVacía, que indica si alguna de las celdas del tablero está vacía.*/
 
