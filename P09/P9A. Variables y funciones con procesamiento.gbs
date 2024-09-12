@@ -3,8 +3,29 @@
 /*1 - Mirando la celda vecina: 
 Escribir la función hayBolitas_EnCeldaAl_, que, suponiendo que existe una celda lindante en la dirección dada, indica si la misma tiene o no bolitas del color indicado. Sí no hay una celda lindante, hace BOOM.*/
 
+function hayBolitas_EnCeldaAl_(color, direccion){
+  MovermeAl_(direccion)
+  hayBolitas(color)
+}
+
+procedure MovermeAl_(direccion){
+    Mover(direccion)
+}
+
 /*2 - Mirando la celda vecina, incluso si no hay vecina:
 BIBLIOTECA. Escribir la función hayBolitas_Al_, que indica si hay una celda lindante en la dirección indicada y la misma tiene bolitas del color dado. Sí no hay celda lindante describe Falso*/
+
+function hayBolitas_Al_(color, direccion){
+  MovermeAl_SiPuedo(direccion)
+  hayBolitas(color)
+}
+
+MovermeAl_SiPuedo(direccion){
+  if(puedeMover(direccion)){
+    Mover(direccion)
+  }
+}
+
 
 /*3 - Mirando en la celda al borde:
 Escribir la función  hayBolitas_EnElBorde_, que indica si en la celda que se encuentra en el borde dado por la dirección, hay bolitas del color indicado.*/
