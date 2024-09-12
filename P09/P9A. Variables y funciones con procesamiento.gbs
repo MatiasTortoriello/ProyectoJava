@@ -180,10 +180,6 @@ procedure CopiarOrigenEnEsquinas(){
   direccion := siguiente(direccion)
   IrAlBorde(direccion)
   }
-
-  
-
-
 }
 
 /*10 - ¡Y Dale!, ¡Y dale!, ¡Y dale Nova dale!: 
