@@ -160,6 +160,7 @@ procedure CopiarCeldaAl_(direccion){
     colorRecorrido := siguiente(colorRecorrido)  
   }
 }
+
 //Práctica de clase:
 
 function cantidadDeRojasEnElTablero(){
@@ -171,6 +172,7 @@ function cantidadDeRojasEnElTablero(){
   }
   return(contadorDeRojas)
 }
+
 /*9 - Copiamos las esquinas:  
 Escribir el procedimiento CopiarOrigenEnEsquinas  que  copia  en  cada  esquina  los contenidos que hay en la celda actual (las 4 esquinas deben terminar con exactamente las mismas bolitas de cada color que había en la celda donde estaba originalmente el cabezal en el tablero inicial. La posición final del cabezal no es relevante).*/
 
