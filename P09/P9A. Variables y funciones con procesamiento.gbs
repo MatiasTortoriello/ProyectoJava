@@ -111,30 +111,54 @@ function hayAlgunaCeldaVacía(){
 /*8 - Copiamos una celda:
 Escribir el procedimiento CopiarCeldaAl_, que copia los contenidos de la celda actual a la celda lindante en la dirección dada. Note que se deben eliminar los contenidos originales que hubieran en la celda de destino.*/
 
-function CopiarCeldaAl_(direccion){
-  
+procedure CopiarCeldaAl_(direccion){
+
+  cantidadDeAzules := nroBolitas(Azul)
+  cantidadDeNegras := nroBolitas(Negro)
+  cantidadDeRojas := nroBolitas(Rojo)
+  cantidadDeVerdes := nroBolitas(Verde)
+
+  Mover(direccion)
+
+  VaciarCelda()
+
+  CopiarElCasillero(cantidadDeAzules, cantidadDeNegras, cantidadDeRojas, cantidadDeVerdes)
 }
 
-function copiarTodasLasBolitas() {
-  /*
-    PROPÓSITO:  ....
-    PARÁMETROS:
-      * parámetro1: tipo - descripción.
-      * parámetro2: tipo - descripción.
-    TIPO: Tipo
-    PRECONDICIONES:
-      * ....
-  */
-  bolitasAzulesAca := copiarBolitas_(Azul)
-  bolitasNegrasAca := copiarBolitas_(Negro)
-  bolitasRojasAca := copiarBolitas_(Rojo)
-  bolitasVerdesAca := copiarBolitas_(Verde)
-  
-  return ()
+procedure CopiarElCasillero(cantidadDeAzules, cantidadDeNegras, cantidadDeRojas, cantidadDeVerdes){
+
+  Poner_BolitasAzules(cantidadDeAzules)
+  Poner_BolitasNegras(cantidadDeNegras)
+  Poner_BolitasRojas(cantidadDeRojas)
+  Poner_BolitasVerdes(cantidadDeVerdes)
+
+}
+procedure Poner_BolitasAzules(cantidad){
+  Poner_DeColor_(cantidad, Azul)
+}
+procedure Poner_BolitasNegras(cantidad){
+  Poner_DeColor_(cantidad, Negro)
+}
+procedure Poner_BolitasRojas(cantidad){
+  Poner_DeColor_(cantidad, Rojo)
+}
+procedure Poner_BolitasVerdes(cantidad){
+  Poner_DeColor_(cantidad, Verde)
 }
 
-function copiarBolitas_(color){
-  return(nroBolitas(color))
+//////////CON UNA VARIABLE////////////
+procedure CopiarCeldaAl_(direccion){
+
+  colorRecorrido := Azul
+
+  repeat(4){
+    cantidadDeBolitasAca := nroBolitas(colorRecorrido)
+    Mover(direccion)
+    VaciarCelda()
+    Poner_DeColor_(cantidadDeBolitasAca, colorRecorrido)
+    Mover(opuesto(direccion))
+    colorRecorrido := siguiente(colorRecorrido)  
+  }
 }
 
 /*9 - Copiamos las esquinas:  
@@ -142,6 +166,24 @@ Escribir el procedimiento CopiarOrigenEnEsquinas  que  copia  en  cada  esquina 
 
 procedure CopiarOrigenEnEsquinas(){
   
+  cantidadDeAzules := nroBolitas(Azul)
+  cantidadDeNegras := nroBolitas(Negro)
+  cantidadDeRojas := nroBolitas(Rojo)
+  cantidadDeVerdes := nroBolitas(Verde)
+  
+  IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Sur)
+  direccion := minDir()
+
+  while(direccion /= maxDir()){
+  VaciarCelda()
+  CopiarElCasillero(cantidadDeAzules, cantidadDeNegras, cantidadDeRojas, cantidadDeVerdes)
+  direccion := siguiente(direccion)
+  IrAlBorde(direccion)
+  }
+
+  
+
+
 }
 
 /*10 - ¡Y Dale!, ¡Y dale!, ¡Y dale Nova dale!: 
