@@ -73,7 +73,7 @@ function hayCeldaVaciaHacia_(direccion){
 
   Mover(direccion)
   
-  while(puedeMover(direccion) && esCeldaVacia()){
+  while(puedeMover(direccion) && not esCeldaVacia()){
     Mover(direccion)
   }
   return(esCeldaVacia())
@@ -83,7 +83,9 @@ function hayCeldaVaciaHacia_(direccion){
 Escribir la función hayAlgunaBolita_, que indica si en alguna de las celdas del tablero existe una bolita del color dado*/
 
 function hayAlgunaBolita_(color){
+  
   IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+  
   while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte) && not hayBolitas(color)){
     IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
   }
@@ -95,7 +97,7 @@ function hayAlgunaBolita_(color){
 /*7 - Y volvemos a mirar el tablero: 
 Escribir la función hayAlgunaCeldaVacía, que indica si alguna de las celdas del tablero está vacía.*/
 
-function hayAlgunaBolita_(color){
+function hayAlgunaCeldaVacía(){
   IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
   while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte) && not esCeldaVacia()){
     IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
