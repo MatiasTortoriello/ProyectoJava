@@ -19,8 +19,9 @@ function hayBolitas_EnCeldaAl_(color, direccion){
 BIBLIOTECA. Escribir la función hayBolitas_Al_, que indica si hay una celda lindante en la dirección indicada y la misma tiene bolitas del color dado. Sí no hay celda lindante describe Falso*/
 
 function hayBolitas_Al_(color, direccion){
-  return(puedeMover(direccion) && hayBolitas(color))
+  return(puedeMover(direccion) && hayBolitas_EnCeldaAl_(color, direccion))
 }
+
 
 /*3 - Mirando en la celda al borde:
 Escribir la función  hayBolitas_EnElBorde_, que indica si en la celda que se encuentra en el borde dado por la dirección, hay bolitas del color indicado.*/
