@@ -36,52 +36,74 @@ function hayBolitas_EnElBorde_(color, direccion){
 Escribir la función hayBolitas_Hacia_ que indica si en alguna de las celdas hacia la dirección dada (sin incluir la celda actual) hay bolitas del color dado.*/
 
 function hayBolitas_Hacia_(color, direccion){
+/*Prop: Indica si existe al menos una celda con bolitas de color *color* en la dirección *dirección*
+  Tipo: Boolean
+  Prec: -
+  Param: -Color. Tipo: Color. Indica de qué color deben ser las bolitas a preguntar
+         -Dirección. Tipo: Dirección. Indica hacia qué dirección debe moverse el cabezal para preguntar*/
 
   hayBolitasDeColorAca := False
-  while(puedeMover(direccion) && hayBolitasDeColorAca == False){
-
+  while(puedeMover(direccion) && not hayBolitas(color)){
     Mover(direccion)
-
-    hayBolitasDeColorAca := verSiHayBolitas(color)
+    hayBolitasDeColorAca := hayBolitas(color)
   }  
   return(hayBolitasDeColorAca)
 }
 
-function verSiHayBolitas(color){
-  hayBolitaDeColor := False
-  if(hayBolitas(color)){
-    hayBolitaDeColor := True
+
+//Como lo hizo el profe:
+
+function hayBolitas_Hacia_(color, direccion){
+  Mover(direccion)
+  while(puedeMover(direccion) && hayBolitas(color)){
+    Mover(direccion)
   }
-  return(hayBolitaDeColor)
+  return(hayBolitas(color))
 }
 
 /*5 - Y volviendo a mirar en la fila o columna: 
 Escribir la función hayCeldaVacíaHacia_, que indica si en alguna de las celdas hacia la dirección dada (sin incluir la celda actual) hay una que esté vacía.*/
+//Sin Variables
 
-function hayCeldaVaciaHacia_(){
-    hayBolitasDeColorAca := False
-  while(puedeMover(direccion) && hayBolitasDeColorAca == False){
+function hayCeldaVaciaHacia_(direccion){
+  /*Proposito: Indica si existe una celda vacía en dirección *dirección* sin incluir la inicial.
+    Precondiciones: Debe haber al menos una celda hacia la dirección *dirección*
+    Tipo: Boolean
+    Parámetros: -Dirección. Tipo: Dirección. Indica la dirección hacia la cuál se moverá el cabezal.*/
 
+  Mover(direccion)
+  
+  while(puedeMover(direccion) && esCeldaVacia()){
     Mover(direccion)
-
-    hayBolitasDeColorAca := verSiHayBolitas(color)
-  }  
-  return(hayBolitasDeColorAca)
+  }
+  return(esCeldaVacia())
 }
 
 /*6 - Y si miramos el tablero:
 Escribir la función hayAlgunaBolita_, que indica si en alguna de las celdas del tablero existe una bolita del color dado*/
+
 function hayAlgunaBolita_(color){
   IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
-
-  while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
-
+  while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte) && not hayBolitas(color)){
+    IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
   }
 
+  return(hayBolitas(color))
+
 }
+
 /*7 - Y volvemos a mirar el tablero: 
 Escribir la función hayAlgunaCeldaVacía, que indica si alguna de las celdas del tablero está vacía.*/
 
+function hayAlgunaBolita_(color){
+  IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+  while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte) && not esCeldaVacia()){
+    IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+  }
+
+  return(esCeldaVacia())
+
+}
 
 
 /*8 - Copiamos una celda:
