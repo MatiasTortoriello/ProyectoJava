@@ -164,7 +164,7 @@ procedure CopiarCeldaAl_(direccion){
 
 function cantidadDeRojasEnElTablero(){
   IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
-  contadorDeRojas := 0
+  contadorDeRojas := nroBolitas(Rojo)
   while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
     IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
     contadorDeRojas := contadorDeRojas + nroBolitas(Rojo)
