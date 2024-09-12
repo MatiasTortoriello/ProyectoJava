@@ -2,23 +2,23 @@
 
 /*1 - Mirando la celda vecina: 
 Escribir la función hayBolitas_EnCeldaAl_, que, suponiendo que existe una celda lindante en la dirección dada, indica si la misma tiene o no bolitas del color indicado. Sí no hay una celda lindante, hace BOOM.*/
+//Cuando dice "hay", no estoy seguro si puedo mover. Si dice "tiene", está implícito que puedo mover.
+//"asumiendo", "tomando", "considerando" refleja que es necesaria una precondición.
 
 function hayBolitas_EnCeldaAl_(color, direccion){
-
-  MovermeAl_(direccion)
+  /*Prop: Indica si existen bolitas de color *color* hacia la celda lindante en dirección *dirección*
+    Tipo: Boolean
+    Prec: Debe haber al menos una celda en dirección *dirección*
+    Param: -Color. Tipo: Color. Indica el color de las bolitas a investigar de su existencia
+           -Dirección. Tipo: Dirección. Indica la dirección hacia la cuál debería moverse el cabezal.*/
+  Mover(direccion)
   return(hayBolitas(color))
-}
-
-procedure MovermeAl_(direccion){
-
-    Mover(direccion)
 }
 
 /*2 - Mirando la celda vecina, incluso si no hay vecina:
 BIBLIOTECA. Escribir la función hayBolitas_Al_, que indica si hay una celda lindante en la dirección indicada y la misma tiene bolitas del color dado. Sí no hay celda lindante describe Falso*/
 
 function hayBolitas_Al_(color, direccion){
-
   return(puedeMover(direccion) && hayBolitas(color))
 }
 
@@ -70,9 +70,12 @@ function hayCeldaVaciaHacia_(){
 
 /*6 - Y si miramos el tablero:
 Escribir la función hayAlgunaBolita_, que indica si en alguna de las celdas del tablero existe una bolita del color dado*/
-function hayAlgunaBolita_(direccion){
-  hayBolitaEnFilaHacia_(direccion)
-  while(puedeMover(direccion))
+function hayAlgunaBolita_(color){
+  IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+
+  while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+
+  }
 
 }
 /*7 - Y volvemos a mirar el tablero: 
@@ -84,10 +87,29 @@ Escribir la función hayAlgunaCeldaVacía, que indica si alguna de las celdas de
 Escribir el procedimiento CopiarCeldaAl_, que copia los contenidos de la celda actual a la celda lindante en la dirección dada. Note que se deben eliminar los contenidos originales que hubieran en la celda de destino.*/
 
 function CopiarCeldaAl_(direccion){
-  copiarBolitas_(Azul)
-  copiarBolitas_(Negro)
-  copiarBolitas_(Rojo)
-  copiarBolitas_(Verde)
+  
+}
+
+function copiarTodasLasBolitas() {
+  /*
+    PROPÓSITO:  ....
+    PARÁMETROS:
+      * parámetro1: tipo - descripción.
+      * parámetro2: tipo - descripción.
+    TIPO: Tipo
+    PRECONDICIONES:
+      * ....
+  */
+  bolitasAzulesAca := copiarBolitas_(Azul)
+  bolitasNegrasAca := copiarBolitas_(Negro)
+  bolitasRojasAca := copiarBolitas_(Rojo)
+  bolitasVerdesAca := copiarBolitas_(Verde)
+  
+  return ()
+}
+
+function copiarBolitas_(color){
+  return(nroBolitas(color))
 }
 
 /*9 - Copiamos las esquinas:  
