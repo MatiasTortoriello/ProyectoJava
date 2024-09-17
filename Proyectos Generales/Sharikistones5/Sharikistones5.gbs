@@ -22,14 +22,14 @@ function nivelDeDificultad() {
 
 //Ejercicio 2:
 
-function cantidadDeFichasCirculoEnEstaFila(){
-    /*
+/*function cantidadDeFichasCirculoEnEstaFila(){
+    
         PROPÓSITO: Describe la cantidad de fichas círculo que hay en el tablero
         PARÁMETROS:
         TIPO: Número
         PRECONDICIONES:
             * 
-    */
+    
     irAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
     cantidadDeFichasRojasAca := unoSi_CeroSiNo()
     while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
@@ -40,7 +40,29 @@ function cantidadDeFichasCirculoEnEstaFila(){
     }
 
     return (cantidadDeFichasRojasAca)    
+}*/
+
+function cantidadDeFichasCirculoEnEstaFila(){
+    /*
+        PROPÓSITO: Describe la cantidad de fichas círculo que hay en el tablero
+        PARÁMETROS:
+        TIPO: Número
+        PRECONDICIONES:
+            * 
+    */
+    irAlBorde(Oeste)
+    cantidadDeFichasRojasAca := unoSi_CeroSiNo()
+    while(puedeMover(Este)){
+        
+        Mover(Este)
+        cantidadDeFichasRojasAca := cantidadDeFichasRojasAca + unoSi_CeroSiNo()
+        
+    }
+
+    return (cantidadDeFichasRojasAca)    
 }
+
+
 
 //Ejercicio 3
 
@@ -61,5 +83,5 @@ function hayFichasExplotadas(){
         
     }
 
-    return (cantidadDeFichasRojasAca)        
+    return (hayFichasExplotadas)        
 }
