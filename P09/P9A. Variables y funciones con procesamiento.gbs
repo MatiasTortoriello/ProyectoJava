@@ -2,25 +2,26 @@
 
 /*1 - Mirando la celda vecina: 
 Escribir la función hayBolitas_EnCeldaAl_, que, suponiendo que existe una celda lindante en la dirección dada, indica si la misma tiene o no bolitas del color indicado. Sí no hay una celda lindante, hace BOOM.*/
+//Cuando dice "hay", no estoy seguro si puedo mover. Si dice "tiene", está implícito que puedo mover.
+//"asumiendo", "tomando", "considerando" refleja que es necesaria una precondición.
 
 function hayBolitas_EnCeldaAl_(color, direccion){
-
-  MovermeAl_(direccion)
+  /*Prop: Indica si existen bolitas de color *color* hacia la celda lindante en dirección *dirección*
+    Tipo: Boolean
+    Prec: Debe haber al menos una celda en dirección *dirección*
+    Param: -Color. Tipo: Color. Indica el color de las bolitas a investigar de su existencia
+           -Dirección. Tipo: Dirección. Indica la dirección hacia la cuál debería moverse el cabezal.*/
+  Mover(direccion)
   return(hayBolitas(color))
-}
-
-procedure MovermeAl_(direccion){
-
-    Mover(direccion)
 }
 
 /*2 - Mirando la celda vecina, incluso si no hay vecina:
 BIBLIOTECA. Escribir la función hayBolitas_Al_, que indica si hay una celda lindante en la dirección indicada y la misma tiene bolitas del color dado. Sí no hay celda lindante describe Falso*/
 
 function hayBolitas_Al_(color, direccion){
-
-  return(puedeMover(direccion) && hayBolitas(color))
+  return(puedeMover(direccion) && hayBolitas_EnCeldaAl_(color, direccion))
 }
+
 
 /*3 - Mirando en la celda al borde:
 Escribir la función  hayBolitas_EnElBorde_, que indica si en la celda que se encuentra en el borde dado por la dirección, hay bolitas del color indicado.*/
@@ -35,59 +36,141 @@ function hayBolitas_EnElBorde_(color, direccion){
 Escribir la función hayBolitas_Hacia_ que indica si en alguna de las celdas hacia la dirección dada (sin incluir la celda actual) hay bolitas del color dado.*/
 
 function hayBolitas_Hacia_(color, direccion){
+/*Prop: Indica si existe al menos una celda con bolitas de color *color* en la dirección *dirección*
+  Tipo: Boolean
+  Prec: -
+  Param: -Color. Tipo: Color. Indica de qué color deben ser las bolitas a preguntar
+         -Dirección. Tipo: Dirección. Indica hacia qué dirección debe moverse el cabezal para preguntar*/
 
   hayBolitasDeColorAca := False
-  while(puedeMover(direccion) && hayBolitasDeColorAca == False){
-
+  while(puedeMover(direccion) && not hayBolitas(color)){
     Mover(direccion)
-
-    hayBolitasDeColorAca := verSiHayBolitas(color)
+    hayBolitasDeColorAca := hayBolitas(color)
   }  
   return(hayBolitasDeColorAca)
 }
 
-function verSiHayBolitas(color){
-  hayBolitaDeColor := False
-  if(hayBolitas(color)){
-    hayBolitaDeColor := True
+
+//Como lo hizo el profe:
+
+function hayBolitas_Hacia_(color, direccion){
+  Mover(direccion)
+  while(puedeMover(direccion) && hayBolitas(color)){
+    Mover(direccion)
   }
-  return(hayBolitaDeColor)
+  return(hayBolitas(color))
 }
 
 /*5 - Y volviendo a mirar en la fila o columna: 
 Escribir la función hayCeldaVacíaHacia_, que indica si en alguna de las celdas hacia la dirección dada (sin incluir la celda actual) hay una que esté vacía.*/
+//Sin Variables
 
-function hayCeldaVaciaHacia_(){
-    hayBolitasDeColorAca := False
-  while(puedeMover(direccion) && hayBolitasDeColorAca == False){
+function hayCeldaVaciaHacia_(direccion){
+  /*Proposito: Indica si existe una celda vacía en dirección *dirección* sin incluir la inicial.
+    Precondiciones: Debe haber al menos una celda hacia la dirección *dirección*
+    Tipo: Boolean
+    Parámetros: -Dirección. Tipo: Dirección. Indica la dirección hacia la cuál se moverá el cabezal.*/
 
+  Mover(direccion)
+  
+  while(puedeMover(direccion) && not esCeldaVacia()){
     Mover(direccion)
-
-    hayBolitasDeColorAca := verSiHayBolitas(color)
-  }  
-  return(hayBolitasDeColorAca)
+  }
+  return(esCeldaVacia())
 }
 
 /*6 - Y si miramos el tablero:
 Escribir la función hayAlgunaBolita_, que indica si en alguna de las celdas del tablero existe una bolita del color dado*/
-function hayAlgunaBolita_(direccion){
-  hayBolitaEnFilaHacia_(direccion)
-  while(puedeMover(direccion))
+
+function hayAlgunaBolita_(color){
+  
+  IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+  
+  while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte) && not hayBolitas(color)){
+    IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+  }
+
+  return(hayBolitas(color))
 
 }
+
 /*7 - Y volvemos a mirar el tablero: 
 Escribir la función hayAlgunaCeldaVacía, que indica si alguna de las celdas del tablero está vacía.*/
 
+function hayAlgunaCeldaVacía(){
+  IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+  while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte) && not esCeldaVacia()){
+    IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+  }
+
+  return(esCeldaVacia())
+
+}
 
 
 /*8 - Copiamos una celda:
 Escribir el procedimiento CopiarCeldaAl_, que copia los contenidos de la celda actual a la celda lindante en la dirección dada. Note que se deben eliminar los contenidos originales que hubieran en la celda de destino.*/
 
-function CopiarCeldaAl_(direccion){
-  copiarBolitas_(Azul)
-  copiarBolitas_(Negro)
-  copiarBolitas_(Rojo)
-  copiarBolitas_(Verde)
+procedure CopiarCeldaAl_(direccion){
+
+  cantidadDeAzules := nroBolitas(Azul)
+  cantidadDeNegras := nroBolitas(Negro)
+  cantidadDeRojas := nroBolitas(Rojo)
+  cantidadDeVerdes := nroBolitas(Verde)
+
+  Mover(direccion)
+
+  VaciarCelda()
+
+  CopiarElCasillero(cantidadDeAzules, cantidadDeNegras, cantidadDeRojas, cantidadDeVerdes)
+}
+
+procedure CopiarElCasillero(cantidadDeAzules, cantidadDeNegras, cantidadDeRojas, cantidadDeVerdes){
+
+  Poner_BolitasAzules(cantidadDeAzules)
+  Poner_BolitasNegras(cantidadDeNegras)
+  Poner_BolitasRojas(cantidadDeRojas)
+  Poner_BolitasVerdes(cantidadDeVerdes)
+
+}
+procedure Poner_BolitasAzules(cantidad){
+  Poner_DeColor_(cantidad, Azul)
+}
+procedure Poner_BolitasNegras(cantidad){
+  Poner_DeColor_(cantidad, Negro)
+}
+procedure Poner_BolitasRojas(cantidad){
+  Poner_DeColor_(cantidad, Rojo)
+}
+procedure Poner_BolitasVerdes(cantidad){
+  Poner_DeColor_(cantidad, Verde)
+}
+
+//////////CON UNA VARIABLE////////////
+procedure CopiarCeldaAl_(direccion){
+
+  colorRecorrido := Azul
+
+  repeat(4){
+    cantidadDeBolitasAca := nroBolitas(colorRecorrido)
+    Mover(direccion)
+    VaciarCelda()
+    Poner_DeColor_(cantidadDeBolitasAca, colorRecorrido)
+    Mover(opuesto(direccion))
+    colorRecorrido := siguiente(colorRecorrido)  
+  }
+}
+
+//Práctica de clase:
+
+function cantidadDeRojasEnElTablero(){
+  IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+  contadorDeRojas := nroBolitas(Rojo)
+  while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+    IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    contadorDeRojas := contadorDeRojas + nroBolitas(Rojo)
+  }
+  return(contadorDeRojas)
 }
 
 /*9 - Copiamos las esquinas:  
@@ -95,6 +178,20 @@ Escribir el procedimiento CopiarOrigenEnEsquinas  que  copia  en  cada  esquina 
 
 procedure CopiarOrigenEnEsquinas(){
   
+  cantidadDeAzules := nroBolitas(Azul)
+  cantidadDeNegras := nroBolitas(Negro)
+  cantidadDeRojas := nroBolitas(Rojo)
+  cantidadDeVerdes := nroBolitas(Verde)
+  
+  IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Sur)
+  direccion := minDir()
+
+  while(direccion /= maxDir()){
+  VaciarCelda()
+  CopiarElCasillero(cantidadDeAzules, cantidadDeNegras, cantidadDeRojas, cantidadDeVerdes)
+  direccion := siguiente(direccion)
+  IrAlBorde(direccion)
+  }
 }
 
 /*10 - ¡Y Dale!, ¡Y dale!, ¡Y dale Nova dale!: 

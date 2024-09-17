@@ -1,0 +1,13 @@
+//Ejercicio 1:
+
+function cantidadDeClientesARecibirPaquete(){
+    /*Prop: Describe la cantidad de clientes cuyo pedido está en el mapa y no fue entregado
+    Prec: -
+    Tipo: Num*/
+
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    cantidadDeClientesSinPaquete := unoSi_CeroSiNo(esClienteSinPaquete(nroBolitas(cliente))) //Corrección del profe: esClienteConPaqueteSinEntregar() - (cliente) <-- Parámetro libre
+    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    }
+}
