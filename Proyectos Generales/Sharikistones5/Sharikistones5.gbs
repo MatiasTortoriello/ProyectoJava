@@ -10,62 +10,55 @@ function nivelDeDificultad() {
     */
     
     IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
-    cantidadDeObstaculosAca := unoSi_CeroSiNo()
+    cantidadDeObstaculosEnElTablero := unoSi_CeroSiNo(hayObstaculosAca())
+
     while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
         
         IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
-        cantidadDeObstaculosAca := cantidadDeObstaculosAca + unoSi_CeroSiNo(hayObstaculosAca())
+        cantidadDeObstaculosEnElTablero := cantidadDeObstaculosEnElTablero + unoSi_CeroSiNo(hayObstaculosAca())
         
     }
 
-    return (cantidadDeObstaculosAca)
+    return (cantidadDeObstaculosEnElTablero)
 }
 
 function hayObstaculosAca(){
+    /*Prop: Indica si en la ubicación actual hay un obstáculo.
+    Prec: Ninguna.
+    Tipo: Boolean
+    */
     return (hayBolitas(Negro) && not hayBolitas(Azul))
 }
 
 //Ejercicio 2:
 
-/*function cantidadDeFichasCirculoEnEstaFila(){
-    
-        PROPÓSITO: Describe la cantidad de fichas círculo que hay en el tablero
-        PARÁMETROS:
-        TIPO: Número
-        PRECONDICIONES:
-            * 
-    
-    irAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
-    cantidadDeFichasRojasAca := unoSi_CeroSiNo()
-    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
-        
-        irASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
-        cantidadDeFichasRojasAca := cantidadDeFichasRojasAca + unoSi_CeroSiNo()
-        
-    }
-
-    return (cantidadDeFichasRojasAca)    
-}*/
 
 function cantidadDeFichasCirculoEnEstaFila(){
     /*
         PROPÓSITO: Describe la cantidad de fichas círculo que hay en el tablero
-        PARÁMETROS:
         TIPO: Número
         PRECONDICIONES:
-            * 
+            * Ninguna
     */
-    irAlBorde(Oeste)
-    cantidadDeFichasRojasAca := unoSi_CeroSiNo()
-    contarFichasSiSePuedeMover()
+    IrAlBorde(Oeste)
+    cantidadDeFichasCirculo := unoSi_CeroSiNo(hayCiruloAca())
     while(puedeMover(Este)){
         
         Mover(Este)
-        cantidadDeFichasRojasAca := cantidadDeFichasRojasAca + unoSi_CeroSiNo()
+        cantidadDeFichasCirculo := cantidadDeFichasCirculo + unoSi_CeroSiNo(hayCiruloAca())
         
     }
 
-    return (cantidadDeFichasRojasAca)    
+    return (cantidadDeFichasCirculo)    
+}
+
+function hayCiruloAca(){
+    /*Prop: Indica si en la ubicación actual hay una ficha círculo.
+    Prec: Ninguna.
+    Tipo: Boolean
+    */
+
+    return(nroBolitas(Negro)==1 && nroBolitas(Azul)==2) 
 }
 
 
@@ -75,19 +68,24 @@ function cantidadDeFichasCirculoEnEstaFila(){
 function hayFichasExplotadas(){
         /*
         PROPÓSITO: Indica si en el tablero existen fichas explotadas indicadas a través de una ubicación vacía
-        PARÁMETROS:
         TIPO: Boolean
         PRECONDICIONES:
-            * 
+            * Ninguna
     */
-    irAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
-    hayFichasExplotadas := unoSi_CeroSiNo()
-    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte) && not hayFichasExplotadas){
-        
-        irASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
-        hayFichasExplotadas := unoSi_CeroSiNo()
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    
+    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte) && not hayFichaExplotada){
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
         
     }
 
-    return (hayFichasExplotadas)        
+    return (hayFichaExplotada())        
+}
+
+function hayFichaExplotada(){
+    /*Prop: Indica si en la ubicación actual hay una ficha explotada. Determinando si el casillero está vacío o no.
+    Prec: Ninguna.
+    Tipo: Boolean
+    */
+    return(esVacía())
 }
