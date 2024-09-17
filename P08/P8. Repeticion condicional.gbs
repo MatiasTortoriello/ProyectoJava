@@ -145,16 +145,45 @@ procedure IrASiguienteCeldaEnUnRecorridoAl_Y_(dirPrincipal, dirSecundaria) {
 /*7.  Y ahora más cosas sobre el tablero 
  
 Escribir ahora los siguientes procedimientos, teniendo en cuenta que para todos, el cabezal puede comenzar en 
-cualquier lugar del tablero, y terminar en dónde usted crea conveniente. 
+cualquier lugar del tablero, y terminar en dónde usted crea conveniente.*/ 
+
+//a) PintarTableroDe_(color) que coloca exactamente una bolita del color dado en cada celda del tablero. 
+procedure PintarTableroDe_(color) {
+  /*
+    PROPÓSITO:  ....
+    PARÁMETROS:
+      * parámetro1: tipo - descripción.
+      * parámetro2: tipo - descripción.
+    PRECONDICIONES:
+      * ....
+  */
+  IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+  while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+    Poner(color)
+    IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+  }  
+}
+
+//b) UnaDeCadaEnTodoElTablero() que coloca una bolita de cada color en cada celda del tablero. 
+ procedure UnaDeCadaEnTodoElTablero() {
+  /*
+    PROPÓSITO:  ....
+    PARÁMETROS:
+      * parámetro1: tipo - descripción.
+      * parámetro2: tipo - descripción.
+    PRECONDICIONES:
+      * ....
+  */
+  IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+  while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+    
+    IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+  }  
+}
+/*c) RellenarCon_EnAusenciaDe_EnElTablero(colorAPoner, colorAMirar) que coloca una bolita de color 
+colorAPoner en cada celda del tablero en la que no haya al menos una bolita de color colorAMirar.*/
  
-a) PintarTableroDe_(color) que coloca exactamente una bolita del color dado en cada celda del tablero. 
- 
-b) UnaDeCadaEnTodoElTablero() que coloca una bolita de cada color en cada celda del tablero. 
- 
-c) RellenarCon_EnAusenciaDe_EnElTablero(colorAPoner, colorAMirar) que coloca una bolita de color 
-colorAPoner en cada celda del tablero en la que no haya al menos una bolita de color colorAMirar. 
- 
-d) CompletarHasta_De_EnElTablero(cantidad, color) que deja en cada celda del tablero exactamente tantas 
+/*d) CompletarHasta_De_EnElTablero(cantidad, color) que deja en cada celda del tablero exactamente tantas 
 bolitas del color dado como la cantidad indicada por el parámetro cantidad. Note que puede que ya existan 
 bolitas del color dado en algunas de las celdas, en cuyo caso. Realice el procedimiento sin hacer uso del 
 comando Sacar ni ninguno de los procedimientos que implican Sacar.*/

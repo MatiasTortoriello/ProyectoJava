@@ -52,6 +52,7 @@ function cantidadDeFichasCirculoEnEstaFila(){
     */
     irAlBorde(Oeste)
     cantidadDeFichasRojasAca := unoSi_CeroSiNo()
+    contarFichasSiSePuedeMover()
     while(puedeMover(Este)){
         
         Mover(Este)
