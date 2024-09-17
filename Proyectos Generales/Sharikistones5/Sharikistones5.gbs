@@ -8,16 +8,21 @@ function nivelDeDificultad() {
         PRECONDICIONES:
             * 
     */
-    irAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
     cantidadDeObstaculosAca := unoSi_CeroSiNo()
     while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
         
-        irASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
-        cantidadDeObstaculosAca := cantidadDeObstaculosAca + unoSi_CeroSiNo()
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+        cantidadDeObstaculosAca := cantidadDeObstaculosAca + unoSi_CeroSiNo(hayObstaculosAca())
         
     }
 
     return (cantidadDeObstaculosAca)
+}
+
+function hayObstaculosAca(){
+    return (hayBolitas(Negro) && not hayBolitas(Azul))
 }
 
 //Ejercicio 2:

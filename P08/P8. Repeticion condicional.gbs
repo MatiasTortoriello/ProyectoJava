@@ -176,18 +176,49 @@ procedure PintarTableroDe_(color) {
   */
   IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
   while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
-    
+    PonerUnaDeCada()
     IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
   }  
 }
 /*c) RellenarCon_EnAusenciaDe_EnElTablero(colorAPoner, colorAMirar) que coloca una bolita de color 
 colorAPoner en cada celda del tablero en la que no haya al menos una bolita de color colorAMirar.*/
- 
+
+procedure RellenarCon_EnAusenciaDe_EnElTablero(colorAPoner, colorAMirar) {
+  /*
+    PROPÓSITO:  ....
+    PARÁMETROS:
+      * parámetro1: tipo - descripción.
+      * parámetro2: tipo - descripción.
+    PRECONDICIONES:
+      * ....
+  */
+  IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+  while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+    if(nroBolitas(colorAMirar) == 0){
+      Poner(colorAPoner)
+    }
+    IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+  }
+
+}
+
 /*d) CompletarHasta_De_EnElTablero(cantidad, color) que deja en cada celda del tablero exactamente tantas 
 bolitas del color dado como la cantidad indicada por el parámetro cantidad. Note que puede que ya existan 
 bolitas del color dado en algunas de las celdas, en cuyo caso. Realice el procedimiento sin hacer uso del 
 comando Sacar ni ninguno de los procedimientos que implican Sacar.*/
 
+procedure CompletarHasta_De_EnElTablero(cantidad, color) {
+  /*
+    PROPÓSITO:  ....
+    PARÁMETROS:
+      * parámetro1: tipo - descripción.
+      * parámetro2: tipo - descripción.
+    PRECONDICIONES:
+      * ....
+  */
+    
+  
+}
 /*8.  Buscando la bolita roja en la fila/columna 
  
 Escribir un procedimiento IrHastaLaBolitaRojaHacia_(direcciónABuscar) que deja el cabezal posicionado en la 

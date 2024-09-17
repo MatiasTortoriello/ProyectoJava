@@ -198,7 +198,7 @@ procedure CopiarOrigenEnEsquinas(){
 La revisión de código sigue mal para Nova. Esta vez se trata de unos procedimientos que además de no tener contratos ni buenos nombres, algunos no andan y otros usan las variables de formas inadecuadas. Se pide entonces, encontrar los errores en los procedimientos que escribió Nova y justificar por qué son errores. Luego, renombrar los procedimientos, variables y parámetros (y sus usos) de manera adecuada, para que el programa resulte legible, y escribir los contratos.
 
 procedure P(p) 
- { p := p + 1; Poner__Veces(Azul, p) } 
+{ p := p + 1; Poner__Veces(Azul, p) } 
 procedure Q(p) { 
  if(p /= 3) {v := 3} 
  Poner__Veces(Azul, v) 

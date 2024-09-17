@@ -1,0 +1,112 @@
+function unoSi_CeroSino(condición){
+    /*
+    PROPÓSITO: Describe 1 cuando se cumple la condición
+    PARÁMETROS:
+        *condicón: Booleano - Describe el valor de verdad 
+    PRECONDICIONES:
+        *Ninguna
+    TIPO:Número
+    */
+    return(
+        choose
+            //devuelve 1 si la condición que se pasa por argumento es verdadera
+            1 when (condición)
+            0 otherwise
+        )
+}
+
+
+function cantidadRojas_CeroSino(condición){
+    /*
+    PROPÓSITO: Describe la cantidad de árboles cuando se cumple la condición
+    PARÁMETROS:
+        *condicón: Booleano - Describe el valor de verdad 
+    PRECONDICIONES:
+        *Ninguna
+    TIPO:Número
+    */
+    return(
+        choose
+            //devuelve la cantidad de árboles si la condición que se pasa por argumento es verdadera
+            cantidadÁrboles() when (hayÁrbol())
+            0 otherwise
+        )
+}
+
+/*
+prop: Describe el nivel de dificultad del juego actual en base a la cantidad de obstáculos 
+que se encuentren dentro de la misma grilla realizando un recorrido de conteo al Norte y al Este.
+tipo: numero
+param: NON
+prec: NON
+*/
+program {
+    return (nivelDeDificultad())
+}
+
+function nivelDeDificultad() {
+    /*
+    propósito: Describe el nivel de dificultad
+    precondiciones:
+        *Ninguna
+    tipo: Número
+    */
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    cantidadDeObstaculosActual := unoSi_CeroSino(hayObstaculoAca())
+    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+        cantidadDeObstaculosActual := cantidadDeObstaculosActual + unoSi_CeroSino(hayObstaculoAca())
+    }
+    
+   
+    return(cantidadDeObstaculosActual)
+}
+
+function hayObstaculoAca(){
+    /*
+    PROPÓSITO: Indica si en la ubicación actual hay un obstáculo
+    PRECONDICIONES:
+        * Ninguna
+    TIPO: Booleano
+    */
+    return(nroBolitas(Verde)==3)
+}
+
+function cantidadCírculosEnFila(){
+    /*
+    PROPÓSITO: Describe la cantidad de círculos que hay en la fila actual
+    PRECONDICIONES:
+        * Ninguna
+    TIPO: Número
+    */
+    IrAlBorde(Oeste)
+    cantidadCírculos := unoSi_CeroSino(hayCírculoAcá())
+    while(puedeMover(Este)){
+        Mover(Este)
+        cantidadCírculos := cantidadCírculos + unoSi_CeroSino(hayCírculoAcá())
+    }
+    return(cantidadCírculos)
+}
+
+function hayCírculoAcá(){
+    /*
+    PROPÓSITO: Indica si en la ubicación actual hay un círculo
+    PRECONDICIONES:
+        * Ninguna
+    TIPO: Booleano
+    */
+    return(nroBolitas(Negro)==1 && nroBolitas(Azul)==2) 
+}
+
+function hayFichasExplotadas(){
+    /*
+    
+    */
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte) && not hayFichaExplotada()){
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    }
+    
+   
+    return(hayFichaExplotada())
+}
