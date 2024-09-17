@@ -1,0 +1,17 @@
+//Ejercicio 1
+
+function nivelDeDificultad() {
+    /*
+        PROPÓSITO: Describe el nivel de dificultad del juego a través de la cantidad de obstáculos que hay en el juego.
+        PARÁMETROS:
+        TIPO: Número
+        PRECONDICIONES:
+            * 
+    */
+    irAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    cantidadDeObstaculosAca := unoSi_CeroSiNo()
+    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+        
+    }
+    return ()
+}
