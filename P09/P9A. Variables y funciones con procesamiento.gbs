@@ -434,7 +434,7 @@ función realizada debe ser total. */
 
 function cantidadDeVecinasConBolitas(){
   return(celdasConBolitasEnDireccionOrtogonal() +           celdasConBolitasEnDireccionDiagonal())
-}vbn
+}
 
 
 
