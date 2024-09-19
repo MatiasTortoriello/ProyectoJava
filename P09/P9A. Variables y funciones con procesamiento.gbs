@@ -436,5 +436,10 @@ function cantidadDeVecinasConBolitas(){
   return(celdasConBolitasEnDireccionOrtogonal() +           celdasConBolitasEnDireccionDiagonal())
 }
 
+function celdasConBolitasEnDireccionOrtogonal(){
+  totalCeldasOrtogonales := 0
+  direccionAMover() := minDir
+}
+
 
 
