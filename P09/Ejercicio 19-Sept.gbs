@@ -1,0 +1,59 @@
+//Recorrido Max y Min
+program {
+    return(cantidadDeBolitasAca())
+}
+function maximoDeBolitasEnTablero(){
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    maximoVisto := cantidadDeBolitasAca()
+    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+        maximoVisto := maximoEntre_Y_(maximoVisto, cantidadDeBolitasAca())    
+    }
+    return(maximoVisto)
+}
+
+function cantidadDeBolitasAca(){
+    return(nroBolitas(Rojo)+nroBolitas(Verde)+nroBolitas(Negro)+nroBolitas(Azul))
+}
+
+
+
+
+function distanciaAlBorde_(direccion) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    contador := 0
+    while(puedeMover(direccion)){
+        Mover(direccion)
+        contador := contador + 1
+    }
+    
+    return (contador)
+}
+
+//Recorrido de acumulación
+
+function nroVacias(parámetro1, parámetro2) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    nroCeldasVistas := unoSi_CeroSiNo(esCeldaVacia())
+    while (haySiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte)) {
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte)
+    }
+    return ()
+}

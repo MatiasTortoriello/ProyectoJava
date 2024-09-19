@@ -302,3 +302,24 @@ spock() papel(), lagarto() tijeras(), piedra()
 Escribir  jugadaGanadoraDePiedraPapelOTijerasLagartoSpockEntre_Y_,  que  dadas  dos  jugadas,  describe  la 
 jugada  ganadora  entre  ambas.  Para  olvidarnos  de  cómo  está  codificada  la  jugada,  tenemos  las  funciones 
 piedra(), papel(), tijeras(), lagarto() y spock()que representan a cada una de las jugadas. 
+
+/*18.  Mis coordenadas son... 
+ 
+BIBLIOTECA. Escribir las funciones coordenadaX y coordenadaY que retornen la coordenada de la columna y la 
+coordenada de la fila de la celda actual, respectivamente. Suponer que 0 es la coordenada de la primera fila y 
+columna. ¿Es necesario escribir un recorrido para estas funciones, o puede reutilizarse alguna otra función ya 
+hecha?*/
+
+function myFunction(parámetro1, parámetro2) {
+  /*
+    PROPÓSITO:  ....
+    PARÁMETROS:
+      * parámetro1: tipo - descripción.
+      * parámetro2: tipo - descripción.
+    TIPO: Tipo
+    PRECONDICIONES:
+      * ....
+  */
+  
+  return ()
+}
