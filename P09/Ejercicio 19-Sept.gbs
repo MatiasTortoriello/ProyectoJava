@@ -54,6 +54,114 @@ function nroVacias(parámetro1, parámetro2) {
     nroCeldasVistas := unoSi_CeroSiNo(esCeldaVacia())
     while (haySiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte)) {
         IrASiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte)
+        nroCeldasVistas := unoSi_CeroSiNo(esCeldaVacia())
     }
-    return ()
+    return (nroCeldasVistas)
+}
+
+
+function unoSi_CeroSiNo(condicion) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    
+    return (
+        choose
+            1 when (condicion)
+            0 otherwise
+    )
+}
+
+//Recorridos sobre eunumerativos
+
+procedure PonerUnaDeCada() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    colorRecorrido := minColor()
+    Poner(colorRecorrido)
+    while(colorRecorrido /= maxColor()){
+        colorRecorrido := siguiente(colorRecorrido)
+        Poner(colorRecorrido)
+    }
+    
+}
+
+procedure VisitarVecinasOrtogonales() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    direccionAIr := minDir()
+    Mover(direccionAIr)
+    while(direccionAIr /= maxDir()){
+        Mover(opuesto(direccionAIr))
+        direccionAIr := siguiente(direccionAIr)
+        Mover(direccionAIr)
+    }
+    
+}
+
+/*28.  Limpiando la cruz 
+ 
+Escribir  el  procedimiento  LimpiarCruzDeColor_  que  dado  un  color  limpia el dibujo de  una  cruz realizado  con 
+bolitas de dicho color, bajo la suposición de que el cabezal se encuentra en el centro de dicha cruz.*/
+
+procedure LimpiarCruzDeColor_(color) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    SacarTodasLasDeColor_(color)
+    Limpiar_EnTodasLasDirecciones(color)
+}
+
+procedure Limpiar_EnTodasLasDirecciones(color) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    LimpiarCruzDe_Al_(color, Norte)
+    LimpiarCruzDe_Al_(color, Este)
+    LimpiarCruzDe_Al_(color, Sur)
+    LimpiarCruzDe_Al_(color, Oeste)
+}
+
+procedure LimpiarCruzDe_Al_(color, direccion){
+    casillerosMovidos := 0
+    while(puedeMover(direccion)){
+        Mover(direccion)
+        casillerosMovidos := casillerosMovidos + 1
+        SacarTodasLasDeColor_(color)
+    }
+    VolverAlInicioDeLaCruz(casillerosMovidos, direccion)
+}
+
+procedure VolverAlInicioDeLaCruz(cantidadDeCasilleros, direccion){
+    repeat(cantidadDeCasilleros){
+        Mover(opuesto(direccion))
+    }
 }

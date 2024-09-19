@@ -323,3 +323,90 @@ function myFunction(parámetro1, parámetro2) {
   
   return ()
 }
+
+
+/*21.  Contando celdas con bolitas 
+ 
+BIBLIOTECA. Escribir la función cantidadDeCeldasConBolitasDeColor_ que describe la cantidad de celdas que 
+contienen al menos una bolita del color dado.*/
+
+function cantidadDdeCeldasConBolitasDeColor_(colorAMirar) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este,Norte)
+    celdasConBolitas := hayBolitas(colorAMirar)
+    while (haySiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte)) {
+      IrASiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte)
+      celdasConBolitas := celdasConBolitas + hayBolitas(colorAMirar)
+    }
+    
+    return (
+      celdasConBolitas
+    )
+}
+
+/*28.  Limpiando la cruz 
+ 
+Escribir  el  procedimiento  LimpiarCruzDeColor_  que  dado  un  color  limpia el dibujo de  una  cruz realizado  con 
+bolitas de dicho color, bajo la suposición de que el cabezal se encuentra en el centro de dicha cruz. */
+
+procedure LimpiarCruzDeColor_(color) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    SacarTodasLasDeColor_(color)
+    Limpiar_EnTodasLasDirecciones(color)
+}
+
+procedure Limpiar_EnTodasLasDirecciones(color) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    direccionRecorrida := minDir()
+    LimpiarCruzDe_Al_(color, direccionRecorrida)
+    while(direccionRecorrida /= maxDir()){
+            direccionRecorrida := siguiente(direccionRecorrida)
+            LimpiarCruzDe_Al_(color, direccionRecorrida)
+    }
+}
+
+procedure LimpiarCruzDe_Al_(color, direccion){
+    casillerosMovidos := 0
+    while(puedeMover(direccion)){
+        Mover(direccion)
+        casillerosMovidos := casillerosMovidos + 1
+        SacarTodasLasDeColor_(color)
+    }
+    VolverAlInicioDeLaCruz(casillerosMovidos, direccion)
+}
+
+procedure VolverAlInicioDeLaCruz(cantidadDeCasilleros, direccion){
+    repeat(cantidadDeCasilleros){
+        Mover(opuesto(direccion))
+    }
+}
+
+/*29.  Hacia la cual hay bolitas 
+ 
+Escribir la función direcciónHaciaLaCualHayBolitasDe_  que dado un color describe la dirección hacia la cual hay bolitas de dicho color, bajo la suposición de que hay una única celda con bolitas de dicho color en la celda. La función realizada debe ser total.*/
+
+function direcciónHaciaLaCualHayBolitasDe_(color){
+  
+}
