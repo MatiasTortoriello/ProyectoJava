@@ -227,7 +227,7 @@ procedure MoverTorreBlancaHacia_(direcciónAMover)
       * Hay una celda en la dirección dada. 
   */ 
 
-  Se  pide  que  escriba  el  procedimiento  ComerPiezaNegraConTorreHacia_(direcciónAComer)  que  asumiendo 
+ /* Se  pide  que  escriba  el  procedimiento  ComerPiezaNegraConTorreHacia_(direcciónAComer)  que  asumiendo 
 que se está sobre una torre blanca, come la pieza negra más próxima a la celda actual hacia la dirección dada, 
 dejando la torre en dicha celda. 
 */
@@ -315,7 +315,7 @@ function direcciónDelCódigo_(código)
         PRECONDICIONES: El código está entre 1 y 4 
     */ 
  
-Al escribir los contratos, no olvidar establecer las precondiciones necesarias (ya que las mismas no siempre se 
+/*Al escribir los contratos, no olvidar establecer las precondiciones necesarias (ya que las mismas no siempre se 
 explicitan en los enunciados). 
  
 a) colorCaminante(), colorIndicador(), colorHuella() y colorMeta(), que describen los colores con los que se 

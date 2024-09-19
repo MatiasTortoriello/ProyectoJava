@@ -194,26 +194,7 @@ procedure CopiarOrigenEnEsquinas(){
   }
 }
 
-/*10 - ¡Y Dale!, ¡Y dale!, ¡Y dale Nova dale!: 
-La revisión de código sigue mal para Nova. Esta vez se trata de unos procedimientos que además de no tener contratos ni buenos nombres, algunos no andan y otros usan las variables de formas inadecuadas. Se pide entonces, encontrar los errores en los procedimientos que escribió Nova y justificar por qué son errores. Luego, renombrar los procedimientos, variables y parámetros (y sus usos) de manera adecuada, para que el programa resulte legible, y escribir los contratos.
-
-procedure P(p) 
- { p := p + 1; Poner__Veces(Azul, p) } 
-procedure Q(p) { 
- if(p /= 3) {v := 3} 
- Poner__Veces(Azul, v) 
-} 
-procedure R()  
-  { Poner__Veces(Azul, v) Mover__Veces(Este, v) } 
-procedure S(p) { 
-  v := Este 
-  Mover__Veces(v, 5) 
-  v := 5 
-  Mover__Veces(Este, v) 
-} 
- 
-¡Alguien debe enseñarle pronto a Nova lo difícil que es entender y corregir el código si no se escriben buenos 
-nombres y buenos contratos! */
+/*10 - En papel*/
 
 //P9B - Alternativa condicional en exp y mas recorridos:
 
@@ -222,6 +203,24 @@ BIBLIOTECA. Escribir la función mínimoEntre_Y_, que dados dos valores describe
 ▪ ¿De qué tipo son los parámetros? 
 ▪ ¿Es válida la expresión mínimoEntre_Y_(Rojo, Azul)? ¿Qué describe? 
 ▪ ¿Qué se describe si son iguales? ¿Es relevante si es uno o el otro?*/
+
+function minimoEntre_Y_(valor1, valor2) {
+  /*
+    PROPÓSITO:  ....
+    PARÁMETROS:
+      * parámetro1: tipo - descripción.
+      * parámetro2: tipo - descripción.
+    TIPO: Tipo
+    PRECONDICIONES:
+      * ....
+  */
+   
+  return (  choose
+    valor1 when (valor1 < valor2)
+    valor2 when (valor2 < valor1)
+    0 otherwise
+  })
+}
 
 /*12 - El más grande 
 BIBLIOTECA. Escribir ahora la función máximoEntre_Y_ que dados dos valores describe aquel que sea el más grande.*/
