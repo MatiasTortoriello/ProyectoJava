@@ -408,5 +408,33 @@ procedure VolverAlInicioDeLaCruz(cantidadDeCasilleros, direccion){
 Escribir la función direcciónHaciaLaCualHayBolitasDe_  que dado un color describe la dirección hacia la cual hay bolitas de dicho color, bajo la suposición de que hay una única celda con bolitas de dicho color en la celda. La función realizada debe ser total.*/
 
 function direcciónHaciaLaCualHayBolitasDe_(color){
-  
+  return (
+    choose
+      Norte when hayBolitas_Hacia_(color, Norte)
+      Sur when hayBolitas_Hacia_(color, Sur)
+      Este when hayBolitas_Hacia_(color, Este)
+      Oeste otherwise
+  )
 }
+
+function hayBolitas_Hacia_(color, direccion){
+  
+  while (not hayBolitasDeColor_(color) && puedeMover(direccion)) {
+    Mover(direccion)
+  }
+  return(
+    hayBolitasDeColor_(color)
+    )
+}
+
+/*30.  Vecinas con bolitas /        
+ 
+Escribir  la  función  cantidadDeVecinasConBolitas  que  describe  la  cantidad  de  celdas  vecinas  que  contienen bolitas (de cualquier color). En este caso el concepto de vecindad implica tanto las celdas ortogonales como las diagonales, es decir, las celdas hacia el N, E, S y O y también las diagonales hacia  el NE, SE, SO y NO. La 
+función realizada debe ser total. */
+
+function cantidadDeVecinasConBolitas(){
+  return(celdasConBolitasEnDireccionOrtogonal() +           celdasConBolitasEnDireccionDiagonal())
+}
+
+
+
