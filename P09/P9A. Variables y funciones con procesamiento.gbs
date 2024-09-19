@@ -280,10 +280,10 @@ function direccionDelCodigo(codigo) {
  
 Escribir jugadaGanadoraDePiedraPapelOTijerasEntre_Y_, que dadas dos jugadas describe la jugada ganadora entre ambas. Para olvidarnos de cómo está codificada la jugada, tenemos las funciones piedra(), papel() y tijeras(), que representan a cada una de las  jugadas. En piedra papel o tijeras, el jugador puede elegir una de tres opciones, y cada opción pierde contra alguna otra y le gana a alguna otra. 
  
-Jugada Pierde contra Gana contra 
-piedra() papel() tijeras() 
-papel() tijeras() piedra() 
-tijeras() piedra() papel()  
+Jugada    Pierde contra  Gana contra 
+piedra()  papel()        tijeras() 
+papel()   tijeras()      piedra() 
+tijeras() piedra()       papel()  
  
 15.  Piedra, Papel o Tijeras... Lagarto, Spock 
  
