@@ -14,6 +14,36 @@ function fichaConMasValorActualEnGrilla(){
 //Ejercicio 2:
 
 function estaRodeadaDeObstaculos(){
-    
+  
+    estaRodeadaDeObstaculos := estaRodeadaDeObstaculosOrtogonales() && estaRodeadaDeObstaculosDiagonales()
     return(estaRodeadaDeObstaculos)
+}
+
+function estaRodeadaDeObstaculosOrtogonales(){
+
+    direccionActual := minDir()
+    while(direccionActual /= maxDir() && hayObstaculoOrtogonal()){
+        Mover(direccionActual)
+        estaRodeadaDeObstaculosOrtogonales := hayObstaculoAca()
+        Mover(opuesto(direccionActual))
+        direccionActual := siguiente(direccionActual)
+
+    }
+    
+    return(estaRodeadaDeObstaculosOrtogonales)
+}
+
+function estaRodeadaDeObstaculosDiagonales(){
+        
+        direccionActual := minDir()
+    while(direccionActual /= maxDir() && hayObstaculoOrtogonal()){
+        Mover(direccionActual)
+        Mover(siguiente(direccionActual))
+        estaRodeadaDeObstaculosOrtogonales := hayObstaculoAca()
+        Mover(opuesto(direccionActual))
+        Mover(siguiente(opuesto(direccionActual)))
+
+    }
+
+    return(estaRodeadaDeObstaculosOrtogonales)       
 }
