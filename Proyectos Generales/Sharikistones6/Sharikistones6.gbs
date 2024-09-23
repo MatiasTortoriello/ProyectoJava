@@ -1,1 +1,19 @@
 //Ejercicio 1:
+
+function fichaConMasValorActualEnGrilla(){
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    fichaConValorMasAlto := valorFichaAca()
+    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+        fichaConValorMasAlto := máximoEntre_Y_(valorFichaAca(), fichaConValorMasAlto)
+    }
+
+    return(fichaConValorMasAlto)
+}
+
+//Ejercicio 2:
+
+function estaRodeadaDeObstaculos(){
+    
+    return(estaRodeadaDeObstaculos)
+}
