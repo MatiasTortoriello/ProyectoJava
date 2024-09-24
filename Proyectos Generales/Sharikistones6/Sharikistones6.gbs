@@ -2,13 +2,21 @@
 
 function fichaConMasValorActualEnGrilla(){
     IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
-    fichaConValorMasAlto := valorFichaAca()
+    fichaConValorMasAlto := valorFichaAca(fichaPuntaje)
     while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
         IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
-        fichaConValorMasAlto := máximoEntre_Y_(valorFichaAca(), fichaConValorMasAlto)
+        fichaConValorMasAlto := máximoEntre_Y_(valorFichaAca(fichaPuntaje), fichaConValorMasAlto)
     }
 
     return(fichaConValorMasAlto)
+}
+
+function fichaPuntaje(){
+    return(nroBolitas(puntaje)
+}
+
+function puntaje(){
+    return(Verde)
 }
 
 //Ejercicio 2:
