@@ -23,11 +23,10 @@ function puntaje(){
 
 function estaRodeadaDeObstaculos(){
   
-    estaRodeadaDeObstaculos := estaRodeadaDeObstaculosOrtogonales() && estaRodeadaDeObstaculosDiagonales()
-    return(estaRodeadaDeObstaculos)
+    return(estaRodeadaDeObstaculosPerpendiculares())
 }
 
-function estaRodeadaDeObstaculosOrtogonales(){
+function estaRodeadaDeObstaculosPerpendiculares(){
 
     direccionActual := minDir()
     while(direccionActual /= maxDir() && hayObstaculoOrtogonal()){
@@ -41,17 +40,4 @@ function estaRodeadaDeObstaculosOrtogonales(){
     return(estaRodeadaDeObstaculosOrtogonales)
 }
 
-function estaRodeadaDeObstaculosDiagonales(){
-        
-        direccionActual := minDir()
-    while(direccionActual /= maxDir() && hayObstaculoOrtogonal()){
-        Mover(direccionActual)
-        Mover(siguiente(direccionActual))
-        estaRodeadaDeObstaculosOrtogonales := hayObstaculoAca()
-        Mover(opuesto(direccionActual))
-        Mover(siguiente(opuesto(direccionActual)))
 
-    }
-
-    return(estaRodeadaDeObstaculosOrtogonales)       
-}
