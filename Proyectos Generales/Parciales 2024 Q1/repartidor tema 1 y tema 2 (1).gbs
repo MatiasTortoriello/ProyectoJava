@@ -281,9 +281,11 @@ function cantidadPaquetesPorEntregarDelRepartidorCeroSino(){
         *ninguna.
     TIPO: Número
     */
-    return(choose paquetesPorEntregar_(idRepartidorAcá()) when (hayRepartidorAcá())
-                            0                             otherwise
-        )
+    return(
+        choose 
+            paquetesPorEntregar_(idRepartidorAcá()) when (hayRepartidorAcá())
+            0 otherwise
+    )
 }
 
 function paquetesPorEntregar_(idRepartidor){
