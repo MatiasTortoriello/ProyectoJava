@@ -72,3 +72,76 @@ function puedeMoverCaballoAl_Y_(direccion1, direccion2) {
     
     return (puedeMover(direccion2) && puedeMover2Al_(direccion1))
 }
+
+
+function puedeMover2Al_(direccion) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    return (puedeMover(direccion) && puedeMoverSiguienteAl_(direccion)) //Chequea si puede mover y luego si puede mover a la siguiente
+}
+
+function puedeMoverSiguienteAl_(direccion) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    Mover(direccion)
+    return (puedeMover(direccion)) //Mueve y luego verifica
+}
+
+///////////////////////////////////////////////////////////
+
+function hayDiagonalLibre(){
+    return(hayDiagonalAl_YAl_(Norte, Este) || hayDiagonalLibreAl_YAl_(Sur, Este))
+}
+
+function hayDiagonalLibreAl_YAl_(dir1, dir2){
+    IrAPrincipioDeDiagonal(dir1, dir2)
+    while(haySiguienteCeldaDiagonalAl_YAl_(dir1, dir2) && esUbicacionLibre() ){
+        IrSiguienteCeldaDiagonalAl_YAl(dir1, dir2)
+    }
+    
+    return(esUbicacionLibre())
+}
+
+procedure IrAPrincipioDeDiagonal(dir1, dir2){
+    IrAlBorde(opuesto(dir1))
+    IrAlBorde(opuesto(dir2))
+}
+
+function esUbicacionLibre() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    
+    return (not hayPiezaAca())
+}
+
+function hayPiezaAca(){
+    return(not esVacia())
+}
+
+////////////////////////////
+
+function cantidadDeMovimientosDeEsteReySinComer(){
+    
+}
+
