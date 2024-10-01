@@ -79,6 +79,23 @@ function hayPlanetaRectoHaciaEl_(direccion) {
 //Ejercicio 4
 
 function puedeLaNave_OrbitarAlgunoPorEmergencia(idNave){
+    IrALaNaveConId_(idNave)
+    return(estaLaNaveEnEmergencia() && esPosibleParaEstaNaveOrbitarAlgunPlaneta())
+}
+
+function estaLaNaveEnEmergencia(){
+    return(combustibleRestante == 1)
+}
+
+function esPosibleParaEstaNaveOrbitarAlgunPlaneta(){
+    dirActual := minDir()
+    while(puedeMover(dirActual) && not esPosibleParaEstaNaveOrbitarAl_(dirActual)){
+        dirActual := siguiente(dirActual)
+    }
+
+    return(esPosibleParaEstaNaveOrbitarAl_(dirActual))
+}
+
+function esPosibleParaEstaNaveOrbitarAl_(direccion){
     
-    return()
 }
