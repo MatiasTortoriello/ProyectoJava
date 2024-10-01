@@ -78,7 +78,7 @@ function hayPlanetaRectoHaciaEl_(direccion) {
 
 //Ejercicio 4
 
-function puedeLaNave_OrbitarAlgunoPorEmergencia(){
+function puedeLaNave_OrbitarAlgunoPorEmergencia(idNave){
     
     return()
 }
