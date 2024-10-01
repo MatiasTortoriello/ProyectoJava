@@ -142,6 +142,28 @@ function hayPiezaAca(){
 ////////////////////////////
 
 function cantidadDeMovimientosDeEsteReySinComer(){
-    
+    direccionActual := minDir()
+    cantidadDeMovimientosPosibles := 0
+    while(direccionActual /= maxDir()){
+        cantidadDeMovimientosPosibles := cantidadDeMovimientosPosibles + unoSi_CeroSiNo(hayCeldaLibreAl_(direccionActual)) + unoSi_CeroSiNo(hayCeldaLibreAlSiguienteDe_())
+        direccionActual := siguiente(direccionActual)
+    }
+}
+
+function hayCeldaLibreAlSiguienteDe_(direccion){
+    return(puedeMoverDiagonal(direccion, siguiente(direccion) && esUbicacionLibreEnDiagonal(direccion, siguiente(direccion)))
+}
+
+function puedeMoverDiagonal(direccion, sigDireccion){
+    return(puedeMover(direccion), puedeMover(sigDireccion))
+}
+
+function hayCeldaLibreAl_(direccion){
+    return(puedeMover(direccion) && esUbicacionLibreAl_(direccion))
+}
+
+function esUbicacionLibreAl_(direccion){
+    Mover(direccion)
+    return(esUbicacionLibre())
 }
 
