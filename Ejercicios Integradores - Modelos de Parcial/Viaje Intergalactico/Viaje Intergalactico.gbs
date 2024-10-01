@@ -89,7 +89,7 @@ function estaLaNaveEnEmergencia(){
 
 function esPosibleParaEstaNaveOrbitarAlgunPlaneta(){
     dirActual := minDir()
-    while(puedeMover(dirActual) && not esPosibleParaEstaNaveOrbitarAl_(dirActual)){
+    while(dirActual /= maxDir() && not esPosibleParaEstaNaveOrbitarAl_(dirActual)){
         dirActual := siguiente(dirActual)
     }
 
@@ -97,5 +97,10 @@ function esPosibleParaEstaNaveOrbitarAlgunPlaneta(){
 }
 
 function esPosibleParaEstaNaveOrbitarAl_(direccion){
-    
+    return(puedeMover(direccion) && esPosibleOrbitarAl_(direccion))
+}
+
+function esPosibleOrbitarAl_(direccion){
+    Mover(direccion)
+    return(hayPlanetaRecto())
 }
