@@ -138,6 +138,34 @@ function puedeLaNave_AterrizarEnElPlaneta_(idNave, idPlaneta) {
             <= combustibleRestanteEnNave_(idNave))
 }
 
+function distanciaEntreNave_YPlaneta_(idNave, idPlaneta){
+    return(
+        distanciaEnXDe_A_(idNave, idPlaneta) + distanciaEnYDe_A_(idNave, idPlaneta)
+    )
+}
+
+function  distanciaEnXDe_A_(idNave, idPlaneta){
+    return(diferenciaEntre_Y_(coordenadaXDeNave_(nave), coordenadaXDePlaneta_(planeta)))
+}
+
+function diferenciaEntre_Y_(primeraCoord, segundaCoord){
+    return(
+        choose
+            primeraCoord - segundaCoord when (primeraCoord >= segundaCoord)
+            segundaCoord - primeraCoord otherwise
+        }
+    )
+}
+
+function coordenadaXDeNave_(idNave){
+    IrALaNaveConId_(idNave)
+    return(coordenadaX())
+}
+
+function combustibleRestanteEnNave_(idNave){
+
+}
+
 procedure AterrizarNave_EnPlaneta_(idNave, idPlaneta) {
     /*
         PROPÓSITO:  ....
