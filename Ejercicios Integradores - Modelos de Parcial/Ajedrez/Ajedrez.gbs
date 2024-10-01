@@ -53,5 +53,22 @@ procedure MoverCaballoHaciaEl_Y_SiEsPosible(direccion1, direccion2) {
         PRECONDICIONES:
             * ....
     */
+    if (puedeMoverCaballoAl_Y_(direccion1, direccion2) && not hayPiezaAl_YAl_(direccion1, direccion2)){
+        MoverCaballoAl_Y_(direccion1, direccion2)
+    }
     
+}
+
+function puedeMoverCaballoAl_Y_(direccion1, direccion2) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    
+    return (puedeMover(direccion2) && puedeMover2Al_(direccion1))
 }
