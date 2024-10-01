@@ -1,0 +1,84 @@
+//Ejercicio 1
+
+function hayUnPlanetaA_Hacia_(distancia, direccion){
+    /*Propósito: Indica si hay un planeta a exactamente *distancia* celdas en sentido *dirección*.
+    Precondición: Hay al menos *distancia* celdas en dirección *dirección*.
+    Parámetros  
+        *distancia*. Número. La cantidad de años luz a la cual se desea buscar un planeta.
+        *dirección*. Dirección. La dirección hacia la cual mirar el planeta.
+    Tipo. Booleano*/
+    Mover_VecesAl_(distancia, direccion)
+    return(hayUnPlanetaAca())
+}
+
+function hayUnPlanetaAca(){
+    return(hayBolitas(planeta))
+}
+
+function combustibleRestante(){
+    /*Propósito. Indica la cantidad de combustible que le queda a la nave.
+    Precondición. El cabezal está sobre la nave.
+    Tipo. Número.*/
+    return(cantidadDeCombustibleRestante())
+}
+
+function cantidadDeCombustibleRestante(){
+    return(nroBolitas(combustible))
+}
+
+//Ejercicio 2
+
+function sePuedeAterrizarA_HaciaEl_(distanciaAPlaneta, direccionAPlaneta){
+    return(hayUnPlanetaA_Hacia_(distanciaAPlaneta, direccionAPlaneta) && hayCombustibleRestantePara_AñosLuz(distanciaAPlaneta))
+}
+
+function hayCombustibleRestantePara_AñosLuz(cantidadAñosLuz) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    return (combustibleRestante() >= cantidadAñosLuz)
+}
+
+//Ejercicio 3
+
+function hayPlanetaRecto(){
+    direccionActual := minDir()
+    while(direccionActual /= maxDir() && not hayPlanetaRectoHaciaEl_(dirActual)){
+        
+        Mover(direccionActual)
+        
+
+    }
+    return(hayPlanetaRectoHaciaEl_(dirActual))//Devuelve porque cortó el While
+}
+
+function hayPlanetaRectoHaciaEl_(direccion) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    Mover(direccion)
+    while(puedeMover(direccion) && not hayUnPlanetaAca()){
+        Mover(direccion)
+    }
+    
+    return (hayUnPlanetaAca())
+}
+
+//Ejercicio 4
+
+function puedeLaNave_OrbitarAlgunoPorEmergencia(){
+    
+    return()
+}
