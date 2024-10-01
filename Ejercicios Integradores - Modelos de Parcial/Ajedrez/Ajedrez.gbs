@@ -1,3 +1,5 @@
+//Ejercicio 1
+
 procedure ComerPiezaNegraConTorreHacia_(direccion) {
     /*
         PROPÓSITO:  ....
@@ -7,6 +9,7 @@ procedure ComerPiezaNegraConTorreHacia_(direccion) {
         PRECONDICIONES:
             * ....
     */
+    SacarTorre()
     IrALaPiezaNegraMasCercanaAl_(direccion)
     ComerPiezaAl_(direccion)
 }
@@ -23,4 +26,32 @@ procedure IrALaPiezaNegraMasCercanaAl_(direccion) {
     while(not hayPiezaNegraAl_(direccion) && puedeMover(direccion)){
 
     }
+}
+
+procedure ComerPiezaAca() {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+//Ejercicio 2
+
+procedure MoverCaballoHaciaEl_Y_SiEsPosible(direccion1, direccion2) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    
 }
