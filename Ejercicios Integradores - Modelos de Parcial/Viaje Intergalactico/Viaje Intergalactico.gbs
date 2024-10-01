@@ -102,5 +102,54 @@ function esPosibleParaEstaNaveOrbitarAl_(direccion){
 
 function esPosibleOrbitarAl_(direccion){
     Mover(direccion)
-    return(hayPlanetaRecto())
+    return(hayUnPlanetaRectoAUnAñoLuz())
+}
+
+//Ejercicio 5
+
+procedure AteerizarNave_EnPlaneta_SiEsPosible(idNave, idPlaneta) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    if(puedeLaNave_AterrizarEnElPlaneta_(idNave, idPlaneta)){
+        AterrizarNave_EnPlaneta_(idNave, idPlaneta)
+    }
+}
+
+
+
+function puedeLaNave_AterrizarEnElPlaneta_(idNave, idPlaneta) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        TIPO: Tipo
+        PRECONDICIONES:
+            * ....
+    */
+    
+    return (distanciaEntreNave_YPlaneta_(idNave, idPlaneta) 
+            <= combustibleRestanteEnNave_(idNave))
+}
+
+procedure AterrizarNave_EnPlaneta_(idNave, idPlaneta) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    IrALaNaveConId_(idNave)
+    SacarLaNave(idNave)
+    IrAPlanetaConId_(idPlaneta)
+    AterrizarNave_(idNave)
+    
 }
