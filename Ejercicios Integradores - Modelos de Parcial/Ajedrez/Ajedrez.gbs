@@ -148,6 +148,10 @@ function cantidadDeMovimientosDeEsteReySinComer(){
         cantidadDeMovimientosPosibles := cantidadDeMovimientosPosibles + unoSi_CeroSiNo(hayCeldaLibreAl_(direccionActual)) + unoSi_CeroSiNo(hayCeldaLibreAlSiguienteDe_())
         direccionActual := siguiente(direccionActual)
     }
+    cantidadDeMovimientosPosibles := cantidadDeMovimientosPosibles + unoSi_CeroSiNo(hayCeldaLibreAl_(direccionActual)) + unoSi_CeroSiNo(hayCeldaLibreAlSiguienteDe_())
+        direccionActual := siguiente(direccionActual)
+
+    return(cantidadDeMovimientosPosibles)
 }
 
 function hayCeldaLibreAlSiguienteDe_(direccion){
