@@ -1,0 +1,26 @@
+procedure ComerPiezaNegraConTorreHacia_(direccion) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    IrALaPiezaNegraMasCercanaAl_(direccion)
+    ComerPiezaAl_(direccion)
+}
+
+procedure IrALaPiezaNegraMasCercanaAl_(direccion) {
+    /*
+        PROPÓSITO:  ....
+        PARÁMETROS:
+            * parámetro1: tipo - descripción.
+            * parámetro2: tipo - descripción.
+        PRECONDICIONES:
+            * ....
+    */
+    while(not hayPiezaNegraAl_(direccion) && puedeMover(direccion)){
+
+    }
+}
