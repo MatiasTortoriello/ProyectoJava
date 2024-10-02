@@ -1,5 +1,6 @@
-//TEMA 1
-//Ejercicio 1
+//////////////////////////////////////////////////////////
+/////               EJERCICIO 1                     //////
+//////////////////////////////////////////////////////////
 
 function hayGanador() {
     IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este,Norte)
@@ -23,7 +24,10 @@ function númeroGanador() {
     return(númeroAcá())
 }
 
-//Ejercicio 2
+
+//////////////////////////////////////////////////////////
+/////               EJERCICIO 2                     //////
+//////////////////////////////////////////////////////////
 
 function dineroTotalQueSeLlevaránLosGanadores() {
     IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este,Norte)
@@ -40,7 +44,10 @@ function dineroQueSeLlevaráGanadorAcáSiHay() {
                     0 otherwise)
 }
 
-//Ejercicio 3
+
+//////////////////////////////////////////////////////////
+/////               EJERCICIO 3                     //////
+//////////////////////////////////////////////////////////
 
 procedure Otorgar_DineroAlGanador(dinero) {
     idDeJugador := idDeJugadorAcá()
@@ -58,7 +65,9 @@ procedure Sacar_DineroACroupierSiTiene(dineroASacar) {
     }
 } 
 
-//Ejercicio 4
+//////////////////////////////////////////////////////////
+/////               EJERCICIO 4                     //////
+//////////////////////////////////////////////////////////
 
 procedure OtorgarDineroAGanadores() {
     IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este,Norte)
@@ -125,53 +134,3 @@ procedure IrACruppier() {
 
 //////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////
-
-//Ejercicio 1
-
-function hayActitudSospechosa(){
-    direccionActual := minDir()
-    sorteoCroupier := numeroAca()
-    while(direccionActual /= maxDir() && puedeMover(direccionActual)){
-        Mover(direccionActual)
-        hayActitudSospechosaAca := actitudSospechosaAca(sorteoCroupier)
-        Mover(opuesto(direccionActual))
-        direccionActual := siguiente(direccionActual)
-    }
-    return(actitudSospechosaAca(sorteoCroupier))
-}
-
-function hayActitudSospechosa(){
-    
-}
-
-function actitudSospechosaAca(sorteoCroupier){
-    return(esSospechoso(sorteoCroupier))
-}
-
-function esSospechoso(sorteoCroupier){
-    return(sorteoCroupier == numeroAca())
-}
-
-//Ejercicio 2
-
-function cantidadDeDineroDePerdedores(){
-    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
-    cantidadTotalDeDineroDePerdedores := esPerdedor()
-    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte) && esPerdedor()){
-        cantidadTotalDeDineroDePerdedores := cantidadTotalDeDineroDePerdedores + 
-    }
-}
-
-//Ejercicio 3
-
-procedure Otorgar_DineroAlCrupier(cantidadDeDineroEntregado){
-    SacarDineroAca()
-    IrAlCroupier()
-    DarDineroAlCroupier()
-}
-
-//Ejercicio 4
-
-procedure TomarDineroDePerdedores(){
-
-}
