@@ -130,7 +130,7 @@ procedure IrACruppier() {
 
 function hayActitudSospechosa(){
     direccionActual := minDir()
-    sorteoCroupier := numeroAca()
+    sorteoCroupier := numeroGanador()
     while(direccionActual /= maxDir() && puedeMover(direccionActual)){
         Mover(direccionActual)
         hayActitudSospechosaAca := actitudSospechosaAca(sorteoCroupier)
@@ -155,23 +155,75 @@ function esSospechoso(sorteoCroupier){
 //Ejercicio 2
 
 function cantidadDeDineroDePerdedores(){
+
     IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
-    cantidadTotalDeDineroDePerdedores := esPerdedor()
-    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte) && esPerdedor()){
-        cantidadTotalDeDineroDePerdedores := cantidadTotalDeDineroDePerdedores + 
+    cantidadTotalDeDineroDePerdedores := cantidadDeDineroSiEsPerdedor()
+    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+        cantidadTotalDeDineroDePerdedores := cantidadTotalDeDineroDePerdedores + cantidadDeDineroSiEsPerdedor
     }
+    return(cantidadTotalDeDineroDePerdedores)
+}
+
+function cantidadDeDineroSiEsPerdedor(){
+    return(
+        choose 
+            dineroAca() when esPerdedor()
+            0 otherwise
+    )
+}
+
+function esPerdedor(){
+    return(hayJugadorAca() && elJugadorPerdio())
+    }
+
+function elJugadorPerdio(){
+    return(numeroAca() /= numeroGanador())
+}
+
+function numeroGanador(){
+    IrACroupier()
+    return(numeroAca())
+}
+
+procedure IrACroupier() {
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este,Norte)
+    while(not hayCroupierAcá()) {
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte)
+    }    
 }
 
 //Ejercicio 3
 
 procedure Otorgar_DineroAlCrupier(cantidadDeDineroEntregado){
-    SacarDineroAca()
-    IrAlCroupier()
-    DarDineroAlCroupier()
+    Sacar_DeDineroAca(cantidadDeDineroEntregado)
+    IrACroupier()
+    DarDineroAlCroupier(cantidadDeDineroEntregado)
+}
+
+procedure SacarDineroAca(cantidadDeDineroASacar) {    
+    Sacar(dineroAca())
 }
 
 //Ejercicio 4
 
 procedure TomarDineroDePerdedores(){
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    dineroSacadoALosPerdedores := cantidadDeDineroSiEsPerdedor()
+    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+        dineroSacadoALosPerdedores := dineroSacadoALosPerdedores + cantidadDeDineroSiEsPerdedor()
+    }
+    DarElDineroAlCroupier(dineroSacadoALosPerdedores)
+}
 
+procedure DarElDineroAlCroupier(dineroAEntregar){
+    IrACroupier()
+    DarDinero(dineroAEntregar)
+}
+
+procedure DarDinero(dineroADar){
+    repeat(dineroADar){
+        Poner(colorDinero())
+    }
 }
