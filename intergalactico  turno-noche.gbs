@@ -1,0 +1,312 @@
+//ejercicio 1
+function hayUnPlanetaA_Hacia_(distancia, dirección){
+    /*
+    Propósito. Indica si hay un planeta a exactamente *distancia* celdas en sentido *dirección*.
+    Precondición. 
+    Hay al menos *distancia* celdas en dirección *dirección*.
+    Parámetros.
+    *distancia*. Número. La cantidad de años luz a la cual se desea buscar un planeta.
+    *dirección*. Dirección. La dirección hacia la cual mirar el planeta.    
+    Tipo. Booleano.
+    */
+    Mover_VecesAl_(distancia, direccion)
+    return (hayPlanetaAca())
+}
+
+function hayPlanetaAca(){
+    /*...*/
+    return (hayBolitas(Azul))
+}
+
+function combustibleRestante(){
+    /*
+    Propósito. Indica la cantidad de combustible que le queda a la nave.
+    Precondición. El cabezal está sobre la nave.
+    Tipo. Número.
+    */
+    return (nroBolitas(Negro))
+}
+
+//ejercicio 2
+/*
+Definir sePuedeAterrizarA_HaciaEl_(distanciaAPlaneta, direcciónAPlaneta), que asumiendo que el 
+cabezal se encuentra sobre la nave y hay al menos distanciaAPlanera celdas en dirección 
+direcciónAPlaneta, indica si hay un planeta a exactamente distanciaAPlaneta en la dirección 
+direcciónAPlaneta y sí el combustible es suficiente para llegar al mismo.
+*/
+function sePuedeAterrizarA_HaciaEl_(distanciaAPlaneta, direcciónAPlaneta){
+    /*
+    Proposito: indica si hay un planeta a exactamente distanciaAPlaneta en la dirección 
+               direcciónAPlaneta y sí el combustible es suficiente para llegar al mismo.
+    Precondiciones: el cabezal se encuentra sobre la nave
+                    hay al menos distanciaAPlanera celdas en dirección direcciónAPlaneta
+    Parametros: *distanciaAPlaneta* -Numero- es la distancia hacia el planeta en donde se intenta aterrizar
+                *direcciónAPlaneta* -Direccion- direccion hacia donde se encuentra el planeta
+    Tipo: Booleano
+    */
+    return(hayUnPlanetaA_Hacia_(distanciaAPlaneta, direcciónAPlaneta) 
+           &&
+           hayCombustibleRestantePara_AñosLuz(distanciaAPlaneta))
+
+}
+
+function hayCombustibleRestantePara_AñosLuz(cantidadAñosLuz){
+    /*
+    Proposito: indica si hay combustible suficiente para viajar *cantidadAñosLuz* años luz.
+    Precondiciones: el cabezal se encuentra sobre la nave
+    Parametros: *cantidadAñosLuz* -Numero- es la cantidad de años luz que se desea viajar
+    Tipo: Booleano
+    */
+    return(combustibleRestante() >= cantidadAñosLuz)
+}
+
+//ejercicio 3
+/*
+Sabiendo que el cabezal se encuentra sobre la nave se pide que escriba la función hayUnPlanetaRecto, 
+que indica que existe un planeta en cualquiera de las direcciones, a cualquier distancia desde 
+la nave.
+*/
+
+function hayUnPlanetaRecto(){
+    /*
+    Proposito: indica si existe un planeta en cualquiera de las direcciones ortogonales, 
+    a cualquier distancia desde la nave.
+    Precondiciones: el cabezal se encuentra sobre la nave
+    Tipo: Booleano
+    */  
+    dirActual := minDir()
+    while (dirActual /= maxDir() && not hayPlanetaRectoHaciaEl_(dirActual){
+        dirActual := siguiente(dirActual)
+    }
+    return(hayPlanetaRectoHaciaEl_(dirActual))
+}
+
+function hayPlanetaRectoHaciaEl_(direccion){
+    /*
+    Proposito: indica si existe un planeta hacia la direccion *direccion*, 
+    a cualquier distancia desde la nave.
+    Precondiciones: el cabezal se encuentra sobre la nave
+    Parametros: *direccion*-Direccion- direccion hacia la cual ver si hay un planeta
+    Tipo: Booleano
+    */ 
+    return(puedeMover(dirección) && hayPlanetaRectoAl_(direccion))
+}
+
+function hayPlanetaRectoAl_(direccion){
+    /*
+    Proposito: indica si existe un planeta hacia la direccion *direccion*, 
+    a cualquier distancia desde la nave.
+    Precondiciones: el cabezal se encuentra sobre la nave
+                    hay al menos una celda hacia la direccion dada.
+    Parametros: *direccion*-Direccion- direccion hacia la cual ver si hay un planeta
+    Tipo: Booleano
+    */     
+    Mover(direccion)
+    while (puedeMover(dirección) && not hayPlanetaAcá()) {
+        Mover(dirección)
+    } 
+    return(hayPlanetaAcá())
+}
+
+//Ejercicio 4
+/*
+Definir puedeLaNave_OrbitarAlgunoPorEmergencia, que nos indica si, para un id de nave determinado; 
+en caso de una emergencia, es posible aunque sea orbitar un planeta. Definimos orbitar un planeta a 
+estar a 1 año luz de distancia. Definimos falta de combustible cuando la nave tiene exactamente 1 
+unidad de materia oscura. Asumimos que hay en La Galaxia una nave con el Id indicado y que no se 
+encuentra sobre un planeta ni orbitando uno.
+*/
+
+function puedeLaNave_OrbitarAlgunoPorEmergencia(idNave){
+    /*
+    Proposito: indica si, para un id de nave *idNave*,en caso de una emergencia, 
+               es posible aunque sea orbitar un planeta.
+    Precondiciones: hay en La Galaxia una nave con el Id *idNave* y que no se 
+                    encuentra sobre un planeta ni orbitando uno.
+    Parametros: *idNave* - Numero - id de la nave
+    Tipo: Booleano
+    obs: Definimos orbitar un planeta a estar a 1 año luz de distancia. 
+         Definimos estar en emergencia cuando la nave tiene exactamente 1 unidad de materia oscura.
+    */  
+    IrALaNaveConId_(idNave)
+    //return(esPosibleParaEstaNaveOrbitarAlgunPlanetaPorEmergencia())
+    return (estaLaNaveEnEmergencia() && esPosibleParaEstaNaveOrbitarAlgunPlaneta())
+}
+
+function estaLaNaveEnEmergencia(){
+    /*
+    Proposito: indica si el combustible de la nave es 1.
+    Precondiciones: Hay una nave en la celda actual
+    Tipo: Booleano
+    */     
+    return (combustibleRestante() == 1)
+}
+
+function esPosibleParaEstaNaveOrbitarAlgunPlaneta(){
+    /*
+    Proposito: indica si ees posible para la nave de la celda actual orbitar un planeta
+    Precondiciones: Hay una nave en la celda actual
+                    la nave no se encuentra orbitando un planeta
+                    la nave no se encuentra sobre un planeta
+    Tipo: Booleano
+    */ 
+    dirActual:= minDir()
+    while(dirActual /= maxDir() && not esPosibleParaEstaNaveOrbitarAl_(dirActual)){
+        dirActual:= siguiente(dirActual)
+    }
+    return (esPosibleParaEstaNaveOrbitarAl_(dirActual))
+}
+
+function esPosibleParaEstaNaveOrbitarAl_(direccion){
+    /*
+    Proposito: indica si es posible para la nave de la celda actual orbitar un planeta al *direccion*
+    Precondiciones: Hay una nave en la celda actual
+    Parametros: *direccion* - Direccion - direccion a la cual verificar si se puede orbitar
+    Tipo: Booleano
+    */     
+    return (puedeMover(direccion) && esPosibleOrbitarAl_(direccion))
+}
+
+function esPosibleOrbitarAl_(direccion){
+    /*
+    Proposito: indica si es posible para la nave de la celda actual orbitar un planeta al *direccion*
+    Precondiciones: Hay una nave en la celda actual
+                    hay al menos una celda hacia la direccion dada
+    Parametros: *direccion* - Direccion - direccion a la cual verificar si se puede orbitar
+    Tipo: Booleano
+    */    
+    Mover(direccion)
+    return(hayUnPlanetaRectoA1AñoLuz())  //parecida a hayUnPlanetaRecto()
+}
+
+//ejercicio 5
+/*
+Nuestra nave es libre de girar a 90° y avanzar, siempre en busca del planeta. Así podemos trazar 
+una trayectoria de donde está una nave y un planeta, en nuestra galaxia. Se pide definir 
+AterrizarNave_EnPlaneta_SiEsPosible que, de ser posible, lleve la nave indicada hasta el planeta 
+indicado. Se recomienda para resolver este problema la utilización de primitivas que manipulen 
+coordenadas cartesianas. No se pide recrear el recorrido de la nave, simplemente situar la nave en 
+el planeta destino, sacándola de donde estaba. Asumimos que existe tanto el planeta como la nave en 
+cuestión.
+*/
+
+procedure AterrizarNave_EnPlaneta_SiEsPosible(idNave, idPlaneta){
+    /*
+    PROPÓSITO: Aterriza la nave de id *idNave* en el planeta de id *idPlaneta*, dejando el 
+               cabezal en sobre la nave en caso de ser posible. 
+    PARÁMETROS:
+        * idNave- Numero- Representa la nave que debera aterrizar en dicho planeta
+        * idPlaneta - Numero- Representa el planeta en el que se deberá aterrizar de ser posible
+    PRECONDICIONES:
+        * Tanto la nave con id *idNave* como el planeta con id *idPlaneta* existen en esta galaxia.
+    */  
+    if(puedeLaNave_AterrizarEnElPlaneta_(idNave, idPlaneta)){
+        AterrizarNave_EnPlaneta_(idNave, idPlaneta)
+    }
+}
+
+procedure AterrizarNave_EnPlaneta_(idNave, idPlaneta){
+    /*
+    PROPÓSITO: Aterriza la nave **idNave** en el planeta **idPlaneta**, el cabezal queda ubicado en donde aterriza la nave, el planeta **idPlaneta**.
+    PARÁMETROS:
+        * idNave- Numero- Representa la nave que debera aterrizar en dicho planeta
+        * idPlaneta - Numero- Representa el planeta en el que se deberá aterrizar de ser posible
+    PRECONDICIONES:
+        * Tanto la nave con id *idNave* como el planeta con id *idPlaneta* existen en esta galaxia.
+        * La nave con el id *idNave* tiene que tener al menos la misma cantidad de materia oscura que de años luz 
+        de distancia entre la nave **idnave** y el planeta con el id **idPlaneta**
+    */ 
+    IrANaveConId_(idNave)
+    SacarNaveAqui()
+    IrPlanetaConId_(idPlaneta)
+    PonerNaveConId_Aqui(idNave)
+}
+
+
+
+function puedeLaNave_AterrizarEnElPlaneta_(idNave, idPlaneta){
+    /*
+    Proposito: 
+    Precondiciones: 
+    Parametros: 
+    Tipo: 
+    */
+    return(distanciaEntreNave_YPlaneta_(idNave, idPlaneta) 
+           <=
+           combustibleRestanteEnNave_(idNave))
+}
+
+function combustibleRestanteEnNave_(idNave){
+    /*..*/
+    IrANaveConId_(idNave)
+    return(combustibleRestante())
+}
+
+function distanciaEntreNave_YPlaneta_(idNave, idPlaneta){
+    /*...*/
+    return (distanciaEnXDe_A_(idNave, idPlaneta) + distanciaEnYDe_A_(idNave, idPlaneta))
+}
+
+function distanciaEnXDe_A_(idNave, idPlaneta){
+    /*...*/
+    return(diferenciaEntre_Y_(coordenadaXDeNave_(idNave), coordenadaXDelPlaneta_(planeta)))
+}
+
+function diferenciaEntre_Y_(primeraCoordenada, segundaCoordenada){
+    /*...*/
+    return( choose primeraCoordenada-segundaCoordenada when (primeraCoordenada >= segundaCoordenada)
+                   segundaCoordenada-primeraCoordenada otherwise
+          )   
+}
+
+function coordenadaXDeNave_(idNave){
+    /*...*/
+    IrANaveConId_(idNave)
+    return(coordenadaX())
+}
+
+function coordenadaYDeNave_(idNave){
+    /*...*/
+    IrANaveConId_(idNave)
+    return(coordenadaY())
+}
+
+function coordenadaXDelPlaneta_(planeta){
+    /*...*/
+    IrAlPlaneta_(planeta)
+    return(coordenadaX())
+}
+
+function coordenadaYDelPlaneta_(planeta){
+    /*...*/
+    IrAlPlaneta_(planeta)
+    return(coordenadaY())
+}
+
+procedure IrAlPlaneta_(idPlaneta){
+/*
+    Propósito: Ubica el cabezal sobre la planeta
+    Precondición:         
+        * Existe el planeta con el id **idNave**
+    Parámetros.
+        idPlaneta:  Numero - Indica el id del Planeta  
+*/ 
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    while (not estaElPlanetaAca(idNave)) {
+        IrASiguienteCeldaEnUnRecorridoAl_y_(Este, Norte)
+    }
+}
+
+procedure IrANaveConId_(idNave){
+/*
+    Propósito: Ubica el cabezal sobre la nave
+    Precondición:         
+        * Existe la nave con el id **idNave**
+    Parámetros.
+        idNave:  Numero - Indica el id de la nave  
+*/ 
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    while (not estaLaNave_Aca(idNave)) {
+        IrASiguienteCeldaEnUnRecorridoAl_y_(Este, Norte)
+    }
+}

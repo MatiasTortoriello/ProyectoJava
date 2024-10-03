@@ -1,0 +1,136 @@
+//////////////////////////////////////////////////////////
+/////               EJERCICIO 1                     //////
+//////////////////////////////////////////////////////////
+
+function hayGanador() {
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este,Norte)
+    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte) && not hayGanadorAcá()) {
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte)
+    }
+    return(hayGanadorAcá())
+}
+
+function hayGanadorAcá() {
+    return(hayJugadorAcá() && esJugadorGanador())
+}
+
+
+function esJugadorGanador() {
+    return(númeroAcá() == númeroGanador())
+}
+
+function númeroGanador() {
+    IrACruppier()
+    return(númeroAcá())
+}
+
+
+//////////////////////////////////////////////////////////
+/////               EJERCICIO 2                     //////
+//////////////////////////////////////////////////////////
+
+function dineroTotalQueSeLlevaránLosGanadores() {
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este,Norte)
+    cantidadVistos := dineroQueSeLlevaráGanadorAcáSiHay()
+    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte)) {
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte)
+        cantidadVistos := cantidadVistos + dineroQueSeLlevaráGanadorAcáSiHay()
+    }
+    return(cantidadVistos)
+}    
+
+function dineroQueSeLlevaráGanadorAcáSiHay() {
+    return(choose dineroAcá() * 3 when (hayGanadorAcá())
+                    0 otherwise)
+}
+
+
+//////////////////////////////////////////////////////////
+/////               EJERCICIO 3                     //////
+//////////////////////////////////////////////////////////
+
+procedure Otorgar_DineroAlGanador(dinero) {
+    idDeJugador := idDeJugadorAcá()
+    Poner_DineroAcá(dinero)
+    IrACruppier()
+    Sacar_DineroACroupierSiTiene(dinero)
+    IrAJugador_(idDeJugador)
+}
+
+procedure Sacar_DineroACroupierSiTiene(dineroASacar) {
+    if(dineroAcá()>dineroASacar) {
+        Sacar_DineroAcá(dineroASacar)
+    } else {
+        Sacar_DineroAcá(dineroAcá())
+    }
+} 
+
+//////////////////////////////////////////////////////////
+/////               EJERCICIO 4                     //////
+//////////////////////////////////////////////////////////
+
+procedure OtorgarDineroAGanadores() {
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este,Norte)
+    while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte)) {
+        OtorgarDineroAlGanadorAcáSiHay()
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte)
+    }   
+    OtorgarDineroAlGanadorAcáSiHay()
+}
+
+procedure OtorgarDineroAlGanadorAcáSiHay() {
+    if(hayGanadorAcá()) {
+        Otorgar_DineroAlGanador(dineroAcá()*2)
+    }
+}
+
+
+//////////////////////////////////////////////////////////
+/////               PRIMITIVAS                      //////
+//////////////////////////////////////////////////////////
+
+function colorJugador() {
+    return(Azul)
+}
+
+function colorCruppier() {
+    return(Negro)
+}
+
+function colorNúmero() {
+    return(Rojo)
+}
+
+function colorDinero() {
+    return(Verde)
+}
+
+function hayCruppierAcá() {
+    return(hayBolitas(colorCruppier()))
+}
+
+function hayJugadorAcá() {
+    return(hayBolitas(colorJugador()))
+}
+
+function dineroAcá() {
+    return(nroBolitas(colorDinero()))
+}
+
+function idDeJugadorAcá() {
+    return(nroBolitas(colorJugador()))
+}
+
+function númeroAcá() {
+    return(nroBolitas(colorNúmero()))
+}
+
+procedure IrACruppier() {
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este,Norte)
+    while(not hayCruppierAcá()) {
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte)
+    }    
+}
+
+//////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////
