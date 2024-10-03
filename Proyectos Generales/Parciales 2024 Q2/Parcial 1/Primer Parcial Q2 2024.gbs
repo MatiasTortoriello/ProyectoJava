@@ -1,14 +1,5 @@
 /*Ejercicio 1: Escribir el procedimiento ProvocarBajaDeTensiónDe_() que, dada una intensidad, disminuye la potencia de las torres y las señales en toda la región según el valor indicado. Si la potencia de la torre o la señal son menores que la baja de intensidad provocada, se disminuye todo lo que haya en esa celda. Se debe asumir que las señales están propagadas.*/
 procedure ProvocarBajaDeTensiónDe_(intensidadABajar) {
-    /*
-        PROPÓSITO:  ....
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        PRECONDICIONES:
-            * ....
-    */
-
     IrAPrimeraCeldaEnUnRecorridoAl_YAl_(Este, Norte)
     Bajar_TensiónAcáSiPuedo(intensidadABajar)
     while (haySiguienteCeldaEnUnRecorridoAl_YAl_(Este, Norte)) {
@@ -25,26 +16,10 @@ procedure Bajar_TensiónAcáSiPuedo(intensidadABajar){
 }
 
 procedure puedoBajarTensiónAcá() {
-    /*
-        PROPÓSITO:  ....
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        PRECONDICIONES:
-            * ....
-    */
     return(hayTorreAcá() || haySeñalAcá())
 }
 
 procedure Bajar_DeTensión(cantidadDeTensiónABajar) {
-    /*
-        PROPÓSITO:  ....
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        PRECONDICIONES:
-            * ....
-    */
     choose
         Bajar_DeIntensidadDeSeñal(cantidadDeTensiónABajar) when haySeñalAcá()
         Bajar_DePotenciaDeTorre(cantidadDeTensiónABajar) otherwise
@@ -52,26 +27,10 @@ procedure Bajar_DeTensión(cantidadDeTensiónABajar) {
 }
 
 procedure Bajar_DeIntensidadDeSeñal(intensidad) {
-    /*
-        PROPÓSITO:  ....
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        PRECONDICIONES:
-            * ....
-    */
     Sacar_DeColor_(intensidad, colorDeSeñal())
 }
 
 procedure Bajar_DePotenciaDeTorre(potencia) {
-    /*
-        PROPÓSITO:  ....
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        PRECONDICIONES:
-            * ....
-    */
     Sacar_DeColor_(potencia, colorDeSeñal())
 }
 
@@ -79,15 +38,6 @@ procedure Bajar_DePotenciaDeTorre(potencia) {
 /*Ejercicio 2: Escribir la función esClienteRodeadoDeZonasMuertas() que indique si el cliente en la celda actual está rodeado de zonas muertas en sus celdas lindantes en sus direcciones ortogonales. Se considera zona muerta a aquella zona en la cual no hay torres y tampoco llega señal de ninguna de las mismas. La función realizada debe ser total. Se debe asumir que las señales están propagadas y que dicho cliente no está recibiendo ninguna.*/
 
 function esClienteRodeadoDeZonasMuertas() {
-    /*
-        PROPÓSITO:  ....
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        TIPO: Tipo
-        PRECONDICIONES:
-            * ....
-    */
     direccionActual := minDir()
     while (direccionActual /= maxDir() && not haySeñalOTorreAl_(direccionActual)) {
         direccionActual := siguiente(direccionActual)
@@ -96,15 +46,6 @@ function esClienteRodeadoDeZonasMuertas() {
 }
 
 function haySeñalOTorreAl_(direccion) {
-    /*
-        PROPÓSITO:  ....
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        TIPO: Tipo
-        PRECONDICIONES:
-            * ....
-    */
     if(puedeMover(direccion)){
         Mover(dirección)
     }   
@@ -112,15 +53,6 @@ function haySeñalOTorreAl_(direccion) {
 }
 
 function haySeñalOTorreAcá() {
-    /*
-        PROPÓSITO:  ....
-        PARÁMETROS:
-            * parámetro1: tipo - descripción.
-            * parámetro2: tipo - descripción.
-        TIPO: Tipo
-        PRECONDICIONES:
-            * ....
-    */
     return (haySeñalAcá() || hayTorreAcá())
 }
 
