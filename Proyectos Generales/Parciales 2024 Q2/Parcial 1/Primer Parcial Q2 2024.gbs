@@ -6,7 +6,6 @@ procedure ProvocarBajaDeTensiónDe_(intensidadABajar) {
         IrASiguienteCeldaEnUnRecorridoAl_YAl_(Este, Norte)
         Bajar_TensiónAcáSiPuedo(intensidadABajar)
     }
-    
 }
 
 procedure Bajar_TensiónAcáSiPuedo(intensidadABajar){
