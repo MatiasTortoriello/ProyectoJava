@@ -243,3 +243,9 @@ function nroBolitasTotalDeColor_(color){
     return(nroTotalDeBolitasDeColor)
 }
 
+function unoSi_CeroSiNo(condicion){
+    return(
+        choose 1 when (condicion)
+               0 otherwise
+        )
+}

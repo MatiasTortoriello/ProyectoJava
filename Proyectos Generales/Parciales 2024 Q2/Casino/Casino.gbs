@@ -36,7 +36,8 @@ function dineroTotalQueSeLlevaránLosGanadores() {
 }    
 
 function dineroQueSeLlevaráGanadorAcáSiHay() {
-    return(choose dineroAcá() * 3 when (hayGanadorAcá())
+    return(choose
+             dineroAcá() * 3 when (hayGanadorAcá())
                     0 otherwise)
 }
 
@@ -71,7 +72,7 @@ procedure OtorgarDineroAGanadores() {
 
 procedure OtorgarDineroAlGanadorAcáSiHay() {
     if(hayGanadorAcá()) {
-        Otorgar_DineroAlGanador(dineroAcá()*2)
+        Otorgar_DineroAlGanador(dineroAcá()*3)
     }
 }
 
@@ -129,27 +130,40 @@ procedure IrACruppier() {
 //Ejercicio 1
 
 function hayActitudSospechosa(){
-    direccionActual := minDir()
-    sorteoCroupier := numeroGanador()
-    while(direccionActual /= maxDir() && puedeMover(direccionActual)){
-        Mover(direccionActual)
-        hayActitudSospechosaAca := actitudSospechosaAca(sorteoCroupier)
-        Mover(opuesto(direccionActual))
-        direccionActual := siguiente(direccionActual)
+    /*
+        Prop:
+            Indica si hay algún jugador en actitud sospechosa
+            con el croupier.
+        Prec.
+            El cabezal se encuentra sobre el croupier
+        Tipo:
+            Bool
+    */
+    direcciónRecorrido := Norte
+    while(direcciónRecorrido /= Oeste && not hayActitudSospechosaAl_(direcciónRecorrido)){
+        direcciónRecorrido := siguiente(direcciónRecorrido)
     }
-    return(actitudSospechosaAca(sorteoCroupier))
+    return(hayActitudSospechosaAl_(direcciónRecorrido))
 }
 
-function hayActitudSospechosa(){
-    
-}
-
-function actitudSospechosaAca(sorteoCroupier){
-    return(esSospechoso(sorteoCroupier))
-}
-
-function esSospechoso(sorteoCroupier){
-    return(sorteoCroupier == numeroAca())
+function hayActitudSospechosaAl_(dirección){
+    /*
+        Prop:
+            Indica si hay un jugador con actitud sospecha 
+            en la celda lindante dirección
+        Prec:
+            Debe haber dicha celda
+        Parám:
+            dirección: Dirección - La dirección en la que 
+            se encuentra el jugador
+    */
+    nroCroupier := númeroAcá()
+    nroJugador := 0
+    Mover_Si_(dirección, puedeMover(dirección))
+    if(hayJugadorAcá()){
+        nroJugador:= númeroAcá()
+    }
+    return(nroCroupier == nroJugador)    
 }
 
 //Ejercicio 2
@@ -158,9 +172,10 @@ function cantidadDeDineroDePerdedores(){
 
     IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
     cantidadTotalDeDineroDePerdedores := cantidadDeDineroSiEsPerdedor()
+
     while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
         IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
-        cantidadTotalDeDineroDePerdedores := cantidadTotalDeDineroDePerdedores + cantidadDeDineroSiEsPerdedor
+        cantidadTotalDeDineroDePerdedores := cantidadTotalDeDineroDePerdedores + cantidadDeDineroSiEsPerdedor()
     }
     return(cantidadTotalDeDineroDePerdedores)
 }
@@ -205,11 +220,16 @@ procedure SacarDineroAca(cantidadDeDineroASacar) {
     Sacar(dineroAca())
 }
 
+procedure DarDineroAlCroupier(dineroADar){
+    Poner_DeColor_(dineroADar, colorDinero())
+}
+
 //Ejercicio 4
 
 procedure TomarDineroDePerdedores(){
     IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
     dineroSacadoALosPerdedores := cantidadDeDineroSiEsPerdedor()
+    
     while(haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
         IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
         dineroSacadoALosPerdedores := dineroSacadoALosPerdedores + cantidadDeDineroSiEsPerdedor()
@@ -219,11 +239,6 @@ procedure TomarDineroDePerdedores(){
 
 procedure DarElDineroAlCroupier(dineroAEntregar){
     IrACroupier()
-    DarDinero(dineroAEntregar)
+    DarDineroAlCroupier(dineroAEntregar)
 }
 
-procedure DarDinero(dineroADar){
-    repeat(dineroADar){
-        Poner(colorDinero())
-    }
-}
