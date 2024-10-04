@@ -77,55 +77,9 @@ procedure OtorgarDineroAlGanadorAcáSiHay() {
 }
 
 
-//////////////////////////////////////////////////////////
-/////               PRIMITIVAS                      //////
-//////////////////////////////////////////////////////////
-
-function colorJugador() {
-    return(Azul)
-}
-
-function colorCruppier() {
-    return(Negro)
-}
-
-function colorNúmero() {
-    return(Rojo)
-}
-
-function colorDinero() {
-    return(Verde)
-}
-
-function hayCruppierAcá() {
-    return(hayBolitas(colorCruppier()))
-}
-
-function hayJugadorAcá() {
-    return(hayBolitas(colorJugador()))
-}
-
-function dineroAcá() {
-    return(nroBolitas(colorDinero()))
-}
-
-function idDeJugadorAcá() {
-    return(nroBolitas(colorJugador()))
-}
-
-function númeroAcá() {
-    return(nroBolitas(colorNúmero()))
-}
-
-procedure IrACruppier() {
-    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este,Norte)
-    while(not hayCruppierAcá()) {
-        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este,Norte)
-    }    
-}
 
 //////////////////////////////////////////////////////////
-//////////////////////////////////////////////////////////
+//Parcial 2
 
 //Ejercicio 1
 
@@ -241,4 +195,3 @@ procedure DarElDineroAlCroupier(dineroAEntregar){
     IrACroupier()
     DarDineroAlCroupier(dineroAEntregar)
 }
-
