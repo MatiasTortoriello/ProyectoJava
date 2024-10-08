@@ -6,8 +6,6 @@ type DiaDeLaSemana is record {
 
 type nombreDelDia is variant {
     /*Propósito: Modelar un día de la semana
-      
-     
     */
     case Lunes{}
     case Martes{}
@@ -20,7 +18,6 @@ type nombreDelDia is variant {
 
 function diaSiguiente_(diaActual){
     return(
-        
         choose 
             Lunes when (diaActual == Domingo)
             Martes when (diaActual == Lunes)
@@ -54,7 +51,6 @@ function esDiaDeFinDeSemana_(diaActual){
 type PartidoPolitico is record {
     field nombreDelPartido
     field cantidadDeVotos
-    
 }
 
 type nombreDelPartido is variant {
