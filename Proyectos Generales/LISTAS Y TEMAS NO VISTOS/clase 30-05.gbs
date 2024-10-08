@@ -50,6 +50,7 @@ function celdaActual(){
         
         )
 }
+
 function nuevaCelda(canRojas, canVerdes, canAzules, canNegras){
     /*
     */
@@ -77,7 +78,6 @@ procedure EscribirCelda(unaCelda){
     Poner_DeColor_(cantidadDeAzules(unaCelda), Azul)
 }
 
-
 procedure Poner_DeColor_(can, color){
     repeat(can){
         Poner(color)
@@ -88,7 +88,6 @@ procedure Poner_DeColor_(can, color){
 function persona_RegistradaCon_(unaPersona, unDni){
     return (Persona(unaPersona|dni <- unDni,nombre <- "pepe"))
 }*/
-
 
 function sinAsignar(){
     /*
@@ -139,6 +138,7 @@ type Puesto is variant {
     case Desarrollador      {} 
     case Operador           {}  
 }
+
 function empleado_ConDomicilioActualizadoA_(unEmpleado, nuevoDomicilio){
     /*
     PROPÓSITO: Describe al empleado **unEmpleado** con cambio de domicilio a **nuevoDomicilio**
@@ -153,9 +153,6 @@ function empleado_ConDomicilioActualizadoA_(unEmpleado, nuevoDomicilio){
     personaConDomicilioNuevo:= Persona(personaEmpleado|domicilio <- nuevoDomicilio)
     return(Empleado(unEmpleado|persona <- personaConDomicilioNuevo))
 }
-
-
-
 
 program{
     hernán := Persona(dni <- "2222222", domicilio <- "Morón",esDonante <- True)
