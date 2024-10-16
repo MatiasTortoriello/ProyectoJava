@@ -1,0 +1,82 @@
+--- EJ 1
+function fichaAleatoria(){
+return(
+choose
+PonerFicha_(Circulo) when (estaSobreUnBorde && cantidadDeFichas_Alrededor(Estrella) >= 2)
+PonerFicha_(Rombo) when (cantidadDeFichas_Alrededor(formaDeFicha) == 3)
+PonerFicha_Estrella when (elementoAca() == Obstaculo)
+PonerFicha_(Triangulo) otherwise
+)
+}
+
+function cantidadDeFichas_Alrededor(formaDeFicha){
+/**/
+direccion := mindir()
+cantidadDeFichasEncontradas := unoSi_ceroSino(hayFicha_Al_(formaDeFicha, direccion))
+while (direccion /= maxdir()){
+direccion := siguiente(direccion)
+cantidadDeFichasEncontradas := cantidadDeFichasEncontradas + unoSi_ceroSino(hayFicha_Al_(formaDeficha, direccion))
+}
+return(cantidadDeFichasEncontradas)
+}
+
+function hayFicha_Al_ (unaForma, direccion){
+/**/
+return (
+puedeMover(direccion) &&
+esFicha_Al_(unaForma, direccion)
+)
+}
+
+function esFicha_Al_(forma, direccion){
+/**/
+Mover(direccion)
+return(elementoAca() == forma)
+}
+
+function estaSobreUnBorde(){
+/**/
+return(
+not puedeMover(Norte) || not puedeMover (Este) || not  puedeMover (Sur) || not puedeMover(Oeste)
+)
+}
+
+--- EJ 2
+
+function cantidadDe_EnGrilla(formaDeFicha){
+    /**/
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    cantidadDeFicha := formaDeFicha
+    while (haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+        cantidadDeFicha := cantidadDeFicha + formaDeFicha
+    }
+    return (cantidadDeFicha)
+}
+
+--- EJ 3
+
+procedure QuitarLosObstáculosDeLaGrilla(){
+    /**/
+    IrAPrimeraCeldaEnUnRecorridoAl_Y_(Este, Norte)
+    QuitarObstaculoSiHay()
+    while (haySiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)){
+        IrASiguienteCeldaEnUnRecorridoAl_Y_(Este, Norte)
+        QuitarObstaculoSiHay()
+    }
+}
+
+procedure QuitarObstaculoSiHay(){
+    /**/
+    if (hayObstaculo){
+        SacarObstaculo()
+    }
+}
+
+function hayObstaculo(){
+    /**/
+    return(
+        choose
+            1 when (elementoAcá() == Obstaculo)
+            0 otherwise)
+}
