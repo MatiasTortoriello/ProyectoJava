@@ -3,9 +3,10 @@
 function fichaAleatoria(){
     return (
         choose
-            value when ()
-            value when ()
-            value otherwise
+            PonerFicha_(Circulo) when ()
+            PonerFicha_(Rombo) when ()
+            PonerFicha_(Estrella) when ()
+            PonerFicha_(Triangulo) otherwise
         }
     )
 }
