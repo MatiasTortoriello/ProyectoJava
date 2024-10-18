@@ -1,2 +1,17 @@
 //Ejercicio 1
 
+function fichaAleatoria(){
+    return ()
+}
+
+//Ejercicio 2
+
+function cantidadDe_EnGrilla(parámetro1, parámetro2) {    
+    return ()
+}
+
+//Ejercicio 3
+
+procedure QuitarLosObstaculosDeLaGrilla(parámetro1, parámetro2) {
+        
+}
