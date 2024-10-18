@@ -1,7 +1,13 @@
 //Ejercicio 1
 
 function fichaAleatoria(){
-    return ()
+    return (
+        choose
+            value when ()
+            value when ()
+            value otherwise
+        }
+    )
 }
 
 //Ejercicio 2
