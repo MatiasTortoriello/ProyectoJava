@@ -1,3 +1,53 @@
+/*Ejercicio 1 - Días de la semana:
+ 
+Declarar un tipo variante llamado DíaDeLaSemana, que sirva para identificar los días de la semana. Luego implementar las siguientes funciones (sin olvidar sus contratos): 
+ 
+a) díaSiguiente_ que dado un día de la semana, devuelve el día siguiente. 
+b) díaPrevio_ que dado un día de la semana, devuelve el día previo. 
+c) esDíaDeFinDeSemana_, que indica si el día dado es uno del fin de semana. 
+ 
+Reflexionamos: ¿De qué tipo es el parámetro dado a cada una de estas funciones? ¿Cuál sería un buen nombre para el mismo? ¿Por qué las funciones siguiente y previo no pueden utilizarse para solucionar este problema? ¿Qué beneficios trae tener ahora díaSiguiente y díaPrevio sí necesito saber algo cómo “en qué día ocurrió un suceso”?*/
+
+type DiaDeLaSemana is record{
+    field nombreDelDia
+}
+
+type nombreDelDia is variant {
+    case Lunes{}
+    case Martes{}
+    case Miercoles{}
+    case Jueves{}
+    case Viernes{}
+    case Sabado{}
+    case Domingo{}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Ejercicio 1:
 
 type DiaDeLaSemana is record {
